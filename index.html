@@ -965,14 +965,11 @@
       .align-center { display: block; text-align: center; }
       .align-right { display: block; text-align: right; }
       .hero-tag {
-        display: flex; align-items: center; justify-content: space-between;
-        width: 100%; box-sizing: border-box;
+        display: inline-block; max-width: 100%; box-sizing: border-box;
         font-size: .58rem; letter-spacing: 0;
         padding: .35rem .7rem;
+        white-space: nowrap;
       }
-      .hero-tag-left { text-align: left; white-space: nowrap; }
-      .hero-tag-mid { flex-shrink: 0; padding: 0 .4em; }
-      .hero-tag-right { text-align: right; white-space: nowrap; }
     }
   </style>
 </head>
@@ -1009,7 +1006,7 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-text reveal">
-      <span class="hero-tag"><span class="hero-tag-left">🏥 美容医療専門医推薦</span><span class="hero-tag-mid">×</span><span class="hero-tag-right">🌿 KOREAN NATURAL BEAUTY</span></span>
+      <span class="hero-tag">🏥 美容医療専門医推薦 × 🌿 KOREAN NATURAL BEAUTY</span>
       <h1 class="hero-title">
         光を纏う、<br>
         <em>あなたらしい</em><br>
