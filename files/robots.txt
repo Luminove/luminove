@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# サイトマップの場所をクローラーに通知
+Sitemap: https://luminove.online/sitemap.xml
+
+# 不要なリソースのクロールを抑制
+Disallow: /images/
