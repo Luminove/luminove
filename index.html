@@ -963,7 +963,11 @@
       .stores-grid { grid-template-columns: 1fr; }
       .sns-grid { grid-template-columns: repeat(2,1fr); }
       .products-grid { grid-template-columns: repeat(2, 1fr); }
-      .product-name { font-size: 1.05rem; }
+      .product-name { font-size: .95rem; word-break: keep-all; overflow-wrap: break-word; }
+      .br-pc { display: none; }
+      .br-mobile { display: inline; }
+    }
+    .br-mobile { display: none;
     }
   </style>
 </head>
@@ -1118,7 +1122,7 @@
         </div>
         <div class="product-body">
           <p class="product-cat">from the skin / 化粧水</p>
-          <h3 class="product-name">グルコラ<br>スキン</h3>
+          <h3 class="product-name">グルコラ <br class="br-pc">スキン</h3>
           <p class="product-desc">"塗るグルタチオン点滴"発想のブライトニング化粧水。300Daコラーゲンが角質層まで浸透し、乳酸菌発酵で肌の基礎体力を育てる。ベタつかずとろみのある上質な使用感。150ml</p>
           <p class="product-price">¥3,500 <span>(税込)</span></p>
         </div>
@@ -1131,7 +1135,7 @@
         </div>
         <div class="product-body">
           <p class="product-cat">from the skin / 美容液</p>
-          <h3 class="product-name">グルコラ<br>セラム</h3>
+          <h3 class="product-name">グルコラ <br class="br-pc">セラム</h3>
           <p class="product-desc">白さ・ハリ・うるおいを一滴に凝縮。グルタチオン30,000ppm×コラーゲン×ボルフィリン配合。濃密なとろみが肌に吸いつくようになじみ、高濃度ならではの"効いてる感"を実感。50ml</p>
           <p class="product-price">¥7,200 <span>(税込)</span></p>
         </div>
@@ -1285,7 +1289,7 @@
         </div>
         <div class="product-body">
           <p class="product-cat">Curly Shyll / ヘアケア</p>
-          <h3 class="product-name">アフターサロンケア<br>リペア ヘアアンプル</h3>
+          <h3 class="product-name">アフターサロンケア<br>リペア ヘア<br class="br-mobile">アンプル</h3>
           <p class="product-desc">高濃度タンパク質（加水分解シルク・ケラチン・コラーゲン）×5種のマリン由来成分配合のサロン発想ホームケアアンプル。シアバター×セラミドがダメージ髪を集中補修。2週間使用でハリ感47.6%改善の試験データあり。24時間続くフローラルアンバーの香り。100ml</p>
           <p class="product-price">¥3,520 <span>(税込)</span></p>
         </div>
@@ -1298,7 +1302,7 @@
         </div>
         <div class="product-body">
           <p class="product-cat">Curly Shyll / ヘアオイル</p>
-          <h3 class="product-name">ホワイトリリー<br>シルキー オイルセラム</h3>
+          <h3 class="product-name">ホワイトリリー<br>シルキー <br class="br-mobile">オイルセラム</h3>
           <p class="product-desc">全国約11,000店舗で導入されるサロン販売1位のヘアオイルセラム。アルガンオイルなど植物由来オイルがツヤ・うるおい・しなやかさをコーティングし、毛先のパサつき・広がりを抑えてなめらかなツヤ髪へ。ホワイトリリーの上品な香り。100ml</p>
           <p class="product-price">¥3,520 <span>(税込)</span></p>
         </div>
@@ -1326,7 +1330,7 @@
         </div>
         <div class="product-body">
           <p class="product-cat">Reju:N / 再生ケア</p>
-          <h3 class="product-name">リジュエヌクリーム</h3>
+          <h3 class="product-name">リジュエヌ<br class="br-mobile">クリーム</h3>
           <p class="product-desc">PDRN 1875ppm×NMN×EGF×ナイアシンアミド配合。美容施術後のダウンタイム短縮・ニキビ跡・色素沈着に。30ml</p>
           <p class="product-price">¥4,800 <span>(税込)</span></p>
         </div>
