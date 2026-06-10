@@ -1796,7 +1796,7 @@
 
     // ===== HAMBURGER MENU =====
     document.getElementById('hamburger').addEventListener('click', () => {
-      document.getElementById('mobileNav').classList.add('open');
+      document.getElementById('mobileNav').classList.toggle('open');
     });
     document.getElementById('closeNav').addEventListener('click', () => {
       document.getElementById('mobileNav').classList.remove('open');
