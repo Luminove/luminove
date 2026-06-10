@@ -967,6 +967,10 @@
       .product-name { font-size: .95rem; word-break: keep-all; overflow-wrap: break-word; }
       .br-pc { display: none; }
       .br-mobile { display: inline; }
+      .pname-line { display: block; }
+      .pname-line:nth-of-type(1) { text-align: left; }
+      .pname-line:nth-of-type(2) { text-align: center; }
+      .pname-line:nth-of-type(3) { text-align: right; }
     }
   </style>
 </head>
@@ -1109,7 +1113,7 @@
         </div>
         <div class="product-body">
           <p class="product-cat">from the skin / 洗顔</p>
-          <h3 class="product-name">グルコラ<br>クレンジング<br class="br-mobile">フォーム</h3>
+          <h3 class="product-name"><span class="pname-line">グルコラ</span><br><span class="pname-line">クレンジング</span><br class="br-mobile"><span class="pname-line">フォーム</span></h3>
           <p class="product-desc">落とすだけじゃない"与える"洗顔。300Daコラーゲンが角質層まで浸透し、洗いながらハリ・うるおいをチャージ。クレンジング・洗顔・シェービングのマルチ対応。ラクトバシラス発酵エキスで肌バリアもサポート。150ml</p>
           <p class="product-price">¥3,500 <span>(税込)</span></p>
         </div>
