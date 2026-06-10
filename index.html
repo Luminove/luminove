@@ -965,11 +965,13 @@
       .align-center { display: block; text-align: center; }
       .align-right { display: block; text-align: right; }
       .hero-tag {
-        display: inline-block; max-width: 100%; box-sizing: border-box;
+        display: table; max-width: 100%; box-sizing: border-box;
+        margin: 0 auto;
         font-size: .72rem; letter-spacing: 0;
         padding: .35rem .8rem;
         white-space: nowrap;
       }
+      .stores-desc { white-space: nowrap; font-size: .68rem; }
     }
   </style>
 </head>
@@ -1009,8 +1011,8 @@
       <span class="hero-tag">🏥 美容医療専門医推薦 × 🌿 KOREAN NATURAL BEAUTY</span>
       <h1 class="hero-title">
         光を纏う、<br>
-        <em>あなたらしい</em><br>
-        美しさへ。
+        <em class="align-center">あなたらしい</em><br class="br-pc">
+        <span class="align-right">美しさへ。</span>
       </h1>
       <p class="hero-sub">グルタチオン×ナノコラーゲンを全製品に高配合。韓国発スキンケアブランド「from the skin」を中心に、洗顔・化粧水・美容液・アイクリームまで、透明感あふれる肌へ導くトータルスキンケアを提供します。</p>
       <div class="hero-cta">
@@ -1055,7 +1057,7 @@
     <div class="supervisor-inner">
       <div class="supervisor-text reveal">
         <p class="section-tag">Medical Recommendation</p>
-        <h2 class="section-title">美容医療の専門医が<br>成分を厳選</h2>
+        <h2 class="section-title">美容医療の専門医が<br><span class="align-right">成分を厳選</span></h2>
         <p class="supervisor-quote">美しさは、外から塗るだけでは完成しない。けれど、肌に触れるものが正しければ、身体の力は必ず応えてくれます。</p>
         <p class="supervisor-body">
           LUMINOVEは、六本木美容医療クリニック（BMC）院長とともに立ち上げたブランドです。再生医療・美容医療の専門医として、日々「内側から美をつくる」治療と向き合ってきた院長だからこそ、スキンケアにも同じ哲学を持ちます。韓国産の美容成分が日本人の肌質・体質に本当に適合するかを一つひとつ医学的に確認し、肌の自己再生力を妨げない製品だけをLUMINOVEは取り扱っています。
@@ -1092,7 +1094,7 @@
     <div class="products-header reveal">
       <div>
         <p class="section-tag">Our Products</p>
-        <h2 class="section-title">全身を輝かせる<br>ラインナップ</h2>
+        <h2 class="section-title">全身を輝かせる<br><span class="align-right">ラインナップ</span></h2>
         <div class="product-tabs">
           <button class="tab-btn active" data-filter="all">すべて</button>
           <button class="tab-btn" data-filter="skincare">スキンケア</button>
@@ -1384,7 +1386,7 @@
     </div>
     <div class="reveal" style="transition-delay:.15s">
       <p class="section-tag">Brand Story</p>
-      <h2 class="section-title">グルタチオン×コラーゲンで<br>透明感あふれる肌へ</h2>
+      <h2 class="section-title">グルタチオン×コラーゲン<br>透明感あふれる肌へ</h2>
       <p class="section-desc" style="max-width:100%">
         LUMINOVEは「Lumi（光）」と「Love（愛）」から生まれた名前です。<br><br>
         取り扱うメインブランド「<strong>from the skin</strong>」は、韓国で注目を集めるグルタチオン×ナノコラーゲン特化型スキンケアライン。美白・ハリ・うるおいを同時にアプローチする処方で、洗顔フォームからセラム・アイクリーム・UVケアまで10種以上の製品を展開しています。<br><br>
@@ -1681,7 +1683,7 @@
     <div class="reveal" style="text-align:center; margin-bottom:.5rem">
       <p class="section-tag">Where to Buy</p>
       <h2 class="section-title">お近くの取扱店</h2>
-      <p class="section-desc" style="margin:0 auto 3rem; text-align:center">全国の取扱店舗・オンラインショップでお求めいただけます。</p>
+      <p class="section-desc stores-desc" style="margin:0 auto 3rem; text-align:center">全国の取扱店舗・オンラインショップでお求めいただけます。</p>
     </div>
     <div class="stores-grid">
       <div class="store-card reveal">
