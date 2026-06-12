@@ -20,17 +20,17 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <!-- SEO Meta Tags -->
-  <title>LUMINOVE | 美容医療専門医推薦・韓国発スキンケアブランド</title>
-  <meta name="description" content="LUMINOVEは六本木美容医療クリニック（BMC）院長推薦の韓国発ナチュラルコスメ。日本人の肌に合う成分を医師が厳選。洗顔・スキンケア・ヘアクリーム・ハンドクリームを展開。" />
-  <meta name="keywords" content="韓国コスメ,LUMINOVE,ルミノーブ,医師推薦,BMC,六本木,洗顔,スキンケア,ヘアクリーム,ハンドクリーム,ナチュラルコスメ,K-beauty,日本人の肌" />
+  <title>LUMINOVE（ルミノーブ）| 美容医療医が成分で厳選する韓国スキンケア</title>
+  <meta name="description" content="六本木美容医療クリニック（BMC）院長と共同創業。数ある韓国コスメの中から、医師が成分を徹底調査し、日本人の肌に本当に合うものだけを厳選・推薦するスキンケアブランドLUMINOVE。話題のグルタチオン×ナノコラーゲン配合『グルコラ』シリーズ日本正規取扱店。" />
+  <meta name="keywords" content="韓国コスメ,LUMINOVE,ルミノーブ,医師推薦,医師厳選,BMC,六本木,洗顔,スキンケア,ヘアクリーム,ハンドクリーム,ナチュラルコスメ,K-beauty,日本人の肌,グルコラ" />
   <meta name="author" content="LUMINOVE" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.luminove.online/" />
 
   <!-- OGP (SNS シェア用) -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMINOVE | 美容医療専門医推薦・韓国発スキンケアブランド" />
-  <meta property="og:description" content="六本木BMC院長推薦。日本人の肌に合う成分を厳選した韓国発ナチュラルコスメ LUMINOVE 公式サイト。" />
+  <meta property="og:title" content="LUMINOVE（ルミノーブ）| 美容医療医が成分で厳選する韓国スキンケア" />
+  <meta property="og:description" content="六本木美容医療クリニック（BMC）院長と共同創業。医師が成分を徹底調査し、日本人の肌に本当に合うものだけを厳選・推薦するスキンケアブランド LUMINOVE 公式サイト。" />
   <meta property="og:url" content="https://www.luminove.online/" />
   <meta property="og:image" content="https://www.luminove.online/og-image.jpg" />
   <meta property="og:locale" content="ja_JP" />
@@ -38,8 +38,8 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="LUMINOVE | 美容医療専門医推薦・韓国発スキンケアブランド" />
-  <meta name="twitter:description" content="六本木BMC院長推薦。日本人の肌に合う成分を厳選した韓国発ナチュラルコスメ。" />
+  <meta name="twitter:title" content="LUMINOVE（ルミノーブ）| 美容医療医が成分で厳選する韓国スキンケア" />
+  <meta name="twitter:description" content="六本木美容医療クリニック（BMC）院長と共同創業。医師が成分を徹底調査し、日本人の肌に本当に合うものだけを厳選・推薦するスキンケアブランド。" />
   <meta name="twitter:image" content="https://www.luminove.online/og-image.jpg" />
 
   <!-- JSON-LD 構造化データ -->
@@ -48,12 +48,22 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "LUMINOVE",
+    "legalName": "株式会社ルミノーブ",
     "url": "https://www.luminove.online",
     "logo": "https://www.luminove.online/logo.png",
-    "description": "六本木美容医療クリニック（BMC）院長推薦の韓国発ナチュラルコスメブランド。日本人の肌に合う成分を医師が厳選。洗顔・スキンケアからヘアケア・ハンドケアまで幅広い製品を提供。",
+    "description": "六本木美容医療クリニック（BMC）院長と共同創業した韓国コスメブランド。数ある韓国コスメの中から、医師が成分を徹底調査し、日本人の肌に本当に合うものだけを厳選・推薦。洗顔・スキンケアからヘアケア・ハンドケアまで幅広い製品を提供。",
     "sameAs": [
       "https://www.instagram.com/luminove_japan"
-    ]
+    ],
+    "review": {
+      "@type": "Review",
+      "author": {
+        "@type": "MedicalBusiness",
+        "name": "六本木美容医療クリニック（BMC）",
+        "url": "https://bmc-roppongi.com/"
+      },
+      "reviewBody": "数ある韓国コスメの中から成分を徹底調査し、日本人の肌に本当に合う製品だけを厳選・推薦しています。"
+    }
   }
   </script>
 
@@ -330,13 +340,14 @@
   }
   </script>
 
-  <!-- 構造化データ：取扱店（クリニック） -->
+  <!-- 構造化データ：提携クリニック（共同創業・成分推薦元） -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Store",
+    "@type": "MedicalClinic",
     "name": "六本木美容医療クリニック（BMC）",
     "url": "https://bmc-roppongi.com/",
+    "medicalSpecialty": "美容皮膚科",
     "address": {
       "@type": "PostalAddress",
       "postalCode": "106-0032",
@@ -345,7 +356,7 @@
       "streetAddress": "4-1-4 六本木414ビル3F",
       "addressCountry": "JP"
     },
-    "description": "LUMINOVE製品の取扱店。院内でLUMINOVE製品をお求めいただけます。"
+    "description": "LUMINOVEの共同創業者である院長が在籍する美容医療クリニック。LUMINOVE製品の成分評価・推薦元であり、院内でも取り扱い。"
   }
   </script>
 
