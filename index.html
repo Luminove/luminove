@@ -949,6 +949,13 @@
       padding: .3rem .75rem; border-radius: 50px;
       font-weight: 500;
     }
+    .product-badge-group {
+      position: absolute; top: 1rem; left: 1rem;
+      display: flex; gap: .4rem;
+    }
+    .product-badge-group .product-badge-new {
+      position: static;
+    }
     .product-body { padding: 1.4rem; }
     .product-cat {
       font-size: .7rem; letter-spacing: .15em;
@@ -1689,7 +1696,10 @@
 
       <a href="https://luminove.stores.jp/items/6a2f447d75716e06abef1bbb" target="_blank" rel="noopener" class="product-card reveal" data-cat="premium">
         <div class="product-img">
-          <span class="product-badge-new">PREMIUM</span>
+          <div class="product-badge-group">
+            <span class="product-badge-new">PREMIUM</span>
+            <span class="product-badge-new">NEW</span>
+          </div>
           <img src="images/product-rg3-serum.webp" alt="RGⅢ クイーンズ RG3 モイスチャーセラム" loading="lazy" />
         </div>
         <div class="product-body">
@@ -1702,7 +1712,10 @@
 
       <a href="https://luminove.stores.jp/items/6a2f45544c7baf14416c6878" target="_blank" rel="noopener" class="product-card reveal" data-cat="premium">
         <div class="product-img">
-          <span class="product-badge-new">PREMIUM</span>
+          <div class="product-badge-group">
+            <span class="product-badge-new">PREMIUM</span>
+            <span class="product-badge-new">NEW</span>
+          </div>
           <img src="images/product-rg4-cream.webp" alt="RGⅢ クイーンズ RG3 モイスチャークリーム" loading="lazy" />
         </div>
         <div class="product-body">
