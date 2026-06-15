@@ -924,6 +924,15 @@
       transform: translateY(-6px);
       box-shadow: var(--shadow-hover);
     }
+    .product-card-link { display: block; color: inherit; text-decoration: none; }
+    .product-detail-link {
+      display: block; text-align: center;
+      font-size: .75rem; letter-spacing: .05em;
+      color: var(--green-mid); padding: .7rem 0;
+      border-top: 1px solid var(--green-pale);
+      transition: color var(--transition);
+    }
+    .product-detail-link:hover { color: var(--green-deep); }
     .product-img {
       aspect-ratio: 4 / 3;
       background: var(--green-mist);
@@ -1462,18 +1471,21 @@
     <div class="products-grid" id="productsGrid">
 
       <!-- from the skin スキンケア -->
-      <a href="https://luminove.stores.jp/items/679c1f75d944440bead08a2d" target="_blank" rel="noopener" class="product-card reveal" data-cat="skincare">
-        <div class="product-img">
-          <span class="product-badge-new">人気No.1</span>
-          <img src="images/product-cleanser.jpg" alt="グルコラ クレンジングフォーム" loading="lazy" />
-        </div>
-        <div class="product-body">
-          <p class="product-cat">from the skin / 洗顔</p>
-          <h3 class="product-name">グルコラ<br><span class="align-center">クレンジング</span><span class="align-right">フォーム</span></h3>
-          <p class="product-desc">落とすだけじゃない"与える"洗顔。300Daコラーゲンが角質層まで浸透し、洗いながらハリ・うるおいをチャージ。クレンジング・洗顔・シェービングのマルチ対応。ラクトバシラス発酵エキスで肌バリアもサポート。<br>150ml</p>
-          <p class="product-price">¥3,500 <span>(税込)</span></p>
-        </div>
-      </a>
+      <div class="product-card reveal" data-cat="skincare">
+        <a href="https://luminove.stores.jp/items/679c1f75d944440bead08a2d" target="_blank" rel="noopener" class="product-card-link">
+          <div class="product-img">
+            <span class="product-badge-new">人気No.1</span>
+            <img src="images/product-cleanser.jpg" alt="グルコラ クレンジングフォーム" loading="lazy" />
+          </div>
+          <div class="product-body">
+            <p class="product-cat">from the skin / 洗顔</p>
+            <h3 class="product-name">グルコラ<br><span class="align-center">クレンジング</span><span class="align-right">フォーム</span></h3>
+            <p class="product-desc">落とすだけじゃない"与える"洗顔。300Daコラーゲンが角質層まで浸透し、洗いながらハリ・うるおいをチャージ。クレンジング・洗顔・シェービングのマルチ対応。ラクトバシラス発酵エキスで肌バリアもサポート。<br>150ml</p>
+            <p class="product-price">¥3,500 <span>(税込)</span></p>
+          </div>
+        </a>
+        <a href="/products/glucola-cleansing-foam.html" class="product-detail-link">詳しく見る →</a>
+      </div>
 
       <a href="https://luminove.stores.jp/items/679c7a41be9f7e04f4d0f9f9" target="_blank" rel="noopener" class="product-card reveal" data-cat="skincare">
         <div class="product-img">
