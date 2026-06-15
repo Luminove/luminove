@@ -18,9 +18,15 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+  <!-- Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" /></noscript>
+
   <!-- SEO Meta Tags -->
-  <title>CEL:VIV パーフェクション バイオキット【近日発売】超低分子ペプチド×PDRNの集中バイオケア｜LUMINOVE</title>
-  <meta name="description" content="LUMINOVEで近日発売予定の「CEL:VIV PERFECTION BIO KIT」を先取り解説。超低分子ペプチド複合体やプレミアムブラックキャビア、PDRNを配合した美白・しわ改善の機能性化粧品。バイオアンプル＆バイオクリームによる4週間集中ケアをご紹介します。" />
+  <title>CEL:VIV パーフェクション バイオキット【近日発売】｜LUMINOVE</title>
+  <meta name="description" content="LUMINOVEで近日発売予定の「CEL:VIV PERFECTION BIO KIT」を先取り解説。超低分子ペプチド×プレミアムキャビア×PDRN配合の美白・しわ改善機能性化粧品。バイオアンプル＆クリームによる4週間集中ケアをご紹介します。" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.luminove.online/products/celviv-bio-kit.html" />
 
@@ -291,6 +297,14 @@
     .article-section li { margin-bottom: .4rem; }
     .article-section p a { color: var(--green-mid); text-decoration: underline; }
     .article-section p a:hover { color: var(--green-deep); }
+    .related-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    }
+    .related-card { display: block; text-align: center; }
+    .related-card img {
+      border-radius: var(--radius); margin-bottom: .6rem; aspect-ratio: 1; object-fit: cover;
+    }
+    .related-card p { font-size: .82rem; color: var(--text-dark); font-weight: 500; }
     .article-note { font-size: .8rem; color: var(--text-light); }
 
     .ingredient-card {
@@ -523,6 +537,24 @@
       <p>超低分子ペプチド×プレミアムキャビア×PDRNによる、プレミアム4週間集中ケア「CEL:VIV PERFECTION BIO KIT」。発売情報は、LUMINOVEの製品ページにて近日公開予定です。</p>
       <a href="/#products" class="btn-outline">他の製品を見る →</a>
     </div>
+
+    <section class="article-section">
+      <h2>関連商品</h2>
+      <div class="related-grid">
+        <a href="/products/rg3-vital-ampoule.html" class="related-card">
+          <img src="../images/product-rg3-serum.webp" alt="クイーンズ RG3 モイスチャーセラム" loading="lazy" />
+          <p>クイーンズ RG3 モイスチャーセラム</p>
+        </a>
+        <a href="/products/rg3-vital-cream.html" class="related-card">
+          <img src="../images/product-rg4-cream.webp" alt="クイーンズ RG3 モイスチャークリーム" loading="lazy" />
+          <p>クイーンズ RG3 モイスチャークリーム</p>
+        </a>
+        <a href="/products/rejun-pdrn-cream.html" class="related-card">
+          <img src="../images/product-rejun-cream.png" alt="リジュエヌ クリーム" loading="lazy" />
+          <p>リジュエヌ クリーム</p>
+        </a>
+      </div>
+    </section>
 
     <div class="back-link">
       <a href="/#products" class="btn-outline">他の製品を見る →</a>

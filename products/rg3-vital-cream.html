@@ -18,9 +18,15 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+  <!-- Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" /></noscript>
+
   <!-- SEO Meta Tags -->
-  <title>クイーンズ RG3 モイスチャークリームの効果とは？高麗人参由来RG3配合の弾力保湿ナイトクリーム｜LUMINOVE</title>
-  <meta name="description" content="LUMINOVEで取り扱う「クイーンズ RG3 モイスチャークリーム（GINSENG VITAL CREAM）」を徹底解説。高麗人参由来のジンセノサイドRG3とコラーゲン、ヒアルロン酸が睡眠中にうるおいを閉じ込める弾力保湿ナイトクリームです。" />
+  <title>クイーンズ RG3 モイスチャークリームの効果｜LUMINOVE</title>
+  <meta name="description" content="LUMINOVEで取り扱う「クイーンズ RG3 モイスチャークリーム」を徹底解説。高麗人参由来RG3×コラーゲン×ヒアルロン酸で叶える弾力保湿ナイトクリームの特徴・成分・使い方をご紹介します。" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.luminove.online/products/rg3-vital-cream.html" />
 
@@ -275,6 +281,14 @@
     .article-section li { margin-bottom: .4rem; }
     .article-section p a { color: var(--green-mid); text-decoration: underline; }
     .article-section p a:hover { color: var(--green-deep); }
+    .related-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    }
+    .related-card { display: block; text-align: center; }
+    .related-card img {
+      border-radius: var(--radius); margin-bottom: .6rem; aspect-ratio: 1; object-fit: cover;
+    }
+    .related-card p { font-size: .82rem; color: var(--text-dark); font-weight: 500; }
     .article-note { font-size: .8rem; color: var(--text-light); }
 
     .ingredient-card {
@@ -489,6 +503,24 @@
       <p>眠っている間に、うるおいと栄養を閉じ込めて。クイーンズ RG3 モイスチャークリームをぜひお試しください。</p>
       <a href="https://luminove.stores.jp/items/6a2f45544c7baf14416c6878" target="_blank" rel="noopener" class="btn-primary">STORESで購入する →</a>
     </div>
+
+    <section class="article-section">
+      <h2>関連商品</h2>
+      <div class="related-grid">
+        <a href="/products/rg3-vital-ampoule.html" class="related-card">
+          <img src="../images/product-rg3-serum.webp" alt="クイーンズ RG3 モイスチャーセラム" loading="lazy" />
+          <p>クイーンズ RG3 モイスチャーセラム</p>
+        </a>
+        <a href="/products/rejun-pdrn-cream.html" class="related-card">
+          <img src="../images/product-rejun-cream.png" alt="リジュエヌ クリーム" loading="lazy" />
+          <p>リジュエヌ クリーム</p>
+        </a>
+        <a href="/products/celviv-bio-kit.html" class="related-card">
+          <img src="../images/product-celviv-biokit.webp" alt="CEL:VIV パーフェクション バイオキット" loading="lazy" />
+          <p>CEL:VIV パーフェクション バイオキット</p>
+        </a>
+      </div>
+    </section>
 
     <div class="back-link">
       <a href="/#products" class="btn-outline">他の製品を見る →</a>

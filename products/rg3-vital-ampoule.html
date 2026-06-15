@@ -18,9 +18,15 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+  <!-- Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" /></noscript>
+
   <!-- SEO Meta Tags -->
-  <title>クイーンズ RG3 モイスチャーセラムの効果とは？高麗人参由来RG3配合のブースターアンプル｜LUMINOVE</title>
-  <meta name="description" content="LUMINOVEで取り扱う「クイーンズ RG3 モイスチャーセラム（GINSENG VITAL AMPOULE）」を徹底解説。高麗人参由来のジンセノサイドRG3と特許成分DERMA-CLERAを配合したファーストエイジングケアブースター。特徴・成分・使い方をご紹介します。" />
+  <title>クイーンズ RG3 モイスチャーセラムの効果｜LUMINOVE</title>
+  <meta name="description" content="LUMINOVEで取り扱う「クイーンズ RG3 モイスチャーセラム」を徹底解説。高麗人参由来RG3×特許成分DERMA-CLERAで叶えるファーストエイジングケアブースターの特徴・成分・使い方をご紹介します。" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.luminove.online/products/rg3-vital-ampoule.html" />
 
@@ -275,6 +281,14 @@
     .article-section li { margin-bottom: .4rem; }
     .article-section p a { color: var(--green-mid); text-decoration: underline; }
     .article-section p a:hover { color: var(--green-deep); }
+    .related-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    }
+    .related-card { display: block; text-align: center; }
+    .related-card img {
+      border-radius: var(--radius); margin-bottom: .6rem; aspect-ratio: 1; object-fit: cover;
+    }
+    .related-card p { font-size: .82rem; color: var(--text-dark); font-weight: 500; }
     .article-note { font-size: .8rem; color: var(--text-light); }
 
     .ingredient-card {
@@ -482,6 +496,24 @@
       <p>高麗人参由来RG3で、これ一本のファーストエイジングケアを。クイーンズ RG3 モイスチャーセラムをぜひお試しください。</p>
       <a href="https://luminove.stores.jp/items/6a2f447d75716e06abef1bbb" target="_blank" rel="noopener" class="btn-primary">STORESで購入する →</a>
     </div>
+
+    <section class="article-section">
+      <h2>関連商品</h2>
+      <div class="related-grid">
+        <a href="/products/rg3-vital-cream.html" class="related-card">
+          <img src="../images/product-rg4-cream.webp" alt="クイーンズ RG3 モイスチャークリーム" loading="lazy" />
+          <p>クイーンズ RG3 モイスチャークリーム</p>
+        </a>
+        <a href="/products/rejun-pdrn-cream.html" class="related-card">
+          <img src="../images/product-rejun-cream.png" alt="リジュエヌ クリーム" loading="lazy" />
+          <p>リジュエヌ クリーム</p>
+        </a>
+        <a href="/products/celviv-bio-kit.html" class="related-card">
+          <img src="../images/product-celviv-biokit.webp" alt="CEL:VIV パーフェクション バイオキット" loading="lazy" />
+          <p>CEL:VIV パーフェクション バイオキット</p>
+        </a>
+      </div>
+    </section>
 
     <div class="back-link">
       <a href="/#products" class="btn-outline">他の製品を見る →</a>

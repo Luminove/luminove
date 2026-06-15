@@ -18,6 +18,12 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+  <!-- Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" /></noscript>
+
   <!-- SEO Meta Tags -->
   <title>グルコラ クレンジングフォームの効果とは？グルタチオン×300Daコラーゲン配合洗顔｜LUMINOVE</title>
   <meta name="description" content="LUMINOVEの人気No.1「グルコラ クレンジングフォーム」を徹底解説。グルタチオン・300Daコラーゲン・ラクトバシラス発酵エキスの効果、クレンジング・洗顔・シェービングのマルチな使い方をご紹介します。" />
@@ -276,6 +282,14 @@
     .article-section li { margin-bottom: .4rem; }
     .article-section p a { color: var(--green-mid); text-decoration: underline; }
     .article-section p a:hover { color: var(--green-deep); }
+    .related-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    }
+    .related-card { display: block; text-align: center; }
+    .related-card img {
+      border-radius: var(--radius); margin-bottom: .6rem; aspect-ratio: 1; object-fit: cover;
+    }
+    .related-card p { font-size: .82rem; color: var(--text-dark); font-weight: 500; }
     .article-note { font-size: .8rem; color: var(--text-light); }
 
     .ingredient-card {
@@ -517,6 +531,24 @@
       <p>洗うたびに、肌への投資を。グルコラ クレンジングフォームをぜひお試しください。</p>
       <a href="https://luminove.stores.jp/items/679c1f75d944440bead08a2d" target="_blank" rel="noopener" class="btn-primary">STORESで購入する →</a>
     </div>
+
+    <section class="article-section">
+      <h2>関連商品</h2>
+      <div class="related-grid">
+        <a href="/products/glucola-peeling-pack2.html" class="related-card">
+          <img src="../images/product-pack2.jpg" alt="グルコラ ピリングパックⅡ" loading="lazy" />
+          <p>グルコラ ピリングパックⅡ</p>
+        </a>
+        <a href="/products/glucola-suncream.html" class="related-card">
+          <img src="../images/product-suncream.webp" alt="グルコラ サンクリーム" loading="lazy" />
+          <p>グルコラ サンクリーム</p>
+        </a>
+        <a href="/products/rejun-pdrn-cream.html" class="related-card">
+          <img src="../images/product-rejun-cream.png" alt="リジュエヌ クリーム" loading="lazy" />
+          <p>リジュエヌ クリーム</p>
+        </a>
+      </div>
+    </section>
 
     <div class="back-link">
       <a href="/#products" class="btn-outline">他の製品を見る →</a>
