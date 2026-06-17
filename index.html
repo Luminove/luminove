@@ -929,7 +929,8 @@
       box-shadow: 0 4px 24px rgba(45,74,62,.07);
       transition: transform var(--transition), box-shadow var(--transition);
       cursor: pointer;
-      display: block;
+      display: flex;
+      flex-direction: column;
       color: inherit;
       text-decoration: none;
     }
@@ -937,7 +938,7 @@
       transform: translateY(-6px);
       box-shadow: var(--shadow-hover);
     }
-    .product-card-link { display: block; color: inherit; text-decoration: none; }
+    .product-card-link { display: block; color: inherit; text-decoration: none; flex: 1; }
     .product-detail-link {
       display: block; text-align: center;
       font-size: .75rem; letter-spacing: .05em;
