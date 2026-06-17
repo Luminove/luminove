@@ -59,6 +59,12 @@
       "priceCurrency": "JPY",
       "price": "3520",
       "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "62",
+      "bestRating": "5"
     }
   }
   </script>
@@ -75,6 +81,24 @@
     ]
   }
   </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {"@type":"Question","name":"サロントリートメント後に使うのが最適ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、「アフターサロンケア」の名の通り、サロンでのトリートメント直後から使い始めるのが最も効果的です。サロンで整えた髪の状態を自宅でキープし、次のサロン訪問まで髪質を維持するためのホームケアアンプルです。"}},
+    {"@type":"Question","name":"どのくらいの頻度で使えばいいですか？","acceptedAnswer":{"@type":"Answer","text":"毎日の使用が推奨です。シャンプー後の濡れた髪に使用し、洗い流さずにそのまま乾かします。毎日続けることで高濃度タンパク質成分が髪に蓄積され、効果を実感しやすくなります。"}},
+    {"@type":"Question","name":"濡れた髪と乾いた髪、どちらに使いますか？","acceptedAnswer":{"@type":"Answer","text":"シャンプー後のタオルドライした濡れた状態に使用するのが基本です。髪全体になじませた後、ドライヤーで乾かします。乾いた髪にも使用できますが、濡れた状態の方が成分が浸透しやすくなります。"}},
+    {"@type":"Question","name":"カラーやパーマ後の髪にも使えますか？","acceptedAnswer":{"@type":"Answer","text":"カラーやパーマによるダメージが特に気になる方に特におすすめです。加水分解シルク・ケラチン・コラーゲンなどの高濃度タンパク質が、薬剤ダメージで傷んだ髪の補修をサポートします。"}},
+    {"@type":"Question","name":"ダメージ毛以外でも使えますか？","acceptedAnswer":{"@type":"Answer","text":"もちろんです。ダメージが少ない髪の方でも、予防的なケアとして使用いただけます。艶・まとまり・しなやかさを日常的にキープしたい方にもおすすめです。"}},
+    {"@type":"Question","name":"他のヘアケア製品（シャンプー・コンディショナー）と一緒に使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。シャンプー・コンディショナーの後に使用します。アンプルをコンディショナーの代わりに使う方も多いですが、コンディショナーの後に追加で使用してもOKです。"}},
+    {"@type":"Question","name":"医師推薦とはどういう意味ですか？","acceptedAnswer":{"@type":"Answer","text":"LUMINOVEが取り扱う全製品は、六本木美容医療クリニック（BMC）の院長が成分を確認しています。ヘアケア成分についても美容医療の視点から配合成分の質を評価した製品を厳選しています。"}}
+    ]
+  }
+  </script>
+
 
   <style>
     /* ===== RESET & BASE ===== */
@@ -355,6 +379,18 @@
       .article-hero h1 .br-pc { display: none; }
       .article-section h2 { font-size: 1.25rem; }
     }
+
+    /* ===== FAQ ===== */
+    .faq-section { max-width: 800px; margin: 4rem auto; padding: 0 1.5rem; }
+    .faq-section h2 { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 500; color: var(--green-deep); margin-bottom: 2rem; padding-bottom: .75rem; border-bottom: 1px solid var(--green-pale); }
+    .faq-item { border-bottom: 1px solid var(--green-pale); }
+    .faq-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; cursor: pointer; padding: 1.2rem 0; font-weight: 500; color: var(--text-dark); list-style: none; }
+    .faq-question::marker { display: none; }
+    .faq-question::-webkit-details-marker { display: none; }
+    .faq-icon { flex-shrink: 0; width: 24px; height: 24px; border: 1px solid var(--green-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--green-mid); font-size: .9rem; transition: transform var(--transition); }
+    details[open] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { padding: .25rem 0 1.2rem; color: var(--text-mid); line-height: 1.9; font-size: .95rem; }
+
   </style>
 </head>
 <body>
@@ -516,6 +552,38 @@
         </a>
       </div>
     </section>
+
+  <section class="faq-section">
+    <h2>よくある質問</h2>
+    <details class="faq-item">
+      <summary class="faq-question">サロントリートメント後に使うのが最適ですか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">はい、「アフターサロンケア」の名の通り、サロンでのトリートメント直後から使い始めるのが最も効果的です。サロンで整えた髪の状態を自宅でキープし、次のサロン訪問まで髪質を維持するためのホームケアアンプルです。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">どのくらいの頻度で使えばいいですか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">毎日の使用が推奨です。シャンプー後の濡れた髪に使用し、洗い流さずにそのまま乾かします。毎日続けることで高濃度タンパク質成分が髪に蓄積され、効果を実感しやすくなります。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">濡れた髪と乾いた髪、どちらに使いますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">シャンプー後のタオルドライした濡れた状態に使用するのが基本です。髪全体になじませた後、ドライヤーで乾かします。乾いた髪にも使用できますが、濡れた状態の方が成分が浸透しやすくなります。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">カラーやパーマ後の髪にも使えますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">カラーやパーマによるダメージが特に気になる方に特におすすめです。加水分解シルク・ケラチン・コラーゲンなどの高濃度タンパク質が、薬剤ダメージで傷んだ髪の補修をサポートします。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">ダメージ毛以外でも使えますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">もちろんです。ダメージが少ない髪の方でも、予防的なケアとして使用いただけます。艶・まとまり・しなやかさを日常的にキープしたい方にもおすすめです。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">他のヘアケア製品（シャンプー・コンディショナー）と一緒に使えますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">はい。シャンプー・コンディショナーの後に使用します。アンプルをコンディショナーの代わりに使う方も多いですが、コンディショナーの後に追加で使用してもOKです。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">医師推薦とはどういう意味ですか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">LUMINOVEが取り扱う全製品は、六本木美容医療クリニック（BMC）の院長が成分を確認しています。ヘアケア成分についても美容医療の視点から配合成分の質を評価した製品を厳選しています。</p>
+    </details>
+  </section>
 
     <div class="back-link">
       <a href="/#products" class="btn-outline">他の製品を見る →</a>

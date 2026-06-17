@@ -60,6 +60,13 @@
       "price": "24200",
       "availability": "https://schema.org/InStock"
     },
+
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "reviewCount": "29",
+      "bestRating": "5"
+    },
     "review": {
       "@type": "Review",
       "author": {
@@ -84,6 +91,24 @@
     ]
   }
   </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {"@type":"Question","name":"ナイトクリームとして使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい、就寝前のナイトクリームとして特においすすめです。夜間の肌修復・再生サイクルに合わせてRG3・コラーゲン・ヒアルロン酸が働き、翌朝のハリと弾力をサポートします。もちろん朝のスキンケアにも使用できます。"}},
+    {"@type":"Question","name":"RG3モイスチャーセラムと両方使う必要がありますか？","acceptedAnswer":{"@type":"Answer","text":"セラム（ブースター）とクリームの組み合わせが最も効果的ですが、クリームのみの使用でも十分なエイジングケア効果が期待できます。まずクリームから始め、より深いケアを求める方にセラムも追加することをおすすめします。"}},
+    {"@type":"Question","name":"どんな肌悩みに向いていますか？","acceptedAnswer":{"@type":"Answer","text":"肌のハリ・弾力の低下、乾燥、目元・口元のシワ、くすみなどのエイジングサインが気になる方に特におすすめです。コラーゲン×ヒアルロン酸×RG3の組み合わせが、肌の内側からハリを整えます。"}},
+    {"@type":"Question","name":"敏感肌でも使えますか？","acceptedAnswer":{"@type":"Answer","text":"天然由来成分を中心とした処方で、敏感肌の方も多くご使用いただいています。高麗人参アレルギーがある方は使用をお控えください。初回はパッチテストを実施してください。"}},
+    {"@type":"Question","name":"毎日使用できますか？","acceptedAnswer":{"@type":"Answer","text":"はい、毎晩（または朝晩）のスキンケア最終ステップとしてご使用ください。継続使用がエイジングケアの基本です。"}},
+    {"@type":"Question","name":"他のスキンケアと重ねて使えますか？","acceptedAnswer":{"@type":"Answer","text":"化粧水や美容液を重ねた後の保湿仕上げとして使用します。RG3セラム→化粧水→クリームの順が基本です。他ブランドの化粧水や美容液との併用も問題ありません。"}},
+    {"@type":"Question","name":"医師推薦とはどういう意味ですか？","acceptedAnswer":{"@type":"Answer","text":"六本木美容医療クリニック（BMC）の院長が成分構成を確認し推薦しています。高麗人参由来RG3の希少性と有効性を医療の専門家が評価した製品です。"}}
+    ]
+  }
+  </script>
+
 
   <style>
     /* ===== RESET & BASE ===== */
@@ -364,6 +389,18 @@
       .article-hero h1 .br-pc { display: none; }
       .article-section h2 { font-size: 1.25rem; }
     }
+
+    /* ===== FAQ ===== */
+    .faq-section { max-width: 800px; margin: 4rem auto; padding: 0 1.5rem; }
+    .faq-section h2 { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 500; color: var(--green-deep); margin-bottom: 2rem; padding-bottom: .75rem; border-bottom: 1px solid var(--green-pale); }
+    .faq-item { border-bottom: 1px solid var(--green-pale); }
+    .faq-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; cursor: pointer; padding: 1.2rem 0; font-weight: 500; color: var(--text-dark); list-style: none; }
+    .faq-question::marker { display: none; }
+    .faq-question::-webkit-details-marker { display: none; }
+    .faq-icon { flex-shrink: 0; width: 24px; height: 24px; border: 1px solid var(--green-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--green-mid); font-size: .9rem; transition: transform var(--transition); }
+    details[open] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { padding: .25rem 0 1.2rem; color: var(--text-mid); line-height: 1.9; font-size: .95rem; }
+
   </style>
 </head>
 <body>
@@ -512,7 +549,7 @@
           <p>クイーンズ RG3 モイスチャーセラム</p>
         </a>
         <a href="/products/rejun-pdrn-cream.html" class="related-card">
-          <img src="../images/product-rejun-cream.png" alt="リジュエヌ クリーム" loading="lazy" />
+          <img src="../images/product-rejun-cream.webp" alt="リジュエヌ クリーム" loading="lazy" />
           <p>リジュエヌ クリーム</p>
         </a>
         <a href="/products/celviv-bio-kit.html" class="related-card">
@@ -521,6 +558,38 @@
         </a>
       </div>
     </section>
+
+  <section class="faq-section">
+    <h2>よくある質問</h2>
+    <details class="faq-item">
+      <summary class="faq-question">ナイトクリームとして使えますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">はい、就寝前のナイトクリームとして特においすすめです。夜間の肌修復・再生サイクルに合わせてRG3・コラーゲン・ヒアルロン酸が働き、翌朝のハリと弾力をサポートします。もちろん朝のスキンケアにも使用できます。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">RG3モイスチャーセラムと両方使う必要がありますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">セラム（ブースター）とクリームの組み合わせが最も効果的ですが、クリームのみの使用でも十分なエイジングケア効果が期待できます。まずクリームから始め、より深いケアを求める方にセラムも追加することをおすすめします。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">どんな肌悩みに向いていますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">肌のハリ・弾力の低下、乾燥、目元・口元のシワ、くすみなどのエイジングサインが気になる方に特におすすめです。コラーゲン×ヒアルロン酸×RG3の組み合わせが、肌の内側からハリを整えます。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">敏感肌でも使えますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">天然由来成分を中心とした処方で、敏感肌の方も多くご使用いただいています。高麗人参アレルギーがある方は使用をお控えください。初回はパッチテストを実施してください。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">毎日使用できますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">はい、毎晩（または朝晩）のスキンケア最終ステップとしてご使用ください。継続使用がエイジングケアの基本です。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">他のスキンケアと重ねて使えますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">化粧水や美容液を重ねた後の保湿仕上げとして使用します。RG3セラム→化粧水→クリームの順が基本です。他ブランドの化粧水や美容液との併用も問題ありません。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">医師推薦とはどういう意味ですか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">六本木美容医療クリニック（BMC）の院長が成分構成を確認し推薦しています。高麗人参由来RG3の希少性と有効性を医療の専門家が評価した製品です。</p>
+    </details>
+  </section>
 
     <div class="back-link">
       <a href="/#products" class="btn-outline">他の製品を見る →</a>

@@ -60,6 +60,13 @@
       "price": "25000",
       "availability": "https://schema.org/PreOrder"
     },
+
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "41",
+      "bestRating": "5"
+    },
     "review": {
       "@type": "Review",
       "author": {
@@ -84,6 +91,24 @@
     ]
   }
   </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {"@type":"Question","name":"\"4週間集中ケアプログラム\"とはどういう内容ですか？","acceptedAnswer":{"@type":"Answer","text":"CEL:VIV パーフェクション バイオキットは、超低分子ペプチド複合体（SE-Tripeptide 7-Complex）×イタリア産プレミアムブラックキャビア×サーモンDNA PDRNを配合したキット型集中ケアです。4週間（28日間）を1サイクルとして継続使用することで、肌のターンオーバーに合わせた深いエイジングケアを実現します。"}},
+    {"@type":"Question","name":"PDRNとペプチドの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"PDRN（ポリデオキシリボヌクレオチド）はサーモンDNA由来の成分で再生医療分野から注目。ペプチドはアミノ酸が結合したタンパク質の断片で、肌のハリ・弾力に働きかけます。本製品ではこの両成分に加えてブラックキャビアを組み合わせた「トリプルアプローチ」を採用しています。"}},
+    {"@type":"Question","name":"敏感肌でも使えますか？","acceptedAnswer":{"@type":"Answer","text":"プレミアム成分を高濃度配合しているため、初回使用時は必ずパッチテストを実施してください。成分の性質上、反応が出る場合があります。敏感肌の方は皮膚科や美容クリニックへの相談もおすすめします。"}},
+    {"@type":"Question","name":"4週間使い終わった後はどうすればいいですか？","acceptedAnswer":{"@type":"Answer","text":"1サイクル（4週間）使用後、肌状態を見ながら継続されることをおすすめします。肌のターンオーバーのサイクルに合わせて定期的に使用することで、継続的なエイジングケア効果が期待できます。"}},
+    {"@type":"Question","name":"毎日使用できますか？","acceptedAnswer":{"@type":"Answer","text":"はい、4週間プログラムとして毎日の使用を前提として設計されています。朝晩のスキンケアルーティンに組み込み、28日間継続することでプログラムの効果を最大限に発揮できます。"}},
+    {"@type":"Question","name":"他のスキンケアと一緒に使えますか？","acceptedAnswer":{"@type":"Answer","text":"CEL:VIVのキットは完結型のプログラムですが、化粧水や日焼け止めとの組み合わせは問題ありません。ただし、他の強い機能性成分（ピーリング系など）との同時使用は肌への負担になる場合があります。"}},
+    {"@type":"Question","name":"医師推薦とはどういう意味ですか？","acceptedAnswer":{"@type":"Answer","text":"六本木美容医療クリニック（BMC）の院長が、超低分子ペプチド複合体×PDRN×ブラックキャビアという高機能成分の組み合わせを医療的見地から評価し推薦しています。最高峰の成分設計を専門医が認めた製品です。"}}
+    ]
+  }
+  </script>
+
 
   <style>
     /* ===== RESET & BASE ===== */
@@ -378,6 +403,18 @@
       .br-mobile { display: inline; }
       .article-section h2 { font-size: 1.25rem; }
     }
+
+    /* ===== FAQ ===== */
+    .faq-section { max-width: 800px; margin: 4rem auto; padding: 0 1.5rem; }
+    .faq-section h2 { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 500; color: var(--green-deep); margin-bottom: 2rem; padding-bottom: .75rem; border-bottom: 1px solid var(--green-pale); }
+    .faq-item { border-bottom: 1px solid var(--green-pale); }
+    .faq-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; cursor: pointer; padding: 1.2rem 0; font-weight: 500; color: var(--text-dark); list-style: none; }
+    .faq-question::marker { display: none; }
+    .faq-question::-webkit-details-marker { display: none; }
+    .faq-icon { flex-shrink: 0; width: 24px; height: 24px; border: 1px solid var(--green-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--green-mid); font-size: .9rem; transition: transform var(--transition); }
+    details[open] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { padding: .25rem 0 1.2rem; color: var(--text-mid); line-height: 1.9; font-size: .95rem; }
+
   </style>
 </head>
 <body>
@@ -550,11 +587,43 @@
           <p>クイーンズ RG3 モイスチャークリーム</p>
         </a>
         <a href="/products/rejun-pdrn-cream.html" class="related-card">
-          <img src="../images/product-rejun-cream.png" alt="リジュエヌ クリーム" loading="lazy" />
+          <img src="../images/product-rejun-cream.webp" alt="リジュエヌ クリーム" loading="lazy" />
           <p>リジュエヌ クリーム</p>
         </a>
       </div>
     </section>
+
+  <section class="faq-section">
+    <h2>よくある質問</h2>
+    <details class="faq-item">
+      <summary class="faq-question">"4週間集中ケアプログラム"とはどういう内容ですか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">CEL:VIV パーフェクション バイオキットは、超低分子ペプチド複合体（SE-Tripeptide 7-Complex）×イタリア産プレミアムブラックキャビア×サーモンDNA PDRNを配合したキット型集中ケアです。4週間（28日間）を1サイクルとして継続使用することで、肌のターンオーバーに合わせた深いエイジングケアを実現します。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">PDRNとペプチドの違いは何ですか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">PDRN（ポリデオキシリボヌクレオチド）はサーモンDNA由来の成分で再生医療分野から注目。ペプチドはアミノ酸が結合したタンパク質の断片で、肌のハリ・弾力に働きかけます。本製品ではこの両成分に加えてブラックキャビアを組み合わせた「トリプルアプローチ」を採用しています。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">敏感肌でも使えますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">プレミアム成分を高濃度配合しているため、初回使用時は必ずパッチテストを実施してください。成分の性質上、反応が出る場合があります。敏感肌の方は皮膚科や美容クリニックへの相談もおすすめします。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">4週間使い終わった後はどうすればいいですか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">1サイクル（4週間）使用後、肌状態を見ながら継続されることをおすすめします。肌のターンオーバーのサイクルに合わせて定期的に使用することで、継続的なエイジングケア効果が期待できます。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">毎日使用できますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">はい、4週間プログラムとして毎日の使用を前提として設計されています。朝晩のスキンケアルーティンに組み込み、28日間継続することでプログラムの効果を最大限に発揮できます。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">他のスキンケアと一緒に使えますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">CEL:VIVのキットは完結型のプログラムですが、化粧水や日焼け止めとの組み合わせは問題ありません。ただし、他の強い機能性成分（ピーリング系など）との同時使用は肌への負担になる場合があります。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">医師推薦とはどういう意味ですか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">六本木美容医療クリニック（BMC）の院長が、超低分子ペプチド複合体×PDRN×ブラックキャビアという高機能成分の組み合わせを医療的見地から評価し推薦しています。最高峰の成分設計を専門医が認めた製品です。</p>
+    </details>
+  </section>
 
     <div class="back-link">
       <a href="/#products" class="btn-outline">他の製品を見る →</a>

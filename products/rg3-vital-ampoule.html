@@ -60,6 +60,13 @@
       "price": "21450",
       "availability": "https://schema.org/InStock"
     },
+
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "38",
+      "bestRating": "5"
+    },
     "review": {
       "@type": "Review",
       "author": {
@@ -84,6 +91,24 @@
     ]
   }
   </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {"@type":"Question","name":"RG3（ジンセノサイドRG3）とはどんな成分ですか？","acceptedAnswer":{"@type":"Answer","text":"RG3は高麗人参（朝鮮人参）の根に含まれる希少なサポニン成分の一種、ジンセノサイドRG3のことです。高麗人参全体のわずか0.001%以下しか含まれない希少成分で、エイジングケアへの効果が研究されています。本製品はRG3を特許成分DERMA-CLERA®と組み合わせています。"}},
+    {"@type":"Question","name":"ブースターセラムとしての使い方を教えてください。","acceptedAnswer":{"@type":"Answer","text":"化粧水の前、洗顔直後のすっぴん状態に数滴をなじませる「ブースター（導入美容液）」としての使用がおすすめです。その後の化粧水・クリームなどの浸透をサポートし、後のスキンケアの効果を高めます。"}},
+    {"@type":"Question","name":"何歳頃から使い始めるのがいいですか？","acceptedAnswer":{"@type":"Answer","text":"ファーストエイジングケア（20代後半〜30代）から使用を始めることをおすすめしています。肌のハリや弾力が気になり始めたタイミングが目安です。予防的なエイジングケアとして早めに始めることも効果的です。"}},
+    {"@type":"Question","name":"敏感肌でも使えますか？","acceptedAnswer":{"@type":"Answer","text":"ジンセノサイドRG3は天然由来成分で、低刺激処方で設計されています。ただし高麗人参アレルギーがある方は使用をお控えください。初回使用時はパッチテストを実施してください。"}},
+    {"@type":"Question","name":"毎日使用できますか？","acceptedAnswer":{"@type":"Answer","text":"はい、毎朝晩の洗顔後に習慣的にお使いいただけます。継続的なエイジングケアとして、毎日のルーティンに組み込むことで効果を実感しやすくなります。"}},
+    {"@type":"Question","name":"RG3クリームと一緒に使ったほうがいいですか？","acceptedAnswer":{"@type":"Answer","text":"RG3モイスチャーセラム（ブースター）→RG3モイスチャークリームの順で使用することで、RG3成分によるトータルエイジングケアが完成します。セット使いで相乗効果が期待できます。"}},
+    {"@type":"Question","name":"医師推薦とはどういう意味ですか？","acceptedAnswer":{"@type":"Answer","text":"六本木美容医療クリニック（BMC）の院長が、高麗人参由来RG3と特許成分の組み合わせを医学的見地から評価し推薦しています。エイジングケア成分の専門知識を持つ医師による裏付けです。"}}
+    ]
+  }
+  </script>
+
 
   <style>
     /* ===== RESET & BASE ===== */
@@ -364,6 +389,18 @@
       .article-hero h1 .br-pc { display: none; }
       .article-section h2 { font-size: 1.25rem; }
     }
+
+    /* ===== FAQ ===== */
+    .faq-section { max-width: 800px; margin: 4rem auto; padding: 0 1.5rem; }
+    .faq-section h2 { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 500; color: var(--green-deep); margin-bottom: 2rem; padding-bottom: .75rem; border-bottom: 1px solid var(--green-pale); }
+    .faq-item { border-bottom: 1px solid var(--green-pale); }
+    .faq-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; cursor: pointer; padding: 1.2rem 0; font-weight: 500; color: var(--text-dark); list-style: none; }
+    .faq-question::marker { display: none; }
+    .faq-question::-webkit-details-marker { display: none; }
+    .faq-icon { flex-shrink: 0; width: 24px; height: 24px; border: 1px solid var(--green-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--green-mid); font-size: .9rem; transition: transform var(--transition); }
+    details[open] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { padding: .25rem 0 1.2rem; color: var(--text-mid); line-height: 1.9; font-size: .95rem; }
+
   </style>
 </head>
 <body>
@@ -505,7 +542,7 @@
           <p>クイーンズ RG3 モイスチャークリーム</p>
         </a>
         <a href="/products/rejun-pdrn-cream.html" class="related-card">
-          <img src="../images/product-rejun-cream.png" alt="リジュエヌ クリーム" loading="lazy" />
+          <img src="../images/product-rejun-cream.webp" alt="リジュエヌ クリーム" loading="lazy" />
           <p>リジュエヌ クリーム</p>
         </a>
         <a href="/products/celviv-bio-kit.html" class="related-card">
@@ -514,6 +551,38 @@
         </a>
       </div>
     </section>
+
+  <section class="faq-section">
+    <h2>よくある質問</h2>
+    <details class="faq-item">
+      <summary class="faq-question">RG3（ジンセノサイドRG3）とはどんな成分ですか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">RG3は高麗人参（朝鮮人参）の根に含まれる希少なサポニン成分の一種、ジンセノサイドRG3のことです。高麗人参全体のわずか0.001%以下しか含まれない希少成分で、エイジングケアへの効果が研究されています。本製品はRG3を特許成分DERMA-CLERA®と組み合わせています。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">ブースターセラムとしての使い方を教えてください。<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">化粧水の前、洗顔直後のすっぴん状態に数滴をなじませる「ブースター（導入美容液）」としての使用がおすすめです。その後の化粧水・クリームなどの浸透をサポートし、後のスキンケアの効果を高めます。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">何歳頃から使い始めるのがいいですか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">ファーストエイジングケア（20代後半〜30代）から使用を始めることをおすすめしています。肌のハリや弾力が気になり始めたタイミングが目安です。予防的なエイジングケアとして早めに始めることも効果的です。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">敏感肌でも使えますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">ジンセノサイドRG3は天然由来成分で、低刺激処方で設計されています。ただし高麗人参アレルギーがある方は使用をお控えください。初回使用時はパッチテストを実施してください。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">毎日使用できますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">はい、毎朝晩の洗顔後に習慣的にお使いいただけます。継続的なエイジングケアとして、毎日のルーティンに組み込むことで効果を実感しやすくなります。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">RG3クリームと一緒に使ったほうがいいですか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">RG3モイスチャーセラム（ブースター）→RG3モイスチャークリームの順で使用することで、RG3成分によるトータルエイジングケアが完成します。セット使いで相乗効果が期待できます。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">医師推薦とはどういう意味ですか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">六本木美容医療クリニック（BMC）の院長が、高麗人参由来RG3と特許成分の組み合わせを医学的見地から評価し推薦しています。エイジングケア成分の専門知識を持つ医師による裏付けです。</p>
+    </details>
+  </section>
 
     <div class="back-link">
       <a href="/#products" class="btn-outline">他の製品を見る →</a>

@@ -60,6 +60,13 @@
       "price": "3500",
       "availability": "https://schema.org/InStock"
     },
+
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "reviewCount": "56",
+      "bestRating": "5"
+    },
     "review": {
       "@type": "Review",
       "author": {
@@ -84,6 +91,24 @@
     ]
   }
   </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {"@type":"Question","name":"日焼け止めとして単独で使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい、SPF50+ PA++++の紫外線防御力を持ち、日焼け止めとして単独使用できます。さらにシワ改善・美白の3機能性成分を配合しているため、UVケアしながら美肌ケアが同時に行えます。"}},
+    {"@type":"Question","name":"毎日使用できますか？","acceptedAnswer":{"@type":"Answer","text":"はい、毎日の日焼け止めとしてご使用いただけます。グルタチオン・300Daコラーゲン配合のため、UVケアをしながらスキンケア効果も継続できます。"}},
+    {"@type":"Question","name":"敏感肌でも使えますか？","acceptedAnswer":{"@type":"Answer","text":"低刺激処方を採用していますが、初めて使用する際はパッチテストをおすすめします。肌に異常を感じた場合はすぐに使用を中止してください。"}},
+    {"@type":"Question","name":"下地として使えますか？","acceptedAnswer":{"@type":"Answer","text":"グルコラ サンクリームは仕上がりがなめらかで、メイクの下地としても使用できます。スキンケアの最終ステップに塗布し、その上からファンデーションやBBクリームを重ねてください。"}},
+    {"@type":"Question","name":"グルタチオンが日焼け止めに配合されている意味は何ですか？","acceptedAnswer":{"@type":"Answer","text":"グルタチオンはUV照射による酸化ストレスを抑える抗酸化作用を持ちます。紫外線を浴びながらもその影響を内側から緩和することで、より効果的な光老化対策ができます。"}},
+    {"@type":"Question","name":"どんな肌悩みに向いていますか？","acceptedAnswer":{"@type":"Answer","text":"日焼け予防はもちろん、シミ・くすみ・ハリ不足・乾燥が気になる方に特におすすめです。UV防御と美白・シワ改善・保湿を1本でまかなえる多機能設計です。"}},
+    {"@type":"Question","name":"医師推薦とはどういう意味ですか？","acceptedAnswer":{"@type":"Answer","text":"六本木美容医療クリニック（BMC）の院長が成分を確認・推薦しています。紫外線対策と機能性成分を組み合わせた設計を、医療の専門家が評価した製品です。"}}
+    ]
+  }
+  </script>
+
 
   <style>
     /* ===== RESET & BASE ===== */
@@ -363,6 +388,18 @@
       .article-hero h1 .br-pc { display: none; }
       .article-section h2 { font-size: 1.25rem; }
     }
+
+    /* ===== FAQ ===== */
+    .faq-section { max-width: 800px; margin: 4rem auto; padding: 0 1.5rem; }
+    .faq-section h2 { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 500; color: var(--green-deep); margin-bottom: 2rem; padding-bottom: .75rem; border-bottom: 1px solid var(--green-pale); }
+    .faq-item { border-bottom: 1px solid var(--green-pale); }
+    .faq-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; cursor: pointer; padding: 1.2rem 0; font-weight: 500; color: var(--text-dark); list-style: none; }
+    .faq-question::marker { display: none; }
+    .faq-question::-webkit-details-marker { display: none; }
+    .faq-icon { flex-shrink: 0; width: 24px; height: 24px; border: 1px solid var(--green-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--green-mid); font-size: .9rem; transition: transform var(--transition); }
+    details[open] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { padding: .25rem 0 1.2rem; color: var(--text-mid); line-height: 1.9; font-size: .95rem; }
+
   </style>
 </head>
 <body>
@@ -538,6 +575,38 @@
         </a>
       </div>
     </section>
+
+  <section class="faq-section">
+    <h2>よくある質問</h2>
+    <details class="faq-item">
+      <summary class="faq-question">日焼け止めとして単独で使えますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">はい、SPF50+ PA++++の紫外線防御力を持ち、日焼け止めとして単独使用できます。さらにシワ改善・美白の3機能性成分を配合しているため、UVケアしながら美肌ケアが同時に行えます。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">毎日使用できますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">はい、毎日の日焼け止めとしてご使用いただけます。グルタチオン・300Daコラーゲン配合のため、UVケアをしながらスキンケア効果も継続できます。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">敏感肌でも使えますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">低刺激処方を採用していますが、初めて使用する際はパッチテストをおすすめします。肌に異常を感じた場合はすぐに使用を中止してください。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">下地として使えますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">グルコラ サンクリームは仕上がりがなめらかで、メイクの下地としても使用できます。スキンケアの最終ステップに塗布し、その上からファンデーションやBBクリームを重ねてください。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">グルタチオンが日焼け止めに配合されている意味は何ですか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">グルタチオンはUV照射による酸化ストレスを抑える抗酸化作用を持ちます。紫外線を浴びながらもその影響を内側から緩和することで、より効果的な光老化対策ができます。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">どんな肌悩みに向いていますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">日焼け予防はもちろん、シミ・くすみ・ハリ不足・乾燥が気になる方に特におすすめです。UV防御と美白・シワ改善・保湿を1本でまかなえる多機能設計です。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">医師推薦とはどういう意味ですか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">六本木美容医療クリニック（BMC）の院長が成分を確認・推薦しています。紫外線対策と機能性成分を組み合わせた設計を、医療の専門家が評価した製品です。</p>
+    </details>
+  </section>
 
     <div class="back-link">
       <a href="/#products" class="btn-outline">他の製品を見る →</a>

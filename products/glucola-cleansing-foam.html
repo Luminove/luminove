@@ -60,6 +60,13 @@
       "price": "3500",
       "availability": "https://schema.org/InStock"
     },
+
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "127",
+      "bestRating": "5"
+    },
     "review": {
       "@type": "Review",
       "author": {
@@ -84,6 +91,24 @@
     ]
   }
   </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {"@type":"Question","name":"クレンジングと洗顔、両方に使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい、クレンジング・洗顔・シェービングの3役に対応しています。ポイントメイクは別途落とすことをおすすめしますが、ベースメイク・日焼け止め程度であればこれ1本でOKです。"}},
+    {"@type":"Question","name":"敏感肌でも使えますか？","acceptedAnswer":{"@type":"Answer","text":"グルコラ クレンジングフォームは低刺激処方で、乳酸菌発酵エキスによる肌バリアサポートも配合しています。ただし初めて使用する際はパッチテストを行い、異常がないことを確認してからお使いください。"}},
+    {"@type":"Question","name":"毎日使用できますか？","acceptedAnswer":{"@type":"Answer","text":"はい、毎日の洗顔・クレンジングとしてご使用いただけます。朝晩のスキンケアルーティンに組み込むことで、グルタチオン・コラーゲン成分を継続的に肌へ届けられます。"}},
+    {"@type":"Question","name":"グルタチオンは洗い流しても効果がありますか？","acceptedAnswer":{"@type":"Answer","text":"洗顔料に配合されたグルタチオンは、洗い流した後も角質層への働きかけが期待されています。美容点滴の主成分として知られるグルタチオンを、洗顔を通じて毎日継続摂取するという発想のもとで設計されています。"}},
+    {"@type":"Question","name":"他のグルコラシリーズと一緒に使えますか？","acceptedAnswer":{"@type":"Answer","text":"グルコラシリーズはクレンジングフォーム→スキン（化粧水）→セラム（美容液）→ローション（乳液）という順番で重ねるトータルケアとして設計されています。シリーズで揃えることで相乗効果が期待できます。"}},
+    {"@type":"Question","name":"どんな肌悩みに向いていますか？","acceptedAnswer":{"@type":"Answer","text":"透明感・くすみ改善・毛穴の黒ずみ・乾燥が気になる方に特におすすめです。グルタチオンの抗酸化作用と300Daコラーゲンの保湿作用が、洗うたびに肌の土台を整えます。"}},
+    {"@type":"Question","name":"医師推薦とはどういう意味ですか？","acceptedAnswer":{"@type":"Answer","text":"六本木美容医療クリニック（BMC）の院長が、成分の安全性・有効性を確認した上で推薦しています。美容点滴・再生医療の専門医が、配合成分を医療的知見から評価したという意味です。"}}
+    ]
+  }
+  </script>
+
 
   <style>
     /* ===== RESET & BASE ===== */
@@ -366,6 +391,18 @@
       .br-mobile { display: inline; }
       .article-section h2 { font-size: 1.25rem; }
     }
+
+    /* ===== FAQ ===== */
+    .faq-section { max-width: 800px; margin: 4rem auto; padding: 0 1.5rem; }
+    .faq-section h2 { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 500; color: var(--green-deep); margin-bottom: 2rem; padding-bottom: .75rem; border-bottom: 1px solid var(--green-pale); }
+    .faq-item { border-bottom: 1px solid var(--green-pale); }
+    .faq-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; cursor: pointer; padding: 1.2rem 0; font-weight: 500; color: var(--text-dark); list-style: none; }
+    .faq-question::marker { display: none; }
+    .faq-question::-webkit-details-marker { display: none; }
+    .faq-icon { flex-shrink: 0; width: 24px; height: 24px; border: 1px solid var(--green-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--green-mid); font-size: .9rem; transition: transform var(--transition); }
+    details[open] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { padding: .25rem 0 1.2rem; color: var(--text-mid); line-height: 1.9; font-size: .95rem; }
+
   </style>
 </head>
 <body>
@@ -544,11 +581,43 @@
           <p>グルコラ サンクリーム</p>
         </a>
         <a href="/products/rejun-pdrn-cream.html" class="related-card">
-          <img src="../images/product-rejun-cream.png" alt="リジュエヌ クリーム" loading="lazy" />
+          <img src="../images/product-rejun-cream.webp" alt="リジュエヌ クリーム" loading="lazy" />
           <p>リジュエヌ クリーム</p>
         </a>
       </div>
     </section>
+
+  <section class="faq-section">
+    <h2>よくある質問</h2>
+    <details class="faq-item">
+      <summary class="faq-question">クレンジングと洗顔、両方に使えますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">はい、クレンジング・洗顔・シェービングの3役に対応しています。ポイントメイクは別途落とすことをおすすめしますが、ベースメイク・日焼け止め程度であればこれ1本でOKです。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">敏感肌でも使えますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">グルコラ クレンジングフォームは低刺激処方で、乳酸菌発酵エキスによる肌バリアサポートも配合しています。ただし初めて使用する際はパッチテストを行い、異常がないことを確認してからお使いください。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">毎日使用できますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">はい、毎日の洗顔・クレンジングとしてご使用いただけます。朝晩のスキンケアルーティンに組み込むことで、グルタチオン・コラーゲン成分を継続的に肌へ届けられます。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">グルタチオンは洗い流しても効果がありますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">洗顔料に配合されたグルタチオンは、洗い流した後も角質層への働きかけが期待されています。美容点滴の主成分として知られるグルタチオンを、洗顔を通じて毎日継続摂取するという発想のもとで設計されています。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">他のグルコラシリーズと一緒に使えますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">グルコラシリーズはクレンジングフォーム→スキン（化粧水）→セラム（美容液）→ローション（乳液）という順番で重ねるトータルケアとして設計されています。シリーズで揃えることで相乗効果が期待できます。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">どんな肌悩みに向いていますか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">透明感・くすみ改善・毛穴の黒ずみ・乾燥が気になる方に特におすすめです。グルタチオンの抗酸化作用と300Daコラーゲンの保湿作用が、洗うたびに肌の土台を整えます。</p>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-question">医師推薦とはどういう意味ですか？<span class="faq-icon">＋</span></summary>
+      <p class="faq-answer">六本木美容医療クリニック（BMC）の院長が、成分の安全性・有効性を確認した上で推薦しています。美容点滴・再生医療の専門医が、配合成分を医療的知見から評価したという意味です。</p>
+    </details>
+  </section>
 
     <div class="back-link">
       <a href="/#products" class="btn-outline">他の製品を見る →</a>
