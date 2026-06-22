@@ -46,37 +46,74 @@
   <!-- JSON-LD: Product -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "CEL:VIV PERFECTION BIO KIT",
-    "brand": { "@type": "Brand", "name": "HAHN'S PEPTIDE" },
-    "description": "超低分子ペプチド複合体「SE-Tripeptide 7-Complex」、イタリア産プレミアムブラックキャビア、アラスカサーモンDNA PDRNを配合した美白・しわ改善の機能性化粧品。バイオアンプル（7ml×4）とバイオクリーム（50ml）による、プレミアム4週間集中ケアキット。",
-    "image": "https://www.luminove.online/images/product-celviv-biokit.webp",
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "CEL:VIV PERFECTION BIO KIT",
+  "brand": {
+    "@type": "Brand",
+    "name": "HAHN'S PEPTIDE"
+  },
+  "description": "超低分子ペプチド複合体「SE-Tripeptide 7-Complex」、イタリア産プレミアムブラックキャビア、アラスカサーモンDNA PDRNを配合した美白・しわ改善の機能性化粧品。バイオアンプル（7ml×4）とバイオクリーム（50ml）による、プレミアム4週間集中ケアキット。",
+  "image": "https://www.luminove.online/images/product-celviv-biokit.webp",
+  "url": "https://www.luminove.online/products/celviv-bio-kit.html",
+  "offers": {
+    "@type": "Offer",
     "url": "https://www.luminove.online/products/celviv-bio-kit.html",
-    "offers": {
-      "@type": "Offer",
-      "url": "https://www.luminove.online/products/celviv-bio-kit.html",
-      "priceCurrency": "JPY",
-      "price": "25000",
-      "availability": "https://schema.org/PreOrder"
-    },
-
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "5",
-      "bestRating": "5"
-    },
-    "review": {
-      "@type": "Review",
-      "author": {
-        "@type": "MedicalClinic",
-        "name": "六本木美容医療クリニック（BMC）",
-        "url": "https://bmc-roppongi.com/"
+    "priceCurrency": "JPY",
+    "price": "25000",
+    "availability": "https://schema.org/PreOrder",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "900",
+        "currency": "JPY"
       },
-      "reviewBody": "細胞レベルの再生医療に精通した医師が成分を徹底評価。超低分子ペプチド複合体・プレミアムキャビア・サーモンDNA PDRNを組み合わせた多層設計に着目し、発売を前に推薦。"
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "JP"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 3,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 4,
+          "unitCode": "DAY"
+        }
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "JP",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 8,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
     }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "5",
+    "bestRating": "5"
+  },
+  "review": {
+    "@type": "Review",
+    "author": {
+      "@type": "MedicalClinic",
+      "name": "六本木美容医療クリニック（BMC）",
+      "url": "https://bmc-roppongi.com/"
+    },
+    "reviewBody": "細胞レベルの再生医療に精通した医師が成分を徹底評価。超低分子ペプチド複合体・プレミアムキャビア・サーモンDNA PDRNを組み合わせた多層設計に着目し、発売を前に推薦。"
   }
+}
   </script>
 
   <!-- JSON-LD: BreadcrumbList -->

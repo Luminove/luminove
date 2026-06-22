@@ -46,37 +46,74 @@
   <!-- JSON-LD: Product -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "リジュエヌ クリーム",
-    "brand": { "@type": "Brand", "name": "Reju:N" },
-    "description": "サーモン由来PDRN3000ppm×NMN1000ppmのデュアルフォーミュラに、EGF・セラミドNP・ツボクサエキスなど美容成分を複合配合した韓国発リペアクリーム。美容施術後のケアや、肌のリズムに着目した「28±3日ルーティンケア」に。低刺激・無香料処方。",
-    "image": "https://www.luminove.online/images/product-rejun-cream.webp",
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "リジュエヌ クリーム",
+  "brand": {
+    "@type": "Brand",
+    "name": "Reju:N"
+  },
+  "description": "サーモン由来PDRN3000ppm×NMN1000ppmのデュアルフォーミュラに、EGF・セラミドNP・ツボクサエキスなど美容成分を複合配合した韓国発リペアクリーム。美容施術後のケアや、肌のリズムに着目した「28±3日ルーティンケア」に。低刺激・無香料処方。",
+  "image": "https://www.luminove.online/images/product-rejun-cream.webp",
+  "url": "https://luminove.stores.jp/?category_id=69b20f03c7a87210bb19aecc",
+  "offers": {
+    "@type": "Offer",
     "url": "https://luminove.stores.jp/?category_id=69b20f03c7a87210bb19aecc",
-    "offers": {
-      "@type": "Offer",
-      "url": "https://luminove.stores.jp/?category_id=69b20f03c7a87210bb19aecc",
-      "priceCurrency": "JPY",
-      "price": "4800",
-      "availability": "https://schema.org/InStock"
-    },
-
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "5",
-      "bestRating": "5"
-    },
-    "review": {
-      "@type": "Review",
-      "author": {
-        "@type": "MedicalClinic",
-        "name": "六本木美容医療クリニック（BMC）",
-        "url": "https://bmc-roppongi.com/"
+    "priceCurrency": "JPY",
+    "price": "4800",
+    "availability": "https://schema.org/InStock",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "900",
+        "currency": "JPY"
       },
-      "reviewBody": "細胞レベルの再生医療に精通した医師が成分を徹底評価。サーモン由来PDRNとNMNのデュアル処方、EGFやセラミドNPなど複合的な美容成分設計に着目し推薦。"
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "JP"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 3,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 4,
+          "unitCode": "DAY"
+        }
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "JP",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 8,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
     }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "5",
+    "bestRating": "5"
+  },
+  "review": {
+    "@type": "Review",
+    "author": {
+      "@type": "MedicalClinic",
+      "name": "六本木美容医療クリニック（BMC）",
+      "url": "https://bmc-roppongi.com/"
+    },
+    "reviewBody": "細胞レベルの再生医療に精通した医師が成分を徹底評価。サーモン由来PDRNとNMNのデュアル処方、EGFやセラミドNPなど複合的な美容成分設計に着目し推薦。"
   }
+}
   </script>
 
   <!-- JSON-LD: BreadcrumbList -->
