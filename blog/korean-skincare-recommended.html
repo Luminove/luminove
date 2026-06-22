@@ -131,10 +131,16 @@
     .recommend-card-body h3 { font-size: 1rem; color: var(--green-deep); margin-bottom: .4rem; }
     .recommend-card-body p { font-size: .85rem; color: var(--text-mid); margin-bottom: .6rem; line-height: 1.7; }
     .recommend-card-body a { font-size: .8rem; color: var(--green-mid); font-weight: 500; text-decoration: underline; }
-    .trouble-table { width: 100%; border-collapse: collapse; font-size: .88rem; margin-bottom: 1.5rem; }
-    .trouble-table th { background: var(--green-pale); color: var(--green-deep); padding: .7rem 1rem; text-align: left; font-weight: 600; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 1.5rem; }
+    .trouble-table { width: 100%; min-width: 480px; border-collapse: collapse; font-size: .88rem; margin-bottom: 0; }
+    .trouble-table th { background: var(--green-pale); color: var(--green-deep); padding: .7rem 1rem; text-align: left; font-weight: 600; white-space: nowrap; }
     .trouble-table td { padding: .7rem 1rem; border-bottom: 1px solid var(--green-pale); color: var(--text-mid); }
-    @media (max-width: 600px) { .recommend-card { flex-direction: column; } .recommend-card img { width: 80px; height: 80px; } }
+    @media (max-width: 600px) {
+      .recommend-card { flex-direction: column; }
+      .recommend-card img { width: 80px; height: 80px; }
+      .trouble-table { font-size: .8rem; }
+      .trouble-table th, .trouble-table td { padding: .6rem .7rem; }
+    }
   </style>
 </head>
 <body>
@@ -262,6 +268,7 @@
 
     <section class="article-section" id="table">
       <h2>肌悩み別おすすめ早見表</h2>
+      <div class="table-scroll">
       <table class="trouble-table">
         <tr><th>肌悩み</th><th>おすすめ成分</th><th>商品</th></tr>
         <tr><td>透明感・くすみ改善</td><td>グルタチオン</td><td><a href="/products/glucola-serum.html">グルコラ セラム</a>・<a href="/products/glucola-skin.html">スキン</a></td></tr>
@@ -271,6 +278,7 @@
         <tr><td>ファーストエイジングケア</td><td>RG3＋DERMA-CLERA</td><td><a href="/products/rg3-vital-ampoule.html">RG3 セラム</a>・<a href="/products/rg3-vital-cream.html">クリーム</a></td></tr>
         <tr><td>ヘアダメージ・サロン帰り感</td><td>補修成分配合ヘアアンプル</td><td><a href="/products/curlyshyll-repair-ampoule.html">Curly Shyllアンプル</a></td></tr>
       </table>
+      </div>
     </section>
 
   </div>
