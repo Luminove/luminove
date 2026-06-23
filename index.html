@@ -2338,12 +2338,11 @@
       background: var(--cream);
       flex-direction: column;
       align-items: center; justify-content: center;
-      gap: 2.5rem;
-    }
+      gap: 1.3rem; overflow-y: auto; padding: 6rem 0 2rem; }
     .mobile-nav.open { display: flex; }
     .mobile-nav a {
       font-family: var(--font-serif);
-      font-size: 1.75rem;
+      font-size: 1.3rem;
       color: var(--green-deep);
       letter-spacing: .1em;
     }
@@ -2489,28 +2488,28 @@
   <header id="header">
     <a href="#" class="logo">LUMI<span>NOVE</span></a>
     <nav>
-      <a href="#products">製品</a>
-      <a href="#brands">取扱ブランド</a>
-      <a href="#ingredients">成分</a>
-      <a href="#reviews">レビュー</a>
-      <a href="#stores">取扱店</a>
+      <a href="/">TOP</a>
+      <a href="/#products">製品</a>
+      <a href="/#brands">取扱ブランド</a>
+      <a href="/#ingredients">成分</a>
+      <a href="/#reviews">レビュー</a>
+      <a href="/#stores">取扱店</a>
       <a href="/blog/">ブログ</a>
       <a href="https://luminove.stores.jp/" target="_blank" rel="noopener" class="btn-nav">SHOP NOW</a>
     </nav>
-    <button class="hamburger" id="hamburger" aria-label="メニュー">
-      <span></span><span></span><span></span>
+    <button class="hamburger" id="hamburger" aria-label="メニュー"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
     </button>
   </header>
 
   <!-- MOBILE NAV -->
   <nav class="mobile-nav" id="mobileNav">
-    <button class="close-btn" id="closeNav">✕</button>
-    <a href="#hero" class="mobile-link">TOP</a>
-    <a href="#products" class="mobile-link">製品</a>
-    <a href="#brands" class="mobile-link">取扱ブランド</a>
-    <a href="#ingredients" class="mobile-link">成分</a>
-    <a href="#reviews" class="mobile-link">レビュー</a>
-    <a href="#stores" class="mobile-link">取扱店</a>
+    <button class="close-btn" id="closeNav" aria-label="メニューを閉じる">✕</button>
+    <a href="/" class="mobile-link">TOP</a>
+    <a href="/#products" class="mobile-link">製品</a>
+    <a href="/#brands" class="mobile-link">取扱ブランド</a>
+    <a href="/#ingredients" class="mobile-link">成分</a>
+    <a href="/#reviews" class="mobile-link">レビュー</a>
+    <a href="/#stores" class="mobile-link">取扱店</a>
     <a href="/blog/" class="mobile-link">ブログ</a>
     <a href="https://luminove.stores.jp/" target="_blank" rel="noopener" class="btn-primary mobile-link">SHOP NOW</a>
   </nav>
@@ -3115,7 +3114,7 @@
       <div class="ingr-card reveal">
         <div class="ingr-icon" style="color:var(--green-mid)"><svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"/><path d="M19 14l.9 2.1L22 17l-2.1.9L19 20l-.9-2.1L16 17l2.1-.9L19 14z"/></svg></div>
         <h3 class="ingr-name">グルタチオン</h3>
-        <p class="ingr-text">抗酸化ケアで知られる成分として注目されるグルタチオン。メラニン生成に着目し、透明感あふれる明るい肌へ導く。セラムには30,000ppmの高濃度配合。</p>
+        <p class="ingr-text">抗酸化ケアで知られる成分として注目されるグルタチオン。メラニン生成に着目した、透明感のある肌印象をサポート。セラムには30,000ppmの高濃度配合。</p>
         <a href="/ingredients/glutathione.html" style="font-size:.78rem;color:var(--green-mid);letter-spacing:.05em;">詳しく見る →</a>
       </div>
       <div class="ingr-card reveal" style="transition-delay:.08s">
@@ -3149,7 +3148,7 @@
   <section id="reviews">
     <div style="text-align:center" class="reveal">
       <p class="section-tag">Customer Reviews</p>
-      <h2 class="section-title">お客様の声</h2>
+      <h2 class="section-title">ご使用者様の使用感レビュー</h2>
     </div>
     <div style="overflow:hidden">
       <div class="reviews-track">
@@ -3210,7 +3209,7 @@
         </div>
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">グルコラ クレンジングフォームを使い始めてから、洗うたびに肌の透明感がアップした気がします。毎朝の洗顔が楽しみになりました。</p>
+          <p class="review-text">グルコラ クレンジングフォームを使い始めてから、洗い上がりの肌がもっちりする感じが気に入っています。毎朝の洗顔が楽しみになりました。</p>
           <div class="review-author">
             <div class="review-avatar">✨</div>
             <div>
@@ -3364,7 +3363,7 @@
         </div>
         <div class="review-card" aria-hidden="true">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">グルコラ クレンジングフォームを使い始めてから、洗うたびに肌の透明感がアップした気がします。毎朝の洗顔が楽しみになりました。</p>
+          <p class="review-text">グルコラ クレンジングフォームを使い始めてから、洗い上がりの肌がもっちりする感じが気に入っています。毎朝の洗顔が楽しみになりました。</p>
           <div class="review-author">
             <div class="review-avatar">✨</div>
             <div>
@@ -3463,6 +3462,10 @@
         </div>
       </div>
     </div>
+    <p class="reviews-disclaimer" style="text-align:center; font-size:.78rem; color:var(--text-mid); margin-top:1.5rem; opacity:.8;">
+      ※使用感には個人差があります。<br>
+      ※お客様の声は個人の感想であり、効果効能を保証するものではありません。
+    </p>
   </section>
 
   <!-- STORES -->

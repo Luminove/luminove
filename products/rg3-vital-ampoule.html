@@ -240,12 +240,11 @@
       background: var(--cream);
       flex-direction: column;
       align-items: center; justify-content: center;
-      gap: 2.5rem;
-    }
+      gap: 1.3rem; overflow-y: auto; padding: 6rem 0 2rem; }
     .mobile-nav.open { display: flex; }
     .mobile-nav a {
       font-family: var(--font-serif);
-      font-size: 1.75rem;
+      font-size: 1.3rem;
       color: var(--green-deep);
       letter-spacing: .1em;
     }
@@ -446,27 +445,29 @@
   <header id="header">
     <a href="/" class="logo">LUMI<span>NOVE</span></a>
     <nav>
+      <a href="/">TOP</a>
       <a href="/#products">製品</a>
-      <a href="/#about">ブランド</a>
+      <a href="/#brands">取扱ブランド</a>
       <a href="/#ingredients">成分</a>
       <a href="/#reviews">レビュー</a>
       <a href="/#stores">取扱店</a>
+      <a href="/blog/">ブログ</a>
       <a href="https://luminove.stores.jp/" target="_blank" rel="noopener" class="btn-nav">SHOP NOW</a>
     </nav>
-    <button class="hamburger" id="hamburger" aria-label="メニュー">
-      <span></span><span></span><span></span>
+    <button class="hamburger" id="hamburger" aria-label="メニュー"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
     </button>
   </header>
 
   <!-- MOBILE NAV -->
   <nav class="mobile-nav" id="mobileNav">
-    <button class="close-btn" id="closeNav">✕</button>
+    <button class="close-btn" id="closeNav" aria-label="メニューを閉じる">✕</button>
     <a href="/" class="mobile-link">TOP</a>
     <a href="/#products" class="mobile-link">製品</a>
-    <a href="/#about" class="mobile-link">ブランド</a>
+    <a href="/#brands" class="mobile-link">取扱ブランド</a>
     <a href="/#ingredients" class="mobile-link">成分</a>
     <a href="/#reviews" class="mobile-link">レビュー</a>
     <a href="/#stores" class="mobile-link">取扱店</a>
+    <a href="/blog/" class="mobile-link">ブログ</a>
     <a href="https://luminove.stores.jp/" target="_blank" rel="noopener" class="btn-primary mobile-link">SHOP NOW</a>
   </nav>
 

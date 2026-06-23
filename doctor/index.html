@@ -102,9 +102,9 @@
     .btn-nav { background: var(--green-deep); color: #fff !important; padding: .55rem 1.5rem; border-radius: 50px; letter-spacing: .12em; font-size: .78rem; }
     .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--green-deep); border-radius: 2px; }
-    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 1001; background: var(--cream); flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
+    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 1001; background: var(--cream); flex-direction: column; align-items: center; justify-content: center; gap: 1.3rem; overflow-y: auto; padding: 6rem 0 2rem; }
     .mobile-nav.open { display: flex; }
-    .mobile-nav a { font-family: var(--font-serif); font-size: 1.75rem; color: var(--green-deep); letter-spacing: .1em; }
+    .mobile-nav a { font-family: var(--font-serif); font-size: 1.3rem; color: var(--green-deep); letter-spacing: .1em; }
     .close-btn { position: absolute; top: 1.5rem; right: 5%; font-size: 1.75rem; cursor: pointer; color: var(--green-deep); background: none; border: none; }
     .btn-primary { display: inline-block; background: var(--green-deep); color: #fff; padding: .9rem 2.4rem; border-radius: 50px; font-size: .85rem; letter-spacing: .12em; font-weight: 500; text-align: center; transition: background var(--transition), transform var(--transition); }
     .btn-primary:hover { background: var(--green-mid); transform: translateY(-2px); }
@@ -174,21 +174,27 @@
   <header id="header">
     <a href="/" class="logo">LUMI<span>NOVE</span></a>
     <nav>
+      <a href="/">TOP</a>
       <a href="/#products">製品</a>
       <a href="/#brands">取扱ブランド</a>
       <a href="/#ingredients">成分</a>
       <a href="/#reviews">レビュー</a>
+      <a href="/#stores">取扱店</a>
+      <a href="/blog/">ブログ</a>
       <a href="https://luminove.stores.jp/" target="_blank" rel="noopener" class="btn-nav">SHOP NOW</a>
     </nav>
-    <button class="hamburger" id="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    <button class="hamburger" id="hamburger" aria-label="メニュー"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
   </header>
 
   <nav class="mobile-nav" id="mobileNav">
-    <button class="close-btn" id="closeNav">✕</button>
+    <button class="close-btn" id="closeNav" aria-label="メニューを閉じる">✕</button>
     <a href="/" class="mobile-link">TOP</a>
     <a href="/#products" class="mobile-link">製品</a>
     <a href="/#brands" class="mobile-link">取扱ブランド</a>
     <a href="/#ingredients" class="mobile-link">成分</a>
+    <a href="/#reviews" class="mobile-link">レビュー</a>
+    <a href="/#stores" class="mobile-link">取扱店</a>
+    <a href="/blog/" class="mobile-link">ブログ</a>
     <a href="https://luminove.stores.jp/" target="_blank" rel="noopener" class="btn-primary mobile-link">SHOP NOW</a>
   </nav>
 
