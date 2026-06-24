@@ -2155,8 +2155,14 @@
       padding: 2rem;
       backdrop-filter: blur(8px);
     }
-    .review-stars { color: var(--gold); font-size: 1rem; margin-bottom: 1rem; letter-spacing: .1em; }
-    .review-text { font-size: .88rem; color: rgba(255,255,255,.82); line-height: 1.8; margin-bottom: 1.5rem; }
+    .review-stars { color: var(--gold); font-size: 1rem; margin-bottom: .75rem; letter-spacing: .1em; }
+    .review-product {
+      display: inline-block; font-size: .7rem; color: var(--gold);
+      background: rgba(255,255,255,.1); border-radius: 999px;
+      padding: .25rem .65rem; margin-bottom: .7rem; letter-spacing: .03em;
+    }
+    .review-title { font-size: .95rem; font-weight: 600; color: #fff; margin: 0 0 .5rem; line-height: 1.5; }
+    .review-text { font-size: .85rem; color: rgba(255,255,255,.82); line-height: 1.75; margin-bottom: 1.5rem; }
     .review-author { display: flex; align-items: center; gap: .75rem; }
     .review-avatar {
       width: 40px; height: 40px; border-radius: 50%;
@@ -3159,9 +3165,11 @@
     </div>
     <div style="overflow:hidden">
       <div class="reviews-track">
-        <div class="review-card">
+        <article class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">洗顔フォームは泡立ちがよく、朝の洗顔時間が楽しみになりました。洗い上がりのなめらかな使用感が気に入っています。</p>
+          <p class="review-product">使用商品：グルコラ クレンジングフォーム</p>
+          <h3 class="review-title">朝の洗顔に使いやすい泡立ちです</h3>
+          <p class="review-text">泡立ちがよく、朝の洗顔時間が楽しみになりました。洗い上がりのなめらかな使用感が気に入っています。</p>
           <div class="review-author">
             <div class="review-avatar">😊</div>
             <div>
@@ -3169,9 +3177,11 @@
               <p class="review-meta">28歳 / 東京</p>
             </div>
           </div>
-        </div>
-        <div class="review-card">
+        </article>
+        <article class="review-card">
           <div class="review-stars">★★★★★</div>
+          <p class="review-product">使用商品：グルコラ スキン</p>
+          <h3 class="review-title">とろみのある使用感が好きです</h3>
           <p class="review-text">グルコラ スキンはとろみのある使用感で、肌になじませやすいところが好きです。毎日のスキンケアに取り入れやすいです。</p>
           <div class="review-author">
             <div class="review-avatar">💧</div>
@@ -3180,53 +3190,63 @@
               <p class="review-meta">38歳 / 東京</p>
             </div>
           </div>
-        </div>
-        <div class="review-card">
+        </article>
+        <article class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">セラムは濃密な使用感なのに重すぎず、夜のケアに使いやすいです。肌にうるおい感が出るところが気に入っています。</p>
+          <p class="review-product">使用商品：グルコラ セラム</p>
+          <h3 class="review-title">夜のケアに使いやすい美容液です</h3>
+          <p class="review-text">濃密な使用感なのに重すぎず、夜のケアに使いやすいです。肌にうるおい感が出るところが気に入っています。</p>
           <div class="review-author">
             <div class="review-avatar">🌙</div>
             <div>
               <p class="review-name">あや さん</p>
-              <p class="review-meta">33歳 / 東京</p>
+              <p class="review-meta">34歳 / 名古屋</p>
             </div>
           </div>
-        </div>
-        <div class="review-card">
+        </article>
+        <article class="review-card">
           <div class="review-stars">★★★★★</div>
+          <p class="review-product">使用商品：グルコラ ピリングパック</p>
+          <h3 class="review-title">週末のスペシャルケアに使っています</h3>
           <p class="review-text">ピールオフタイプなので、週末のスペシャルケアとして使っています。使用後のなめらかな肌ざわりが気に入っています。</p>
           <div class="review-author">
             <div class="review-avatar">🧖‍♀️</div>
             <div>
               <p class="review-name">りな さん</p>
-              <p class="review-meta">29歳 / 大阪</p>
+              <p class="review-meta">31歳 / 東京</p>
             </div>
           </div>
-        </div>
-        <div class="review-card">
-          <div class="review-stars">★★★★☆</div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-product">使用商品：グルコラ サンクリーム</p>
+          <h3 class="review-title">毎朝のUVケアに取り入れやすいです</h3>
           <p class="review-text">白浮きしにくく、毎朝のUVケアに使いやすいです。メイク前にも取り入れやすい使用感でした。</p>
           <div class="review-author">
             <div class="review-avatar">☀️</div>
             <div>
               <p class="review-name">まい さん</p>
-              <p class="review-meta">31歳 / 福岡</p>
+              <p class="review-meta">29歳 / 神奈川</p>
             </div>
           </div>
-        </div>
-        <div class="review-card">
+        </article>
+        <article class="review-card">
           <div class="review-stars">★★★★★</div>
+          <p class="review-product">使用商品：A+ スポットパッチ</p>
+          <h3 class="review-title">サイズを使い分けできるのが便利です</h3>
           <p class="review-text">半透明で目立ちにくいので、外出前にも使いやすいです。10mmと12mmを使い分けできるところが便利です。</p>
           <div class="review-author">
             <div class="review-avatar">✨</div>
             <div>
               <p class="review-name">かな さん</p>
-              <p class="review-meta">24歳 / 東京</p>
+              <p class="review-meta">26歳 / 大阪</p>
             </div>
           </div>
-        </div>
-        <div class="review-card">
-          <div class="review-stars">★★★★☆</div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-product">使用商品：Maison et Voyage Hand Balm</p>
+          <h3 class="review-title">香りを気分で使い分けできるのが好きです</h3>
           <p class="review-text">Maison et Voyage Hand Balmは、3種類の香りを気分で使い分けています。ベタつきにくく、仕事中にも使いやすいです。</p>
           <div class="review-author">
             <div class="review-avatar">😄</div>
@@ -3235,21 +3255,25 @@
               <p class="review-meta">41歳 / 福岡</p>
             </div>
           </div>
-        </div>
-        <div class="review-card">
+        </article>
+        <article class="review-card">
           <div class="review-stars">★★★★★</div>
+          <p class="review-product">使用商品：Maison et Voyage Hand Balm</p>
+          <h3 class="review-title">持ち歩きたくなる上品なハンドバームです</h3>
           <p class="review-text">香水ほど強すぎない香りで、手を動かした時にふわっと香る感じが好きです。パッケージも上品で持ち歩きたくなります。</p>
           <div class="review-author">
             <div class="review-avatar">🌸</div>
             <div>
               <p class="review-name">えり さん</p>
-              <p class="review-meta">36歳 / 名古屋</p>
+              <p class="review-meta">35歳 / 大阪</p>
             </div>
           </div>
-        </div>
-        <div class="review-card">
+        </article>
+        <article class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">ヘアアンプルはドライヤー前に使いやすく、毛先のパサつきが気になる時のケアに取り入れています。香りも上品で気に入っています。</p>
+          <p class="review-product">使用商品：アフターサロンケア リペア ヘアアンプル</p>
+          <h3 class="review-title">ドライヤー前のヘアケアに使いやすいです</h3>
+          <p class="review-text">ドライヤー前に使いやすく、毛先のパサつきが気になる時のケアに取り入れています。香りも上品で気に入っています。</p>
           <div class="review-author">
             <div class="review-avatar">💆‍♀️</div>
             <div>
@@ -3257,21 +3281,25 @@
               <p class="review-meta">27歳 / 名古屋</p>
             </div>
           </div>
-        </div>
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars">★★★★☆</div>
+          <p class="review-product">使用商品：ホワイトリリー シルキー オイルセラム</p>
+          <h3 class="review-title">毛先になじませやすい使用感です</h3>
           <p class="review-text">毛先になじませやすく、重すぎない使用感が気に入っています。外出前のヘアケアにも使いやすいです。</p>
           <div class="review-author">
             <div class="review-avatar">💁‍♀️</div>
             <div>
               <p class="review-name">なお さん</p>
-              <p class="review-meta">30歳 / 横浜</p>
+              <p class="review-meta">32歳 / 横浜</p>
             </div>
           </div>
-        </div>
-        <div class="review-card">
+        </article>
+        <article class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">M-KINベルベリンクレンザーは、洗い上がりがさっぱりしていて、皮脂が気になる時にも使いやすいです。</p>
+          <p class="review-product">使用商品：M-KIN ベルベリンクレンザー</p>
+          <h3 class="review-title">皮脂が気になる時にも使いやすいです</h3>
+          <p class="review-text">M-KIN ベルベリンクレンザーは、洗い上がりがさっぱりしていて、皮脂が気になる時にも使いやすいです。</p>
           <div class="review-author">
             <div class="review-avatar">🌿</div>
             <div>
@@ -3279,21 +3307,25 @@
               <p class="review-meta">32歳 / 横浜</p>
             </div>
           </div>
-        </div>
-        <div class="review-card">
+        </article>
+        <article class="review-card">
           <div class="review-stars">★★★★★</div>
+          <p class="review-product">使用商品：グルコラ MGクリーム</p>
+          <h3 class="review-title">首やデコルテの保湿ケアにも使っています</h3>
           <p class="review-text">グルコラ MGクリームは容量がたっぷりで、顔だけでなく首やデコルテの保湿ケアにも使いやすいです。</p>
           <div class="review-author">
             <div class="review-avatar">🌟</div>
             <div>
               <p class="review-name">はるか さん</p>
-              <p class="review-meta">35歳 / 札幌</p>
+              <p class="review-meta">36歳 / 札幌</p>
             </div>
           </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
+        </article>
+        <article class="review-card" aria-hidden="true">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">洗顔フォームは泡立ちがよく、朝の洗顔時間が楽しみになりました。洗い上がりのなめらかな使用感が気に入っています。</p>
+          <p class="review-product">使用商品：グルコラ クレンジングフォーム</p>
+          <h3 class="review-title">朝の洗顔に使いやすい泡立ちです</h3>
+          <p class="review-text">泡立ちがよく、朝の洗顔時間が楽しみになりました。洗い上がりのなめらかな使用感が気に入っています。</p>
           <div class="review-author">
             <div class="review-avatar">😊</div>
             <div>
@@ -3301,9 +3333,11 @@
               <p class="review-meta">28歳 / 東京</p>
             </div>
           </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
+        </article>
+        <article class="review-card" aria-hidden="true">
           <div class="review-stars">★★★★★</div>
+          <p class="review-product">使用商品：グルコラ スキン</p>
+          <h3 class="review-title">とろみのある使用感が好きです</h3>
           <p class="review-text">グルコラ スキンはとろみのある使用感で、肌になじませやすいところが好きです。毎日のスキンケアに取り入れやすいです。</p>
           <div class="review-author">
             <div class="review-avatar">💧</div>
@@ -3312,53 +3346,63 @@
               <p class="review-meta">38歳 / 東京</p>
             </div>
           </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
+        </article>
+        <article class="review-card" aria-hidden="true">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">セラムは濃密な使用感なのに重すぎず、夜のケアに使いやすいです。肌にうるおい感が出るところが気に入っています。</p>
+          <p class="review-product">使用商品：グルコラ セラム</p>
+          <h3 class="review-title">夜のケアに使いやすい美容液です</h3>
+          <p class="review-text">濃密な使用感なのに重すぎず、夜のケアに使いやすいです。肌にうるおい感が出るところが気に入っています。</p>
           <div class="review-author">
             <div class="review-avatar">🌙</div>
             <div>
               <p class="review-name">あや さん</p>
-              <p class="review-meta">33歳 / 東京</p>
+              <p class="review-meta">34歳 / 名古屋</p>
             </div>
           </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
+        </article>
+        <article class="review-card" aria-hidden="true">
           <div class="review-stars">★★★★★</div>
+          <p class="review-product">使用商品：グルコラ ピリングパック</p>
+          <h3 class="review-title">週末のスペシャルケアに使っています</h3>
           <p class="review-text">ピールオフタイプなので、週末のスペシャルケアとして使っています。使用後のなめらかな肌ざわりが気に入っています。</p>
           <div class="review-author">
             <div class="review-avatar">🧖‍♀️</div>
             <div>
               <p class="review-name">りな さん</p>
-              <p class="review-meta">29歳 / 大阪</p>
+              <p class="review-meta">31歳 / 東京</p>
             </div>
           </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
-          <div class="review-stars">★★★★☆</div>
+        </article>
+        <article class="review-card" aria-hidden="true">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-product">使用商品：グルコラ サンクリーム</p>
+          <h3 class="review-title">毎朝のUVケアに取り入れやすいです</h3>
           <p class="review-text">白浮きしにくく、毎朝のUVケアに使いやすいです。メイク前にも取り入れやすい使用感でした。</p>
           <div class="review-author">
             <div class="review-avatar">☀️</div>
             <div>
               <p class="review-name">まい さん</p>
-              <p class="review-meta">31歳 / 福岡</p>
+              <p class="review-meta">29歳 / 神奈川</p>
             </div>
           </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
+        </article>
+        <article class="review-card" aria-hidden="true">
           <div class="review-stars">★★★★★</div>
+          <p class="review-product">使用商品：A+ スポットパッチ</p>
+          <h3 class="review-title">サイズを使い分けできるのが便利です</h3>
           <p class="review-text">半透明で目立ちにくいので、外出前にも使いやすいです。10mmと12mmを使い分けできるところが便利です。</p>
           <div class="review-author">
             <div class="review-avatar">✨</div>
             <div>
               <p class="review-name">かな さん</p>
-              <p class="review-meta">24歳 / 東京</p>
+              <p class="review-meta">26歳 / 大阪</p>
             </div>
           </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
-          <div class="review-stars">★★★★☆</div>
+        </article>
+        <article class="review-card" aria-hidden="true">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-product">使用商品：Maison et Voyage Hand Balm</p>
+          <h3 class="review-title">香りを気分で使い分けできるのが好きです</h3>
           <p class="review-text">Maison et Voyage Hand Balmは、3種類の香りを気分で使い分けています。ベタつきにくく、仕事中にも使いやすいです。</p>
           <div class="review-author">
             <div class="review-avatar">😄</div>
@@ -3367,21 +3411,25 @@
               <p class="review-meta">41歳 / 福岡</p>
             </div>
           </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
+        </article>
+        <article class="review-card" aria-hidden="true">
           <div class="review-stars">★★★★★</div>
+          <p class="review-product">使用商品：Maison et Voyage Hand Balm</p>
+          <h3 class="review-title">持ち歩きたくなる上品なハンドバームです</h3>
           <p class="review-text">香水ほど強すぎない香りで、手を動かした時にふわっと香る感じが好きです。パッケージも上品で持ち歩きたくなります。</p>
           <div class="review-author">
             <div class="review-avatar">🌸</div>
             <div>
               <p class="review-name">えり さん</p>
-              <p class="review-meta">36歳 / 名古屋</p>
+              <p class="review-meta">35歳 / 大阪</p>
             </div>
           </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
+        </article>
+        <article class="review-card" aria-hidden="true">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">ヘアアンプルはドライヤー前に使いやすく、毛先のパサつきが気になる時のケアに取り入れています。香りも上品で気に入っています。</p>
+          <p class="review-product">使用商品：アフターサロンケア リペア ヘアアンプル</p>
+          <h3 class="review-title">ドライヤー前のヘアケアに使いやすいです</h3>
+          <p class="review-text">ドライヤー前に使いやすく、毛先のパサつきが気になる時のケアに取り入れています。香りも上品で気に入っています。</p>
           <div class="review-author">
             <div class="review-avatar">💆‍♀️</div>
             <div>
@@ -3389,21 +3437,25 @@
               <p class="review-meta">27歳 / 名古屋</p>
             </div>
           </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
-          <div class="review-stars">★★★★★</div>
+        </article>
+        <article class="review-card" aria-hidden="true">
+          <div class="review-stars">★★★★☆</div>
+          <p class="review-product">使用商品：ホワイトリリー シルキー オイルセラム</p>
+          <h3 class="review-title">毛先になじませやすい使用感です</h3>
           <p class="review-text">毛先になじませやすく、重すぎない使用感が気に入っています。外出前のヘアケアにも使いやすいです。</p>
           <div class="review-author">
             <div class="review-avatar">💁‍♀️</div>
             <div>
               <p class="review-name">なお さん</p>
-              <p class="review-meta">30歳 / 横浜</p>
+              <p class="review-meta">32歳 / 横浜</p>
             </div>
           </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
+        </article>
+        <article class="review-card" aria-hidden="true">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">M-KINベルベリンクレンザーは、洗い上がりがさっぱりしていて、皮脂が気になる時にも使いやすいです。</p>
+          <p class="review-product">使用商品：M-KIN ベルベリンクレンザー</p>
+          <h3 class="review-title">皮脂が気になる時にも使いやすいです</h3>
+          <p class="review-text">M-KIN ベルベリンクレンザーは、洗い上がりがさっぱりしていて、皮脂が気になる時にも使いやすいです。</p>
           <div class="review-author">
             <div class="review-avatar">🌿</div>
             <div>
@@ -3411,18 +3463,20 @@
               <p class="review-meta">32歳 / 横浜</p>
             </div>
           </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
+        </article>
+        <article class="review-card" aria-hidden="true">
           <div class="review-stars">★★★★★</div>
+          <p class="review-product">使用商品：グルコラ MGクリーム</p>
+          <h3 class="review-title">首やデコルテの保湿ケアにも使っています</h3>
           <p class="review-text">グルコラ MGクリームは容量がたっぷりで、顔だけでなく首やデコルテの保湿ケアにも使いやすいです。</p>
           <div class="review-author">
             <div class="review-avatar">🌟</div>
             <div>
               <p class="review-name">はるか さん</p>
-              <p class="review-meta">35歳 / 札幌</p>
+              <p class="review-meta">36歳 / 札幌</p>
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </div>
     <p class="reviews-disclaimer" style="text-align:center; font-size:.78rem; color:#fff; margin-top:1.5rem; opacity:.85;">
