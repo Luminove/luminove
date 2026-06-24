@@ -634,7 +634,7 @@
           "@type": "Brand",
           "name": "LUMINOVE / from the skin"
         },
-        "description": "SPF50+ PA++++、韓国で機能性化粧品として認証された処方のサンクリーム。",
+        "description": "SPF50+ PA++++の韓国日焼け止めクリーム。紫外線から肌を守るサンクリーム。",
         "image": "https://www.luminove.online/images/product-suncream.webp",
         "url": "https://luminove.stores.jp/items/68a7f27f675488399f9f14f3",
         "offers": {
@@ -1390,7 +1390,7 @@
           "@type": "Brand",
           "name": "HAHN'S PEPTIDE"
         },
-        "description": "超低分子ペプチド複合体「SE-Tripeptide 7-Complex」×イタリア産プレミアムブラックキャビア×アラスカサーモンDNA PDRN配合。韓国で機能性化粧品として認証された処方を採用した4週間集中ケアプログラム。",
+        "description": "ペプチド複合体、ブラックキャビア、PDRN配合の韓国スキンケアキット。年齢に応じたうるおいケアとして、肌コンディションを整えたい方におすすめです。",
         "image": "https://www.luminove.online/images/product-celviv-biokit.webp",
         "url": "https://www.luminove.online/products/celviv-bio-kit.html",
         "offers": {
@@ -1567,6 +1567,9 @@
       display: none; cursor: pointer; flex-direction: column;
       gap: 5px; padding: 4px;
     }
+    .header-actions { display: flex; align-items: center; gap: 8px; }
+    .mobile-instagram-link { display: none; align-items: center; justify-content: center; width: 40px; height: 40px; color: var(--green-deep); text-decoration: none; }
+    .mobile-instagram-link svg { width: 24px; height: 24px; display: block; }
     .hamburger span {
       display: block; width: 24px; height: 2px;
       background: var(--green-deep); border-radius: 2px;
@@ -2364,7 +2367,7 @@
       .hero-image { order: -1; max-width: 380px; margin: 0 auto; }
       .hero-img-wrap { border-radius: 50%; aspect-ratio: 1; }
       nav { display: none; }
-      .hamburger { display: flex; }
+      .hamburger { display: flex; } .mobile-instagram-link { display: inline-flex; }
       .values-inner { grid-template-columns: 1fr; gap: 2rem; }
       #about { padding: 60px 5%; }
       .about-stats { grid-template-columns: 1fr 1fr; }
@@ -2492,8 +2495,11 @@
       <a href="/blog/">ブログ</a>
       <a href="https://luminove.stores.jp/" target="_blank" rel="noopener" class="btn-nav">SHOP NOW</a>
     </nav>
-    <button class="hamburger" id="hamburger" aria-label="メニュー"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+    <div class="header-actions">
+      <a href="https://www.instagram.com/luminove_japan/" class="mobile-instagram-link" target="_blank" rel="noopener noreferrer" aria-label="InstagramでLUMINOVEを見る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"></circle></svg></a>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
     </button>
+    </div>
   </header>
 
   <!-- MOBILE NAV -->
@@ -2636,7 +2642,7 @@
           <div class="product-body">
             <p class="product-cat">from the skin / 洗顔</p>
             <h3 class="product-name">グルコラ<br><span class="align-center">クレンジング</span><span class="align-right">フォーム</span></h3>
-            <p class="product-desc">落とすだけじゃない"与える"洗顔。ナノコラーゲン（300Da）が角質層まで浸透し、洗いながらハリ・うるおいをチャージ。クレンジング・洗顔・シェービングのマルチ対応。ラクトバシラス発酵エキスで肌バリアもサポート。<br>150ml</p>
+            <p class="product-desc">ナノコラーゲン（300Da）配合の韓国クレンジングフォーム。肌を清潔に保ちながら、洗い上がりをなめらかな肌印象へ整えます。クレンジング・洗顔・シェービングにも使いやすいマルチタイプです。<br>150ml</p>
             <p class="product-price">¥3,500 <span>(税込)</span></p>
           </div>
         </a>
@@ -2651,7 +2657,7 @@
           <div class="product-body">
             <p class="product-cat">from the skin / 化粧水</p>
             <h3 class="product-name">グルコラ <br class="br-pc">スキン</h3>
-            <p class="product-desc">グルタチオン配合の透明感ケアブライトニング化粧水。ナノコラーゲン（300Da）が角質層まで浸透し、乳酸菌発酵で肌の基礎体力を育てる。ベタつかずとろみのある上質な使用感。<br>150ml</p>
+            <p class="product-desc">グルタチオンとナノコラーゲン（300Da）配合の韓国化粧水。肌になじみやすい使用感で、乾燥が気になる肌にうるおいを与え、透明感のある肌印象をサポートします。<br>150ml</p>
             <p class="product-price">¥3,500 <span>(税込)</span></p>
           </div>
         </a>
@@ -2667,7 +2673,7 @@
           <div class="product-body">
             <p class="product-cat">from the skin / 美容液</p>
             <h3 class="product-name">グルコラ <br class="br-pc">セラム</h3>
-            <p class="product-desc">白さ・ハリ・うるおいを一滴に凝縮。グルタチオン30,000ppm×コラーゲン×ボルフィリン配合。濃密なとろみが肌に吸いつくようになじみ、高濃度ならではの濃密な使用感。<br>50ml</p>
+            <p class="product-desc">グルタチオン30,000ppm配合の韓国美容液。濃密なとろみのある使用感で肌になじみ、うるおいを与えながら、透明感のある肌印象をサポートします。<br>50ml</p>
             <p class="product-price">¥7,200 <span>(税込)</span></p>
           </div>
         </a>
@@ -2681,7 +2687,7 @@
         <div class="product-body">
           <p class="product-cat">from the skin / 乳液</p>
           <h3 class="product-name">グルコラ<br><span class="align-center">ローション</span></h3>
-          <p class="product-desc">シルクのようになめらかに伸びてスッと浸透する透明感のある肌印象乳液。グルタチオン×コラーゲン×乳酸菌発酵配合。ベタつかずメイク前も快適、翌朝までしっとりふっくらが続く。<br>150ml</p>
+          <p class="product-desc">グルタチオンとコラーゲン配合の韓国乳液。なめらかに伸びる使用感で肌になじみ、乾燥が気になる肌にうるおいを与えます。ベタつきにくく、メイク前にも使いやすい乳液です。<br>150ml</p>
           <p class="product-price">¥3,800 <span>(税込)</span></p>
         </div>
       </a>
@@ -2693,7 +2699,7 @@
         <div class="product-body">
           <p class="product-cat">from the skin /<span class="align-right">アイケア</span></p>
           <h3 class="product-name">グルコラ<br><span class="align-center">アイクリーム</span></h3>
-          <p class="product-desc">グルタチオン30,000ppm配合の"エイジングケア・シンデレラクリーム"。プラチナやゴールドより耐久性に優れたロジウムコーティングのローラーアプリケーター付きで、目元・ほうれい線・口元・首のマルチゾーンを集中ケア。<br>40ml</p>
+          <p class="product-desc">グルタチオン30,000ppm配合の韓国アイクリーム。目元・口元など乾燥が気になる部分に使いやすく、うるおいを与えて乾燥による小じわを目立ちにくくするケアにおすすめです。<br>40ml</p>
           <p class="product-price">¥8,500 <span>(税込)</span></p>
         </div>
       </a>
@@ -2705,7 +2711,7 @@
         <div class="product-body">
           <p class="product-cat">from the skin /<span class="align-right">パック</span></p>
           <h3 class="product-name">グルコラ<br><span class="align-center">ピリングパック</span></h3>
-          <p class="product-desc">塗って剥がすグルタチオン配合ピールオフパック。美容分野で注目されるグルタチオン700ppm×カナダ産ナノコラーゲン（300Da）70%以上配合で、角質・毛穴・くすみをまとめてケア。剥がした直後はワントーン明るく、化粧ノリの違いも実感。<br>50g</p>
+          <p class="product-desc">グルタチオンとナノコラーゲン（300Da）配合のピールオフパック。肌表面をなめらかに整え、透明感のある肌印象をサポートします。メイク前のケアにも使いやすい韓国スキンケアアイテムです。<br>50g</p>
           <p class="product-price">¥4,800 <span>(税込)</span></p>
         </div>
       </a>
@@ -2720,7 +2726,7 @@
           <div class="product-body">
             <p class="product-cat">from the skin /<span class="align-right">パック</span></p>
             <h3 class="product-name">グルコラ<br><span class="align-center">ピリングパックⅡ</span></h3>
-            <p class="product-desc">塗って剥がすグルタチオン配合ピールオフパックが進化。高純度98.2%グルタチオン1,400ppm×カナダ産ナノコラーゲン（300Da）×エラスチン配合。試験データを参考に、ツヤ・トーンアップ・毛穴・乾燥による小じわを目立ちにくくするケアに着目して設計。スパチュラ一体型で使いやすく、剥がした直後から透明感の違いを感じやすいのが特徴です。<br>50g</p>
+            <p class="product-desc">高純度グルタチオンとナノコラーゲン（300Da）配合のピールオフパック。乾燥による小じわを目立ちにくくし、なめらかな肌印象へ整えるケアにおすすめです。スパチュラ一体型で使いやすい設計です。<br>50g</p>
             <p class="product-price">¥5,500 <span>(税込)</span></p>
           </div>
         </a>
@@ -2735,7 +2741,7 @@
         <div class="product-body">
           <p class="product-cat">from the skin /<span class="align-right">シートマスク</span></p>
           <h3 class="product-name">グルコラ<br><span class="align-center">オーラフィット</span><span class="align-right">マスク</span></h3>
-          <p class="product-desc">高純度グルタチオン×コラーゲン×エラスチン×ヒアルロン酸配合。韓国で機能性化粧品として認証された処方。試験データを参考にした保湿設計で、CICAコンプレックスが肌をすこやかに整える・保護。<br>25ml×20枚入り</p>
+          <p class="product-desc">グルタチオン、コラーゲン、エラスチン、ヒアルロン酸配合の韓国シートマスク。乾燥が気になる肌にうるおいを与え、みずみずしい肌印象へ整えます。<br>25ml×20枚入り</p>
           <p class="product-price">¥3,960 <span>(税込)</span></p>
         </div>
       </a>
@@ -2749,7 +2755,7 @@
           <div class="product-body">
             <p class="product-cat">from the skin /<span class="align-right">UVケア</span></p>
             <h3 class="product-name">グルコラ<br><span class="align-center">サンクリーム</span></h3>
-            <p class="product-desc">UVカット機能に加え、韓国で機能性化粧品として認証された処方（認証済）。SPF50+ PA++++。グルタチオン×ナノコラーゲン（300Da）配合で日中もスキンケア。白浮きせず自然なトーンアップ仕上げ。<br>50ml</p>
+            <p class="product-desc">SPF50+ PA++++の韓国日焼け止めクリーム。紫外線から肌を守りながら、白浮きしにくい自然な仕上がりで、毎日のUVケアに使いやすいアイテムです。<br>50ml</p>
             <p class="product-price">¥3,500 <span>(税込)</span></p>
           </div>
         </a>
@@ -2764,7 +2770,7 @@
         <div class="product-body">
           <p class="product-cat">from the skin /<span class="align-right">UVケア</span></p>
           <h3 class="product-name">グルコラ<br><span class="align-center">サンジェルパッチ</span></h3>
-          <p class="product-desc">高濃度グルタチオン×低分子コラーゲン配合のジェルUV。塗ると透明フィルムに変化しUPF50+でUVA/UVBから肌を守る。日中のUVケアに使いやすい設計で、メイクの上からも使えるスキンケアUV。<br>20ml</p>
+          <p class="product-desc">グルタチオンと低分子コラーゲン配合のジェルタイプUVケア。日中の紫外線対策に取り入れやすく、外出時の塗り直しにも使いやすいスキンケアUVです。<br>20ml</p>
           <p class="product-price">¥4,100 <span>(税込)</span></p>
         </div>
       </a>
@@ -2777,7 +2783,7 @@
         <div class="product-body">
           <p class="product-cat">from the skin /<span class="align-right">ミスト</span></p>
           <h3 class="product-name">グルコラ<br><span class="align-center">極液ミスト</span></h3>
-          <p class="product-desc">2層式処方（栄養水分層×ツヤオイル層）でインナー保湿とアウター保護を同時に叶える美容液ミスト。9種の自然由来オイル配合。メイクの上からもOK。霧のように肌にムラなくフィット。<br>80ml</p>
+          <p class="product-desc">2層式の韓国美容液ミスト。乾燥が気になる時やメイク前後のうるおい補給に使いやすく、みずみずしい肌印象へ整えます。霧のように細かく広がる使用感です。<br>80ml</p>
           <p class="product-price">¥3,500 <span>(税込)</span></p>
         </div>
       </a>
@@ -2789,7 +2795,7 @@
         <div class="product-body">
           <p class="product-cat">from the skin /<span class="align-right">クリーム</span></p>
           <h3 class="product-name">グルコラ<br><span class="align-center">MGクリーム</span></h3>
-          <p class="product-desc">15項目の試験データを参考に設計されたマッサージグロークリーム。高純度グルタチオン×エラスチン×コラーゲン配合。体温でとろける濃密バタークリームが首・デコルテ・ほうれい線まで対応。<br>200ml</p>
+          <p class="product-desc">グルタチオン、エラスチン、コラーゲン配合の韓国保湿クリーム。体温でやわらかくなじむような使用感で、首やデコルテの保湿ケアにも取り入れやすいアイテムです。<br>200ml</p>
           <p class="product-price">¥10,000 <span>(税込)</span></p>
         </div>
       </a>
@@ -2802,7 +2808,7 @@
         <div class="product-body">
           <p class="product-cat">M-KIN / アクネ洗顔</p>
           <h3 class="product-name">ACN⁺ ベルベリン<br><span class="align-center">クレンザー</span></h3>
-          <p class="product-desc">ベルベリン×植物由来成分配合の弱酸性フォームクレンザー。皮脂バランスを整えながらニキビができやすい肌を清潔に保つケア。つっぱりにくく、うるおいを守りながら毛穴汚れをすっきりオフ。<br>200ml</p>
+          <p class="product-desc">ベルベリンと植物由来成分配合の韓国フォームクレンザー。皮脂が気になる肌を清潔に保ち、うるおいを守りながら、すっきりとした洗い上がりへ整えます。<br>200ml</p>
           <p class="product-price">¥6,000 <span>(税込)</span></p>
         </div>
       </a>
@@ -2817,7 +2823,7 @@
           <div class="product-body">
             <p class="product-cat">NABIONEER /<span class="align-right">アクネケア</span></p>
             <h3 class="product-name">A+ スポットパッチ</h3>
-            <p class="product-desc">気になる部分を清潔に保ち、外部刺激や摩擦から守る韓国製ハイドロコロイドパッチ。添加物無添加、半透明・極薄エッジでメイクの上からも目立ちにくい設計。10mm・12mmの2サイズ入り。<br>45枚入り(Aセット/Bセット)。</p>
+            <p class="product-desc">韓国製ハイドロコロイドパッチ。気になる部分を清潔に保ち、外部刺激や摩擦から守ります。半透明で目立ちにくく、10mm・12mmの2サイズを使い分けできます。<br>45枚入り(Aセット/Bセット)。</p>
             <p class="product-price">¥1,980 <span>(税込)</span></p>
           </div>
         </a>
@@ -2834,7 +2840,7 @@
           <div class="product-body">
             <p class="product-cat">Curly Shyll /<span class="align-right">ヘアケア</span></p>
             <h3 class="product-name">アフターサロンケア<br><span class="align-center">リペア</span><span class="align-right">ヘアアンプル</span></h3>
-            <p class="product-desc">高濃度タンパク質（加水分解シルク・ケラチン・コラーゲン）×5種のマリン由来成分配合のサロン発想ホームケアアンプル。シアバター×セラミドがダメージが気になる髪をなめらかな手触りへ整える。試験データを参考に、ハリ感のある髪印象をサポートする処方です。フローラルアンバーの香り。<br>100ml</p>
+            <p class="product-desc">加水分解シルク、ケラチン、コラーゲン配合のヘアアンプル。ダメージが気になる髪をなめらかな手触りへ整え、毎日のヘアケアに取り入れやすいアイテムです。フローラルアンバーの香り。<br>100ml</p>
             <p class="product-price">¥3,520 <span>(税込)</span></p>
           </div>
         </a>
@@ -2849,7 +2855,7 @@
         <div class="product-body">
           <p class="product-cat">Curly Shyll /<span class="align-right">ヘアオイル</span></p>
           <h3 class="product-name">ホワイトリリー<br><span class="align-center">シルキー</span><span class="align-right">オイルセラム</span></h3>
-          <p class="product-desc">韓国全土約11,000店舗で導入されるサロン販売1位のヘアオイルセラム。アルガンオイルなど植物由来オイルがツヤ・うるおい・しなやかさをコーティングし、毛先のパサつき・広がりを抑えてなめらかなツヤ髪へ。ホワイトリリーの上品な香り。<br>100ml</p>
+          <p class="product-desc">植物由来オイル配合の韓国ヘアオイルセラム。毛先のパサつきや広がりが気になる髪を、なめらかな手触りへ整えます。ホワイトリリーの上品な香り。<br>100ml</p>
           <p class="product-price">¥3,520 <span>(税込)</span></p>
         </div>
       </a>
@@ -2864,7 +2870,7 @@
           <div class="product-body">
             <p class="product-cat">Maison et Voyage /<span class="align-right">ハンドケア</span></p>
             <h3 class="product-name">Maison et Voyage<br><span class="align-center">Hand Balm</span></h3>
-            <p class="product-desc">香水のように穏やかに香る韓国ハンドバーム。シアバター配合のメルティングテクスチャーで、手肌と爪まわりにうるおいを与えます。<br>・Bloom in Lanikai<br><span class="scent-note">（マリンコースタルの香り）</span><br>・Woody de Namib<br><span class="scent-note">（ウッディムスクの香り）</span><br>・Blane de St. Barth<br><span class="scent-note">（サンセットフローラルの香り）</span><br>60ml</p>
+            <p class="product-desc">香水のように穏やかに香る韓国ハンドバーム。シアバター配合のメルティングテクスチャーで、手肌と爪まわりにうるおいを与えます。<br>・Bloom in Lanikai<br><span class="scent-note">（マリンコースタルの香り）</span><br>・Woody de Namib<br><span class="scent-note">（ウッディムスクの香り）</span><br>・Blanc de St. Barth<br><span class="scent-note">（サンセットフローラルの香り）</span><br>60ml</p>
             <p class="product-price">¥3,300 <span>(税込)</span></p>
           </div>
         </a>
@@ -2881,7 +2887,7 @@
           <div class="product-body">
             <p class="product-cat">Reju:N / PDRN×NMN</p>
             <h3 class="product-name">リジュエヌ<span class="align-center">クリーム</span></h3>
-            <p class="product-desc">PDRN3000ppm × NMN1000ppmのデュアルフォーミュラにEGF・ナイアシンアミドを高配合。美容施術後のデリケートな肌の保湿ケアや、ニキビ跡・くすみが気になる肌のケアに。サーモン由来PDRNが肌のリズムに着目したケアをサポートし、NMNとのデュアル処方でハリと透明感に着目します。低刺激・無香料で敏感肌にも安心してお使いいただけます。<br>30ml</p>
+            <p class="product-desc">PDRN、NMN、EGF、ナイアシンアミド配合の韓国保湿クリーム。乾燥が気になる肌にうるおいを与え、肌コンディションを整えるケアにおすすめです。<br>30ml</p>
             <p class="product-price">¥4,800 <span>(税込)</span></p>
           </div>
         </a>
@@ -2900,7 +2906,7 @@
           <div class="product-body">
             <p class="product-cat">QUEEN'S GINSENOSIDE RG3 /<span class="align-right">プレミアムセラム</span></p>
             <h3 class="product-name">クイーンズ RG3<br><span class="align-center">モイスチャーセラム</span></h3>
-            <p class="product-desc">高麗人参由来RG3×特許取得ダーマコンプレックス配合。ハリ・透明感・肌荒れケアをこれ一本で叶える、年齢に応じたハリ・うるおいケア。軽やかになじむみずみずしいテクスチャーで、次に使うスキンケアのなじみを高める高濃縮ブースター。<br>80ml</p>
+            <p class="product-desc">高麗人参由来RG3配合のプレミアムセラム。みずみずしい使用感で肌になじみ、年齢に応じたハリ・うるおいケアに取り入れやすいアイテムです。<br>80ml</p>
             <p class="product-price">¥21,450 <span>(税込)</span></p>
           </div>
         </a>
@@ -2919,7 +2925,7 @@
           <div class="product-body">
             <p class="product-cat">QUEEN'S GINSENOSIDE RG3 /<span class="align-right">プレミアムクリーム</span></p>
             <h3 class="product-name">クイーンズ RG3<br><span class="align-center">モイスチャークリーム</span></h3>
-            <p class="product-desc">高麗人参由来RG3×コラーゲン×ヒアルロン酸配合。睡眠中にうるおいと栄養を閉じ込める弾力保湿ナイトクリーム。特許取得の抗酸化成分DERMA-CLERAが、ゆらぎやすい肌をやさしく整え、健やかなうるおいバリアをサポート。<br>50ml</p>
+            <p class="product-desc">高麗人参由来RG3、コラーゲン、ヒアルロン酸配合のプレミアム保湿クリーム。乾燥が気になる肌にうるおいを与え、年齢に応じたハリ感のある肌印象をサポートします。<br>50ml</p>
             <p class="product-price">¥24,200 <span>(税込)</span></p>
           </div>
         </a>
@@ -2934,7 +2940,7 @@
         <div class="product-body">
           <p class="product-cat">CEL:VIV /<span class="align-right">バイオキット</span></p>
           <h3 class="product-name">パーフェクション<br><span class="align-center">バイオキット</span></h3>
-          <p class="product-desc">超低分子ペプチド複合体「SE-Tripeptide 7-Complex」×イタリア産プレミアムブラックキャビア×アラスカサーモンDNA PDRN配合。韓国で機能性化粧品として認証された処方を採用した4週間集中ケアプログラムで、ハリ・血色・透明感に着目。<br>バイオアンプル7ml×4＋バイオクリーム50mlのセット</p>
+          <p class="product-desc">ペプチド複合体、ブラックキャビア、PDRN配合の韓国スキンケアキット。年齢に応じたうるおいケアとして、肌コンディションを整えたい方におすすめです。<br>バイオアンプル7ml×4＋バイオクリーム50mlのセット</p>
           <p class="product-price">¥25,000 <span>(税込)</span></p>
         </div>
         <a href="/products/celviv-bio-kit.html" class="product-detail-link">詳しく見る →</a>
@@ -2964,101 +2970,101 @@
           <span class="brand-tag">ナノコラーゲン（300Da）</span>
           <span class="brand-tag">乳酸菌発酵</span>
         </div>
-        <p class="brand-desc">グルタチオン最大30,000ppm×超低分子コラーゲンを全ラインに配合。洗顔からUVケアまでグルコラシリーズで統一ケア。</p>
+        <p class="brand-desc">グルタチオンとナノコラーゲン（300Da）に着目した韓国スキンケアライン。洗顔からUVケアまで、毎日のスキンケアに取り入れやすいアイテムを展開しています。</p>
         <a href="#products" class="brand-link" data-filter-target="from-the-skin">このブランドの製品を見る →</a>
       </div>
 
       <div class="brand-card reveal" style="transition-delay:.05s">
         <div class="brand-card-header">
           <h3 class="brand-name">M-KIN</h3>
-          <p class="brand-catch">アクネケア特化のダーマコスメ</p>
+          <p class="brand-catch">皮脂が気になる肌のための韓国スキンケア</p>
         </div>
         <div class="brand-tags">
           <span class="brand-tag">ベルベリン</span>
           <span class="brand-tag">植物由来成分</span>
         </div>
-        <p class="brand-desc">ニキビ・肌トラブルに特化した弱酸性処方。皮脂バランスを整えながら肌バリアを守る韓国ダーマコスメブランド。</p>
+        <p class="brand-desc">ベルベリンと植物由来成分に着目した韓国スキンケアブランド。皮脂が気になる肌を清潔に保ち、すこやかな肌印象へ整えるアイテムを展開しています。</p>
         <a href="#products" class="brand-link" data-filter-target="m-kin">このブランドの製品を見る →</a>
       </div>
 
       <div class="brand-card reveal" style="transition-delay:.1s">
         <div class="brand-card-header">
           <h3 class="brand-name">NABIONEER</h3>
-          <p class="brand-catch">医療グレードのアクネパッチ</p>
+          <p class="brand-catch">韓国製ハイドロコロイドパッチ</p>
         </div>
         <div class="brand-tags">
           <span class="brand-tag">ハイドロコロイド</span>
           <span class="brand-tag">無添加処方</span>
         </div>
-        <p class="brand-desc">韓国製ハイドロコロイド素材を使用したクリーンビューティーパッチ。添加物無添加で、気になる部分を外部刺激や摩擦から守ります。</p>
+        <p class="brand-desc">韓国製ハイドロコロイド素材を使用したスポットパッチブランド。気になる部分を清潔に保ち、外部刺激や摩擦から守ります。</p>
         <a href="#products" class="brand-link" data-filter-target="nabioneer">このブランドの製品を見る →</a>
       </div>
 
       <div class="brand-card reveal" style="transition-delay:.15s">
         <div class="brand-card-header">
           <h3 class="brand-name">Curly Shyll</h3>
-          <p class="brand-catch">サロン帰りの髪を自宅で再現するヘアケアライン</p>
+          <p class="brand-catch">韓国サロン発想のヘアケアライン</p>
         </div>
         <div class="brand-tags">
           <span class="brand-tag">加水分解シルク</span>
           <span class="brand-tag">ケラチン</span>
           <span class="brand-tag">マリン由来成分</span>
         </div>
-        <p class="brand-desc">「アフターサロンケアリペアヘアアンプル」を主力に、サロン後の髪質を自宅でキープ。加水分解シルク・ケラチン配合で、韓国全土約11,000店舗で導入される実力派ブランド。</p>
+        <p class="brand-desc">加水分解シルクやケラチンなどの成分に着目した韓国ヘアケアブランド。ダメージが気になる髪を、なめらかな手触りへ整えるアイテムを展開しています。</p>
         <a href="#products" class="brand-link" data-filter-target="curly-shyll">このブランドの製品を見る →</a>
       </div>
 
       <div class="brand-card reveal" style="transition-delay:.2s">
         <div class="brand-card-header">
           <h3 class="brand-name">Maison et Voyage</h3>
-          <p class="brand-catch">ヴィーガン処方の高級ハンドケア</p>
+          <p class="brand-catch">香りを楽しむ韓国ハンドケア</p>
         </div>
         <div class="brand-tags">
           <span class="brand-tag">シアバター</span>
           <span class="brand-tag">天然香料</span>
         </div>
-        <p class="brand-desc">体温でとろけるシアバターベースのハイグレードハンドバーム。香水のような上品な残り香が続くヴィーガンブランド。</p>
+        <p class="brand-desc">シアバターベースのハンドバームを展開する韓国ハンドケアブランド。香水のように穏やかに香り、手肌と爪まわりにうるおいを与えます。</p>
         <a href="#products" class="brand-link" data-filter-target="maison-et-voyage">このブランドの製品を見る →</a>
       </div>
 
       <div class="brand-card reveal" style="transition-delay:.25s">
         <div class="brand-card-header">
           <h3 class="brand-name">Reju:N</h3>
-          <p class="brand-catch">美容施術後の保湿ケア</p>
+          <p class="brand-catch">PDRN・NMN配合の韓国保湿ケア</p>
         </div>
         <div class="brand-tags">
           <span class="brand-tag">PDRN 3000ppm</span>
           <span class="brand-tag">NMN</span>
           <span class="brand-tag">EGF</span>
         </div>
-        <p class="brand-desc">美容医療分野でも注目されるPDRNとNMNを高配合。美容施術後のケアやニキビ跡・くすみが気になる方に特化した、肌コンディションを整えるケアブランド。</p>
+        <p class="brand-desc">PDRN、NMN、EGFなどに着目した韓国スキンケアブランド。乾燥が気になる肌にうるおいを与え、肌コンディションを整えるケアにおすすめです。</p>
         <a href="#products" class="brand-link" data-filter-target="rejun">このブランドの製品を見る →</a>
       </div>
 
       <div class="brand-card reveal" style="transition-delay:.3s">
         <div class="brand-card-header">
           <h3 class="brand-name">RGⅢ</h3>
-          <p class="brand-catch">高麗人参RG3配合のプレミアムライン</p>
+          <p class="brand-catch">高麗人参由来RG3配合の韓国スキンケア</p>
         </div>
         <div class="brand-tags">
           <span class="brand-tag">高麗人参RG3</span>
           <span class="brand-tag">特許取得DERMA-CLERA</span>
         </div>
-        <p class="brand-desc">高麗人参由来の希少成分RG3と特許取得処方を組み合わせた、年齢に応じたハリ・うるおいケアのプレミアムライン。</p>
+        <p class="brand-desc">高麗人参由来RG3に着目した韓国スキンケアライン。年齢に応じたハリ・うるおいケアに取り入れやすいアイテムを展開しています。</p>
         <a href="#products" class="brand-link" data-filter-target="rgiii">このブランドの製品を見る →</a>
       </div>
 
       <div class="brand-card reveal" style="transition-delay:.35s">
         <div class="brand-card-header">
           <h3 class="brand-name">CEL:VIV</h3>
-          <p class="brand-catch">ペプチド×キャビア×PDRNの最高峰ケア</p>
+          <p class="brand-catch">ペプチド・キャビア・PDRN配合の韓国スキンケア</p>
         </div>
         <div class="brand-tags">
           <span class="brand-tag">SE-Tripeptide 7</span>
           <span class="brand-tag">ブラックキャビア</span>
           <span class="brand-tag">PDRN</span>
         </div>
-        <p class="brand-desc">超低分子ペプチド複合体とイタリア産プレミアムブラックキャビア、サーモンDNA PDRNを配合した4週間集中ケアプログラム。</p>
+        <p class="brand-desc">ペプチド複合体、ブラックキャビア、PDRNに着目した韓国スキンケアブランド。年齢に応じたうるおいケアとして、肌コンディションを整えたい方におすすめです。</p>
         <a href="#products" class="brand-link" data-filter-target="celviv">このブランドの製品を見る →</a>
       </div>
 
