@@ -1,0 +1,23 @@
+# 作業用Pythonスクリプト
+*.py
+__pycache__/
+*.pyc
+
+# バックアップ・一時ファイル
+files/
+backup/
+backups/
+tmp/
+temp/
+*.bak
+*.backup
+*.old
+*.tmp
+*.log
+
+# 環境ファイル
+.env
+.env.*
+
+# OS
+.DS_Store
