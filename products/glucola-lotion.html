@@ -222,6 +222,21 @@
       .article-section h2 { font-size:1.25rem; }
       .related-grid { grid-template-columns:repeat(2,1fr); }
     }
+
+    .product-catch { font-family:var(--font-serif); font-size:1.15rem; color:var(--green-mid); font-style:italic; margin:0 auto 1rem; max-width:520px; }
+    .product-tags { display:flex; flex-wrap:wrap; gap:.5rem; justify-content:center; list-style:none; margin:0 0 1.8rem; }
+    .product-tags li { font-size:.76rem; letter-spacing:.05em; color:var(--green-deep); background:var(--warm-white); border:1px solid var(--green-pale); border-radius:50px; padding:.4rem 1.1rem; }
+    .feature-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
+    .feature-card { background:var(--warm-white); border-radius:var(--radius); padding:1.6rem 1.3rem; box-shadow:var(--shadow); text-align:center; }
+    .feature-card h3 { font-size:.98rem; color:var(--green-deep); margin:0 0 .6rem; }
+    .feature-card p { font-size:.85rem; color:var(--text-mid); margin-bottom:0; }
+    .recommend-list { list-style:none; margin:0; padding:0; }
+    .recommend-list li { position:relative; padding-left:1.6rem; margin-bottom:.7rem; font-size:.9rem; color:var(--text-mid); }
+    .recommend-list li::before { content:"✓"; position:absolute; left:0; top:0; color:var(--green-mid); font-weight:600; }
+    .usage-steps { list-style:none; margin:0; padding:0; counter-reset:usage-step; }
+    .usage-steps li { position:relative; padding-left:2.2rem; margin-bottom:1rem; font-size:.9rem; color:var(--text-mid); }
+    .usage-steps li::before { counter-increment:usage-step; content:counter(usage-step); position:absolute; left:0; top:-.1rem; width:1.5rem; height:1.5rem; border-radius:50%; background:var(--green-pale); color:var(--green-deep); font-size:.8rem; font-weight:600; display:flex; align-items:center; justify-content:center; }
+    @media (max-width:768px) { .feature-grid { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -264,43 +279,42 @@
   <section class="article-hero">
     <span class="article-tag">from the skin / グルコラシリーズ</span>
     <h1><span style="display:block;">グルコラ ローション（乳液）</span><span class="h1-sub">グルタチオン×コラーゲン×乳酸菌発酵<br>うるおいを閉じ込める韓国発乳液</span></h1>
+    <p class="product-catch">みずみずしくなじむ、毎日の保湿ケアに。</p>
     <p class="article-lead">グルコラ ローションは、肌にうるおいを与え、なめらかな肌印象へ整える韓国乳液です。みずみずしくなじむ使用感で、毎日のスキンケアに取り入れやすいアイテムです。</p>
     <div class="article-hero-img">
       <img src="../images/product-lotion.webp" alt="グルコラ ローション（乳液）" fetchpriority="high" />
     </div>
+    <ul class="product-tags">
+        <li>うるおいケア</li>
+        <li>なめらかな肌印象</li>
+        <li>乳液</li>
+    </ul>
     <a href="https://luminove.stores.jp/items/679c7ab5a39907055a1726f2" target="_blank" rel="noopener" class="btn-primary" aria-label="グルコラ ローション（乳液）をSTORESで購入する">STORESで購入する →</a>
   </section>
 
+
   <div class="article-body">
     <section class="article-section">
-      <h2>グルコラ ローションとは</h2>
-      <p>「グルコラ ローション」は、韓国発スキンケアブランド「from the skin」が展開するグルコラシリーズの乳液です。化粧水・美容液で与えたうるおいを、しっかりキープするための仕上げステップとして設計されています。グルタチオン・コラーゲン・乳酸菌発酵エキスを配合しています。</p>
-      <div class="cta-box">
-        <p class="price">¥3,800<span>（税込）</span></p>
-        <a href="https://luminove.stores.jp/items/679c7ab5a39907055a1726f2" target="_blank" rel="noopener" class="btn-primary" aria-label="グルコラ ローションをSTORESで購入する">STORESで購入する →</a>
-      </div>
-    </section>
-
-    <section class="article-section">
       <h2>商品の特徴</h2>
-      <div class="ingredient-card">
-        <h3>グルタチオン</h3>
-        <p>美容分野で注目されるアミノ酸由来の成分です。透明感のある肌印象を目指すケアに、毎日取り入れやすい成分です。</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>うるおいを与える</h3>
+          <p>グルタチオン・コラーゲンが乾燥が気になる肌にうるおいを与えます。</p>
+        </div>
+        <div class="feature-card">
+          <h3>なめらかな肌印象へ</h3>
+          <p>乳酸菌発酵エキスが肌のバリア機能を整え、なめらかな肌印象へ整えます。</p>
+        </div>
+        <div class="feature-card">
+          <h3>続けやすい使用感</h3>
+          <p>なめらかに伸びる軽いテクスチャーで、毎日のスキンケアに取り入れやすい使用感です。</p>
+        </div>
       </div>
-      <div class="ingredient-card">
-        <h3>コラーゲン</h3>
-        <p>肌のハリ・弾力を支える代表的な成分です。乾燥が気になる肌にうるおいを与えます。</p>
-      </div>
-      <div class="ingredient-card">
-        <h3>乳酸菌発酵エキス</h3>
-        <p>肌のバリア機能を整え、外的刺激への耐性をサポートする成分です。</p>
-      </div>
-      <p>なめらかに伸びる軽いテクスチャーながら、肌の上にしっとりとした感覚を残してくれるバランスの良い使用感です。ベタつきにくいので、メイク前のスキンケアステップとしても使いやすいのが特徴です。</p>
     </section>
 
     <section class="article-section">
       <h2>こんな方におすすめ</h2>
-      <ul>
+      <ul class="recommend-list">
         <li>乾燥が気になる方</li>
         <li>乳液の重さが苦手な方</li>
         <li>毎日の保湿ケアに韓国スキンケアを取り入れたい方</li>
@@ -309,17 +323,16 @@
 
     <section class="article-section">
       <h2>使用感</h2>
-      <p>なめらかに伸びる使用感で肌になじみ、乾燥が気になる肌にうるおいを与えます。ベタつきにくく、メイク前にも使いやすい乳液です。</p>
+      <p>なめらかに伸びる軽いテクスチャーで、肌にすっとなじみます。ベタつきにくいので、メイク前のスキンケアステップとしても使いやすい使用感です。</p>
     </section>
 
     <section class="article-section">
       <h2>使い方</h2>
-      <table class="spec-table">
-        <tr><th>使用タイミング</th><td>化粧水・美容液のあと</td></tr>
-        <tr><th>使用量</th><td>適量を顔全体に</td></tr>
-        <tr><th>頻度</th><td>毎朝晩（1日2回）</td></tr>
-        <tr><th>組み合わせ</th><td>グルコラ スキン→グルコラ セラム→グルコラ ローションの順がおすすめ</td></tr>
-      </table>
+      <ol class="usage-steps">
+        <li>化粧水・美容液のあと、適量を手に取ります。</li>
+        <li>顔全体にやさしくなじませます。</li>
+        <li>朝晩の仕上げステップとして毎日お使いください。</li>
+      </ol>
     </section>
 
     <section class="article-section">
@@ -334,28 +347,45 @@
     </section>
 
     <section class="article-section">
+      <h2>美容医療の知見を活かした商品選定</h2>
+      <div class="quote-box">
+        <p>
+          「美容医療の知見を持つ代表が、成分コンセプトやブランドの品質面を確認し、LUMINOVEの取り扱い商品として選定しています。」
+        </p>
+        <p class="quote-source">― 株式会社ルミノーブ</p>
+      </div>
+      <p>
+        なお、商品の処方設計・製品開発は各韓国ブランドが行っており、医師が効能効果を保証するものではありません。
+      </p>
+    </section>
+
+    <section class="article-section">
       <h2>注意事項</h2>
       <p style="font-size:.78rem;color:var(--text-light);margin-top:1rem">※使用感には個人差があります。<br>※肌に異常がある場合は使用を中止してください。<br>※化粧品の効能効果を保証するものではありません。<br>※成分・処方に関する表記は、メーカー提供資料に基づくものです。</p>
     </section>
+
+    <div class="cta-box">
+      <p class="price">¥3,800<span>（税込）</span></p>
+      <a href="https://luminove.stores.jp/items/679c7ab5a39907055a1726f2" target="_blank" rel="noopener" class="btn-primary" aria-label="グルコラ ローション（乳液）をSTORESで購入する">STORESで購入する →</a>
+    </div>
 
     <section class="article-section">
       <h2>関連商品</h2>
       <div class="related-grid">
         <a href="/products/glucola-skin.html" class="related-card">
-          <img src="../images/product-skin.webp" alt="グルコラ<br>スキン（化粧水）" loading="lazy" />
+          <img src="../images/product-skin.webp" alt="グルコラスキン（化粧水）" loading="lazy" />
           <p>グルコラ<br>スキン（化粧水）</p>
         </a>
         <a href="/products/glucola-serum.html" class="related-card">
-          <img src="../images/product-serum.webp" alt="グルコラ<br>セラム（美容液）" loading="lazy" />
+          <img src="../images/product-serum.webp" alt="グルコラセラム（美容液）" loading="lazy" />
           <p>グルコラ<br>セラム（美容液）</p>
         </a>
         <a href="/products/glucola-mg-cream.html" class="related-card">
-          <img src="../images/product-mgcream.webp" alt="グルコラ<br>MGクリーム" loading="lazy" />
+          <img src="../images/product-mgcream.webp" alt="グルコラMGクリーム" loading="lazy" />
           <p>グルコラ<br>MGクリーム</p>
         </a>
       </div>
     </section>
-
     <div class="back-link">
       <a href="/#products" class="btn-outline">他の製品を見る →</a>
     </div>

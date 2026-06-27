@@ -222,6 +222,21 @@
       .article-section h2 { font-size:1.25rem; }
       .related-grid { grid-template-columns:repeat(2,1fr); }
     }
+
+    .product-catch { font-family:var(--font-serif); font-size:1.15rem; color:var(--green-mid); font-style:italic; margin:0 auto 1rem; max-width:520px; }
+    .product-tags { display:flex; flex-wrap:wrap; gap:.5rem; justify-content:center; list-style:none; margin:0 0 1.8rem; }
+    .product-tags li { font-size:.76rem; letter-spacing:.05em; color:var(--green-deep); background:var(--warm-white); border:1px solid var(--green-pale); border-radius:50px; padding:.4rem 1.1rem; }
+    .feature-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
+    .feature-card { background:var(--warm-white); border-radius:var(--radius); padding:1.6rem 1.3rem; box-shadow:var(--shadow); text-align:center; }
+    .feature-card h3 { font-size:.98rem; color:var(--green-deep); margin:0 0 .6rem; }
+    .feature-card p { font-size:.85rem; color:var(--text-mid); margin-bottom:0; }
+    .recommend-list { list-style:none; margin:0; padding:0; }
+    .recommend-list li { position:relative; padding-left:1.6rem; margin-bottom:.7rem; font-size:.9rem; color:var(--text-mid); }
+    .recommend-list li::before { content:"✓"; position:absolute; left:0; top:0; color:var(--green-mid); font-weight:600; }
+    .usage-steps { list-style:none; margin:0; padding:0; counter-reset:usage-step; }
+    .usage-steps li { position:relative; padding-left:2.2rem; margin-bottom:1rem; font-size:.9rem; color:var(--text-mid); }
+    .usage-steps li::before { counter-increment:usage-step; content:counter(usage-step); position:absolute; left:0; top:-.1rem; width:1.5rem; height:1.5rem; border-radius:50%; background:var(--green-pale); color:var(--green-deep); font-size:.8rem; font-weight:600; display:flex; align-items:center; justify-content:center; }
+    @media (max-width:768px) { .feature-grid { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -264,39 +279,42 @@
   <section class="article-hero">
     <span class="article-tag">from the skin / グルコラシリーズ</span>
     <h1><span style="display:block;">グルコラ アイクリーム</span><span class="h1-sub">グルタチオン30,000ppm配合<br>ロジウムコーティングローラー付き目もと用ケア</span></h1>
+    <p class="product-catch">乾燥しやすい目もとを、しっとり整える。</p>
     <p class="article-lead">グルコラ アイクリームは、乾燥しやすい目もとにうるおいを与える韓国アイケアアイテムです。年齢に応じたうるおいケアとして、目もとをしっとり整えます。</p>
     <div class="article-hero-img">
       <img src="../images/product-eyecream.webp" alt="グルコラ アイクリーム" fetchpriority="high" />
     </div>
+    <ul class="product-tags">
+        <li>目もとケア</li>
+        <li>うるおい</li>
+        <li>年齢に応じたケア</li>
+    </ul>
     <a href="https://luminove.stores.jp/items/679c793dbe9f7e0520d0f9ce" target="_blank" rel="noopener" class="btn-primary" aria-label="グルコラ アイクリームをSTORESで購入する">STORESで購入する →</a>
   </section>
 
+
   <div class="article-body">
     <section class="article-section">
-      <h2>グルコラ アイクリームとは</h2>
-      <p>目もと・口もとは、顔の中でも特に乾燥が気になりやすいパーツです。「グルコラ アイクリーム」は、配合量に着目したグルタチオン30,000ppmを配合し、デリケートな部分のケアに向けて設計された韓国アイクリームです。</p>
-      <div class="cta-box">
-        <p class="price">¥8,500<span>（税込）</span></p>
-        <a href="https://luminove.stores.jp/items/679c793dbe9f7e0520d0f9ce" target="_blank" rel="noopener" class="btn-primary" aria-label="グルコラ アイクリームをSTORESで購入する">STORESで購入する →</a>
-      </div>
-    </section>
-
-    <section class="article-section">
       <h2>商品の特徴</h2>
-      <div class="ingredient-card">
-        <h3>グルタチオン30,000ppm</h3>
-        <p>美容分野で注目されるアミノ酸由来の成分を、配合量に着目した設計で配合しています。透明感のある肌印象を目指すケアに取り入れやすい成分です。</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>うるおいを与える</h3>
+          <p>グルタチオン30,000ppmが、乾燥しやすい目もと・口もとにうるおいを与えます。</p>
+        </div>
+        <div class="feature-card">
+          <h3>乾燥による小じわを目立ちにくく</h3>
+          <p>うるおいを与えることで、乾燥による小じわを目立ちにくくするケアにおすすめです。</p>
+        </div>
+        <div class="feature-card">
+          <h3>ローラーでなじませやすい</h3>
+          <p>付属のロジウムコーティングローラーで、気になる部分にやさしくなじませられます。</p>
+        </div>
       </div>
-      <div class="ingredient-card">
-        <h3>付属のロジウムコーティングローラー</h3>
-        <p>クリームをなじませながら、目もと・口もとの気になる部分にやさしく広げられます。</p>
-      </div>
-      <p>うるおいを与えながら、乾燥による小じわを目立ちにくくするケアにおすすめのテクスチャーです。</p>
     </section>
 
     <section class="article-section">
       <h2>こんな方におすすめ</h2>
-      <ul>
+      <ul class="recommend-list">
         <li>目もとの乾燥が気になる方</li>
         <li>毎日のアイケアを始めたい方</li>
         <li>しっとりした使用感のアイクリームを探している方</li>
@@ -305,17 +323,16 @@
 
     <section class="article-section">
       <h2>使用感</h2>
-      <p>目もと・口もとなど乾燥が気になる部分に使いやすく、うるおいを与えて乾燥による小じわを目立ちにくくするケアにおすすめです。</p>
+      <p>目もと・口もとなど乾燥が気になる部分に使いやすいしっとりとしたテクスチャーです。ローラーでなじませることで、心地よいひとときになります。</p>
     </section>
 
     <section class="article-section">
       <h2>使い方</h2>
-      <table class="spec-table">
-        <tr><th>使用タイミング</th><td>スキンケアの最後</td></tr>
-        <tr><th>使用量</th><td>適量を目もと・口もとに</td></tr>
-        <tr><th>使い方</th><td>付属のローラーで軽くなじませる</td></tr>
-        <tr><th>頻度</th><td>毎朝晩（1日2回）</td></tr>
-      </table>
+      <ol class="usage-steps">
+        <li>スキンケアの最後に、適量を目もと・口もとに取ります。</li>
+        <li>付属のローラーで軽くなじませます。</li>
+        <li>毎朝晩のケアとしてお使いください。</li>
+      </ol>
     </section>
 
     <section class="article-section">
@@ -331,28 +348,45 @@
     </section>
 
     <section class="article-section">
+      <h2>美容医療の知見を活かした商品選定</h2>
+      <div class="quote-box">
+        <p>
+          「美容医療の知見を持つ代表が、成分コンセプトやブランドの品質面を確認し、LUMINOVEの取り扱い商品として選定しています。」
+        </p>
+        <p class="quote-source">― 株式会社ルミノーブ</p>
+      </div>
+      <p>
+        なお、商品の処方設計・製品開発は各韓国ブランドが行っており、医師が効能効果を保証するものではありません。
+      </p>
+    </section>
+
+    <section class="article-section">
       <h2>注意事項</h2>
       <p style="font-size:.78rem;color:var(--text-light);margin-top:1rem">※使用感には個人差があります。<br>※肌に異常がある場合は使用を中止してください。<br>※化粧品の効能効果を保証するものではありません。<br>※成分・処方に関する表記は、メーカー提供資料に基づくものです。</p>
     </section>
+
+    <div class="cta-box">
+      <p class="price">¥8,500<span>（税込）</span></p>
+      <a href="https://luminove.stores.jp/items/679c793dbe9f7e0520d0f9ce" target="_blank" rel="noopener" class="btn-primary" aria-label="グルコラ アイクリームをSTORESで購入する">STORESで購入する →</a>
+    </div>
 
     <section class="article-section">
       <h2>関連商品</h2>
       <div class="related-grid">
         <a href="/products/glucola-serum.html" class="related-card">
-          <img src="../images/product-serum.webp" alt="グルコラ<br>セラム（美容液）" loading="lazy" />
+          <img src="../images/product-serum.webp" alt="グルコラセラム（美容液）" loading="lazy" />
           <p>グルコラ<br>セラム（美容液）</p>
         </a>
         <a href="/products/glucola-mg-cream.html" class="related-card">
-          <img src="../images/product-mgcream.webp" alt="グルコラ<br>MGクリーム" loading="lazy" />
+          <img src="../images/product-mgcream.webp" alt="グルコラMGクリーム" loading="lazy" />
           <p>グルコラ<br>MGクリーム</p>
         </a>
         <a href="/products/glucola-aura-fit-mask.html" class="related-card">
-          <img src="../images/product-aurafitmask.webp" alt="グルコラ<br>オーラフィット マスク" loading="lazy" />
+          <img src="../images/product-aurafitmask.webp" alt="グルコラオーラフィット マスク" loading="lazy" />
           <p>グルコラ<br>オーラフィット マスク</p>
         </a>
       </div>
     </section>
-
     <div class="back-link">
       <a href="/#products" class="btn-outline">他の製品を見る →</a>
     </div>
