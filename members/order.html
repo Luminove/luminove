@@ -114,8 +114,11 @@
           <option value="沖縄県">沖縄県（送料 ¥1,400）</option>
         </select>
 
-        <label>郵便番号・ご住所<span class="req">必須</span></label>
-        <textarea name="ご住所" rows="2" required></textarea>
+        <label>郵便番号<span class="req">必須</span></label>
+        <input type="text" name="郵便番号" required placeholder="例：106-0032" inputmode="numeric" autocomplete="postal-code" />
+
+        <label>ご住所<span class="req">必須</span></label>
+        <textarea name="ご住所" rows="2" required autocomplete="street-address"></textarea>
 
         <label>お電話番号</label>
         <input type="text" name="お電話番号" />
