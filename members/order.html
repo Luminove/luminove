@@ -236,6 +236,34 @@
     });
 
     calc();
+
+    // 郵便番号 → 住所自動入力（zipcloud API）
+    (function(){
+      var zipInput = document.querySelector('input[name="郵便番号"]');
+      var addrInput = document.querySelector('textarea[name="ご住所"]');
+      var lastFill = '';
+      zipInput.addEventListener('input', function(){
+        var z = this.value
+          .replace(/[０-９]/g, function(c){ return String.fromCharCode(c.charCodeAt(0) - 0xFEE0); })
+          .replace(/[^0-9]/g, '');
+        if (z.length !== 7) return;
+        fetch('https://zipcloud.ibsnet.co.jp/api/search?zipcode=' + z)
+          .then(function(r){ return r.json(); })
+          .then(function(d){
+            if (d.results && d.results[0]) {
+              var r0 = d.results[0];
+              var s = r0.address1 + r0.address2 + r0.address3;
+              if (!addrInput.value.trim() || addrInput.value === lastFill) {
+                addrInput.value = s;
+                lastFill = s;
+                addrInput.focus();
+                addrInput.setSelectionRange(s.length, s.length);
+              }
+            }
+          })
+          .catch(function(){});
+      });
+    })();
   </script>
 </body>
 </html>
