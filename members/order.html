@@ -223,7 +223,13 @@
       var codeOk = document.getElementById('inviteCode').value.trim().toUpperCase() === 'LUMI10';
       document.getElementById('codeError').style.display = codeOk ? 'none' : 'block';
       document.getElementById('itemError').style.display = r.lines.length ? 'none' : 'block';
-      if (!codeOk || !r.lines.length) { e.preventDefault(); return; }
+      if (!codeOk || !r.lines.length) {
+        e.preventDefault();
+        var firstError = !r.lines.length ? document.getElementById('itemError') : document.getElementById('codeError');
+        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (!codeOk) { document.getElementById('inviteCode').focus(); }
+        return;
+      }
 
       var summary =
         r.lines.join('\n') +
