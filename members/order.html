@@ -72,11 +72,9 @@
     <form id="orderForm" action="https://formsubmit.co/shop@luminove.online" method="POST">
       <input type="hidden" name="_subject" value="【LUMINOVE会員】ご注文" />
       <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_next" value="https://www.luminove.online/members/thanks.html" />
       <input type="hidden" name="_autoresponse" value="LUMINOVEへのご注文ありがとうございます。ご注文内容を確認のうえ、振込先口座を shop@luminove.online よりメールでご案内いたします。ご案内から7日以内にお振込みをお願いいたします。ご入金確認後、商品を発送いたします。" />
       <input type="text" name="_honey" style="display:none" />
-      <textarea name="ご注文内容" id="orderSummaryField" style="display:none"></textarea>
 
       <div class="card">
         <h2 style="margin-top:0">商品を選ぶ</h2>
@@ -90,6 +88,8 @@
         <div class="row"><span>会員割引（10%OFF）</span><span id="sumDiscount">-¥0</span></div>
         <div class="row"><span>送料</span><span id="sumShipping">—</span></div>
         <div class="row total"><span>お振込金額</span><span id="sumTotal">¥0</span></div>
+        <label style="margin-top:1rem">ご注文内容の確認（自動入力）</label>
+        <textarea name="ご注文内容" id="orderSummaryField" rows="5" readonly style="font-size:.8rem; background:#fff;"></textarea>
       </div>
 
       <div class="card" style="margin-top:1.5rem">
@@ -212,6 +212,17 @@
       var total = discounted + (shipping || 0);
       document.getElementById('sumTotal').textContent = yen(total);
 
+      var summaryText = '';
+      if (lines.length) {
+        summaryText = lines.join('\n') +
+          '\n----------------------------\n' +
+          '小計（割引前）: ' + yen(subtotal) + '\n' +
+          '会員割引10%: -' + yen(discount) + '\n' +
+          '送料（' + (region || '地域未選択') + '）: ' + (shipping === 0 ? '無料' : (shipping === null ? '未確定' : yen(shipping))) + '\n' +
+          'お振込金額: ' + yen(total);
+      }
+      document.getElementById('orderSummaryField').value = summaryText;
+
       return { subtotal: subtotal, discount: discount, discounted: discounted, shipping: shipping, total: total, lines: lines, region: region };
     }
 
@@ -231,14 +242,6 @@
         return;
       }
 
-      var summary =
-        r.lines.join('\n') +
-        '\n----------------------------\n' +
-        '小計（割引前）: ' + yen(r.subtotal) + '\n' +
-        '会員割引10%: -' + yen(r.discount) + '\n' +
-        '送料（' + r.region + '）: ' + (r.shipping === 0 ? '無料' : yen(r.shipping)) + '\n' +
-        'お振込金額: ' + yen(r.total);
-      document.getElementById('orderSummaryField').value = summary;
     });
 
     calc();
