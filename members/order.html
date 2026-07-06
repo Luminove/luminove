@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>会員専用ご注文ページ｜LUMINOVE</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-deep:#2d4a3e; --green-mid:#4a7c67; --green-light:#7db89a;
+      --green-pale:#d4ede4; --green-mist:#f0f8f4; --cream:#faf8f3;
+      --text-dark:#1a2a23; --text-mid:#4a5c54; --text-light:#8a9e96; --gold:#c8a96a;
+      --font-serif:'Cormorant Garamond','Hiragino Mincho ProN',serif;
+      --font-sans:'Noto Sans JP',sans-serif;
+      --radius:12px; --shadow:0 8px 40px rgba(45,74,62,.10);
+    }
+    body { font-family:var(--font-sans); color:var(--text-dark); background:var(--cream); line-height:1.8; }
+    a { color:inherit; text-decoration:none; }
+    header { padding:1.2rem 5%; background:rgba(250,248,243,.95); box-shadow:0 1px 12px rgba(45,74,62,.06); }
+    .logo { font-family:var(--font-serif); font-size:1.6rem; font-weight:500; letter-spacing:.2em; color:var(--green-deep); }
+    .logo span { color:var(--green-mid); }
+    main { max-width:720px; margin:0 auto; padding:3rem 1.5rem 5rem; }
+    h1 { font-family:var(--font-serif); font-size:1.7rem; font-weight:500; color:var(--green-deep); margin-bottom:.5rem; }
+    h2 { font-family:var(--font-serif); font-size:1.25rem; font-weight:500; color:var(--green-deep); margin:2.2rem 0 .8rem; }
+    .lead { font-size:.9rem; color:var(--text-mid); margin-bottom:1.5rem; }
+    .benefit { background:var(--green-mist); border-radius:var(--radius); padding:1.1rem 1.4rem; margin-bottom:1.5rem; font-size:.85rem; }
+    .card { background:#fff; border-radius:var(--radius); padding:1.6rem 1.5rem; box-shadow:var(--shadow); }
+    table { width:100%; border-collapse:collapse; font-size:.85rem; }
+    th, td { text-align:left; padding:.55rem .3rem; border-bottom:1px solid var(--green-pale); }
+    th { font-weight:500; color:var(--text-mid); font-size:.75rem; letter-spacing:.05em; }
+    td.price { white-space:nowrap; text-align:right; }
+    td.qty { text-align:right; }
+    input[type="number"] { width:4.2em; padding:.4rem .3rem .4rem .5rem; font-size:1rem; border:1px solid var(--green-pale); border-radius:8px; background:var(--cream); text-align:center; }
+    select, input[type="text"], input[type="email"], textarea {
+      width:100%; padding:.7rem .9rem; font-size:1rem; font-family:var(--font-sans);
+      border:1px solid var(--green-pale); border-radius:8px; background:var(--cream);
+    }
+    input:focus, select:focus, textarea:focus { outline:2px solid var(--green-light); }
+    label { display:block; font-size:.85rem; font-weight:500; margin:1.2rem 0 .35rem; }
+    .req { color:#c0604f; font-size:.75rem; margin-left:.3em; }
+    .hint { font-size:.75rem; color:var(--text-light); margin-top:.25rem; }
+    .error { display:none; color:#c0604f; font-size:.8rem; margin-top:.4rem; }
+    .summary { background:var(--green-mist); border-radius:var(--radius); padding:1.3rem 1.5rem; margin-top:1.5rem; font-size:.9rem; }
+    .summary .row { display:flex; justify-content:space-between; padding:.25rem 0; }
+    .summary .total { font-size:1.15rem; font-weight:700; color:var(--green-deep); border-top:1px solid var(--green-light); margin-top:.5rem; padding-top:.6rem; }
+    .summary .free { color:var(--green-mid); font-weight:500; }
+    button {
+      display:block; width:100%; margin-top:1.8rem; padding:.95rem; font-size:.95rem; font-weight:500;
+      font-family:var(--font-sans); letter-spacing:.1em; color:#fff; background:var(--green-deep);
+      border:none; border-radius:50px; cursor:pointer; transition:background .3s;
+    }
+    button:hover { background:var(--green-mid); }
+    .notes { font-size:.78rem; color:var(--text-mid); margin-top:2rem; background:#fff; border-radius:var(--radius); padding:1.3rem 1.5rem; box-shadow:var(--shadow); }
+    .notes h3 { font-size:.85rem; color:var(--green-deep); margin-bottom:.4rem; }
+    .notes ul { list-style:none; }
+    .notes li { padding-left:1em; position:relative; }
+    .notes li::before { content:'・'; position:absolute; left:0; }
+    .back { display:inline-block; margin-top:2.5rem; font-size:.85rem; color:var(--green-mid); }
+  </style>
+</head>
+<body>
+  <header><a href="/" class="logo">LUMI<span>NOVE</span></a></header>
+  <main>
+    <h1>会員専用ご注文ページ</h1>
+    <p class="lead">会員の方だけの特別価格（全商品10%OFF・銀行振込）でご注文いただけます。</p>
+    <div class="benefit">🌿 全商品10%OFF ／ 割引前合計 ¥10,000以上で<strong>送料無料</strong>（未満の場合：全国 ¥900、北海道・沖縄 ¥1,400）</div>
+
+    <form id="orderForm" action="https://formsubmit.co/shop@luminove.online" method="POST">
+      <input type="hidden" name="_subject" value="【LUMINOVE会員】ご注文" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://www.luminove.online/members/thanks.html" />
+      <input type="text" name="_honey" style="display:none" />
+      <textarea name="ご注文内容" id="orderSummaryField" style="display:none"></textarea>
+
+      <div class="card">
+        <h2 style="margin-top:0">商品を選ぶ</h2>
+        <table id="productTable">
+          <tr><th>商品</th><th style="text-align:right">通常価格(税込)</th><th style="text-align:right">数量</th></tr>
+        </table>
+      </div>
+
+      <div class="summary" id="summary">
+        <div class="row"><span>小計（割引前）</span><span id="sumSubtotal">¥0</span></div>
+        <div class="row"><span>会員割引（10%OFF）</span><span id="sumDiscount">-¥0</span></div>
+        <div class="row"><span>送料</span><span id="sumShipping">—</span></div>
+        <div class="row total"><span>お振込金額</span><span id="sumTotal">¥0</span></div>
+      </div>
+
+      <div class="card" style="margin-top:1.5rem">
+        <h2 style="margin-top:0">お届け先・ご連絡先</h2>
+
+        <label>招待コード<span class="req">必須</span></label>
+        <input type="text" id="inviteCode" name="招待コード" autocomplete="off" />
+        <p class="error" id="codeError">招待コードが正しくありません。</p>
+
+        <label>お名前（ご登録のお名前）<span class="req">必須</span></label>
+        <input type="text" name="お名前" required />
+
+        <label>メールアドレス<span class="req">必須</span></label>
+        <input type="email" name="メールアドレス" required />
+        <p class="hint">振込先口座のご案内をこちらにお送りします。</p>
+
+        <label>お届け先地域<span class="req">必須</span></label>
+        <select id="region" name="お届け先地域" required>
+          <option value="">選択してください</option>
+          <option value="その他地域">北海道・沖縄以外（送料 ¥900）</option>
+          <option value="北海道">北海道（送料 ¥1,400）</option>
+          <option value="沖縄県">沖縄県（送料 ¥1,400）</option>
+        </select>
+
+        <label>郵便番号・ご住所<span class="req">必須</span></label>
+        <textarea name="ご住所" rows="2" required></textarea>
+
+        <label>お電話番号</label>
+        <input type="text" name="お電話番号" />
+
+        <label>備考</label>
+        <textarea name="備考" rows="2"></textarea>
+
+        <button type="submit">注文する（銀行振込）</button>
+        <p class="error" id="itemError" style="text-align:center">商品を1点以上お選びください。</p>
+      </div>
+    </form>
+
+    <div class="notes">
+      <h3>ご注文の流れ・ご注意</h3>
+      <ul>
+        <li>ご注文確認後、振込先口座をメールでご案内します（前払い制）。</li>
+        <li>ご案内から7日以内にお振込みください。振込手数料はお客様のご負担となります。</li>
+        <li>ご入金の確認後、商品を発送いたします。</li>
+        <li>ご入金前のキャンセルは可能です。メールでご連絡ください。</li>
+        <li>商品の性質上、お客様都合による返品・交換はお受けできません。不良品は交換対応いたします。</li>
+      </ul>
+    </div>
+
+    <a href="/" class="back">← LUMINOVE トップへ戻る</a>
+  </main>
+
+  <script>
+    var PRODUCTS = [
+      { name: 'グルコラ クレンジングフォーム', price: 3500 },
+      { name: 'グルコラ スキン（化粧水）', price: 3500 },
+      { name: 'グルコラ セラム（美容液）', price: 7200 },
+      { name: 'グルコラ ローション（乳液）', price: 3800 },
+      { name: 'グルコラ アイクリーム', price: 8500 },
+      { name: 'グルコラ ピリングパック', price: 4800 },
+      { name: 'グルコラ ピリングパックⅡ', price: 5500 },
+      { name: 'グルコラ オーラフィットマスク', price: 3960 },
+      { name: 'グルコラ 極液ミスト', price: 3500 },
+      { name: 'グルコラ MGクリーム', price: 10000 },
+      { name: 'グルコラ サンクリーム', price: 3500 },
+      { name: 'グルコラ サンジェルパッチ', price: 4100 },
+      { name: 'ACN⁺ ベルベリンクレンザー', price: 6000 },
+      { name: 'A+ スポットパッチ Aセット（10mm×30枚/12mm×15枚）', price: 1980 },
+      { name: 'A+ スポットパッチ Bセット（10mm×15枚/12mm×30枚）', price: 1980 },
+      { name: 'アフターサロンケア リペアヘアアンプル', price: 3520 },
+      { name: 'ホワイトリリー シルキーオイルセラム', price: 3520 },
+      { name: 'Maison et Voyage Hand Balm（Bloom in Lanikai）', price: 3300 },
+      { name: 'Maison et Voyage Hand Balm（Woody de Namib）', price: 3300 },
+      { name: 'Maison et Voyage Hand Balm（Blanc de St. Barth）', price: 3300 },
+      { name: 'リジュエヌ クリーム', price: 4800 },
+      { name: 'クイーンズ RG3 モイスチャーセラム', price: 21450 },
+      { name: 'クイーンズ RG3 モイスチャークリーム', price: 24200 }
+    ];
+    var FREE_SHIPPING_MIN = 10000;
+    var SHIPPING = { '北海道': 1400, '沖縄県': 1400, 'その他地域': 900 };
+
+    var table = document.getElementById('productTable');
+    PRODUCTS.forEach(function(p, i){
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + p.name + '</td>' +
+        '<td class="price">¥' + p.price.toLocaleString() + '</td>' +
+        '<td class="qty"><input type="number" min="0" max="99" value="0" data-idx="' + i + '" inputmode="numeric" /></td>';
+      table.appendChild(tr);
+    });
+
+    function yen(n){ return '¥' + n.toLocaleString(); }
+
+    function calc(){
+      var subtotal = 0;
+      var lines = [];
+      document.querySelectorAll('#productTable input[type="number"]').forEach(function(inp){
+        var q = parseInt(inp.value, 10) || 0;
+        if (q > 0) {
+          var p = PRODUCTS[inp.dataset.idx];
+          subtotal += p.price * q;
+          lines.push(p.name + ' × ' + q + ' = ' + yen(p.price * q));
+        }
+      });
+      var discounted = Math.floor(subtotal * 0.9);
+      var discount = subtotal - discounted;
+      var region = document.getElementById('region').value;
+      var shipping = null;
+      if (subtotal >= FREE_SHIPPING_MIN) { shipping = 0; }
+      else if (region && SHIPPING[region] !== undefined) { shipping = SHIPPING[region]; }
+
+      document.getElementById('sumSubtotal').textContent = yen(subtotal);
+      document.getElementById('sumDiscount').textContent = '-' + yen(discount);
+      var shipEl = document.getElementById('sumShipping');
+      if (shipping === 0) { shipEl.innerHTML = '<span class="free">無料（¥10,000以上）</span>'; }
+      else if (shipping === null) { shipEl.textContent = '地域を選択してください'; }
+      else { shipEl.textContent = yen(shipping); }
+      var total = discounted + (shipping || 0);
+      document.getElementById('sumTotal').textContent = yen(total);
+
+      return { subtotal: subtotal, discount: discount, discounted: discounted, shipping: shipping, total: total, lines: lines, region: region };
+    }
+
+    document.getElementById('productTable').addEventListener('input', calc);
+    document.getElementById('region').addEventListener('change', calc);
+
+    document.getElementById('orderForm').addEventListener('submit', function(e){
+      var r = calc();
+      var codeOk = document.getElementById('inviteCode').value.trim().toUpperCase() === 'LUMI10';
+      document.getElementById('codeError').style.display = codeOk ? 'none' : 'block';
+      document.getElementById('itemError').style.display = r.lines.length ? 'none' : 'block';
+      if (!codeOk || !r.lines.length) { e.preventDefault(); return; }
+
+      var summary =
+        r.lines.join('\n') +
+        '\n----------------------------\n' +
+        '小計（割引前）: ' + yen(r.subtotal) + '\n' +
+        '会員割引10%: -' + yen(r.discount) + '\n' +
+        '送料（' + r.region + '）: ' + (r.shipping === 0 ? '無料' : yen(r.shipping)) + '\n' +
+        'お振込金額: ' + yen(r.total);
+      document.getElementById('orderSummaryField').value = summary;
+    });
+
+    calc();
+  </script>
+</body>
+</html>

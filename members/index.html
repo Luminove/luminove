@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>会員登録｜LUMINOVE</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-deep:#2d4a3e; --green-mid:#4a7c67; --green-light:#7db89a;
+      --green-pale:#d4ede4; --green-mist:#f0f8f4; --cream:#faf8f3;
+      --text-dark:#1a2a23; --text-mid:#4a5c54; --text-light:#8a9e96;
+      --font-serif:'Cormorant Garamond','Hiragino Mincho ProN',serif;
+      --font-sans:'Noto Sans JP',sans-serif;
+      --radius:12px; --shadow:0 8px 40px rgba(45,74,62,.10);
+    }
+    body { font-family:var(--font-sans); color:var(--text-dark); background:var(--cream); line-height:1.8; }
+    a { color:inherit; text-decoration:none; }
+    header { padding:1.2rem 5%; background:rgba(250,248,243,.95); box-shadow:0 1px 12px rgba(45,74,62,.06); }
+    .logo { font-family:var(--font-serif); font-size:1.6rem; font-weight:500; letter-spacing:.2em; color:var(--green-deep); }
+    .logo span { color:var(--green-mid); }
+    main { max-width:560px; margin:0 auto; padding:3rem 1.5rem 5rem; }
+    h1 { font-family:var(--font-serif); font-size:1.7rem; font-weight:500; color:var(--green-deep); margin-bottom:.5rem; }
+    .lead { font-size:.9rem; color:var(--text-mid); margin-bottom:2rem; }
+    .benefit { background:var(--green-mist); border-radius:var(--radius); padding:1.3rem 1.5rem; margin-bottom:2rem; font-size:.9rem; }
+    .benefit strong { color:var(--green-deep); }
+    .benefit ul { list-style:none; margin-top:.5rem; }
+    .benefit li { padding-left:1.2em; position:relative; }
+    .benefit li::before { content:'✓'; position:absolute; left:0; color:var(--green-mid); }
+    form { background:#fff; border-radius:var(--radius); padding:2rem 1.8rem; box-shadow:var(--shadow); }
+    label { display:block; font-size:.85rem; font-weight:500; margin:1.2rem 0 .35rem; }
+    label:first-of-type { margin-top:0; }
+    .req { color:#c0604f; font-size:.75rem; margin-left:.3em; }
+    input[type="text"], input[type="email"] {
+      width:100%; padding:.7rem .9rem; font-size:1rem; font-family:var(--font-sans);
+      border:1px solid var(--green-pale); border-radius:8px; background:var(--cream);
+    }
+    input:focus { outline:2px solid var(--green-light); }
+    .hint { font-size:.75rem; color:var(--text-light); margin-top:.25rem; }
+    .error { display:none; color:#c0604f; font-size:.8rem; margin-top:.4rem; }
+    button {
+      display:block; width:100%; margin-top:1.8rem; padding:.95rem; font-size:.95rem; font-weight:500;
+      font-family:var(--font-sans); letter-spacing:.1em; color:#fff; background:var(--green-deep);
+      border:none; border-radius:50px; cursor:pointer; transition:background .3s;
+    }
+    button:hover { background:var(--green-mid); }
+    .note { font-size:.75rem; color:var(--text-light); margin-top:1.5rem; }
+    .back { display:inline-block; margin-top:2.5rem; font-size:.85rem; color:var(--green-mid); }
+  </style>
+</head>
+<body>
+  <header><a href="/" class="logo">LUMI<span>NOVE</span></a></header>
+  <main>
+    <h1>会員登録</h1>
+    <p class="lead">LUMINOVEをご愛顧いただいている方への特別なご案内です。ご登録には招待コードが必要です。</p>
+
+    <div class="benefit">
+      <strong>会員特典</strong>
+      <ul>
+        <li>全商品 いつでも10%OFF（銀行振込でのご注文）</li>
+        <li>お買い上げ合計1万円以上（割引前）で送料無料</li>
+      </ul>
+    </div>
+
+    <form id="regForm" action="https://formsubmit.co/shop@luminove.online" method="POST">
+      <input type="hidden" name="_subject" value="【LUMINOVE会員】新規登録" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://www.luminove.online/members/thanks.html" />
+      <input type="text" name="_honey" style="display:none" />
+
+      <label>招待コード<span class="req">必須</span></label>
+      <input type="text" id="inviteCode" name="招待コード" autocomplete="off" />
+      <p class="hint">ご紹介者からお伝えしているコードをご入力ください。</p>
+      <p class="error" id="codeError">招待コードが正しくありません。</p>
+
+      <label>お名前<span class="req">必須</span></label>
+      <input type="text" name="お名前" required />
+
+      <label>メールアドレス<span class="req">必須</span></label>
+      <input type="email" name="メールアドレス" required />
+
+      <button type="submit">登録する</button>
+      <p class="note">ご登録いただいた情報は、会員向けのご案内とご注文の確認のみに使用します。登録完了後、ご注文ページのご案内をメールでお送りします。</p>
+    </form>
+
+    <a href="/" class="back">← LUMINOVE トップへ戻る</a>
+  </main>
+
+  <script>
+    document.getElementById('regForm').addEventListener('submit', function(e){
+      var code = document.getElementById('inviteCode').value.trim().toUpperCase();
+      if (code !== 'LUMI10') {
+        e.preventDefault();
+        document.getElementById('codeError').style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
