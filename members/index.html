@@ -63,41 +63,30 @@
       <p>メンバー様には特別なご案内をご用意しています。詳しくは、ログイン後のご注文ページにてご確認ください。</p>
     </div>
 
-    <form id="regForm" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="995f304f-26fd-404e-8153-ab1e246b8e5c" />
-      <input type="hidden" name="subject" value="【LUMINOVE】メンバーログイン" />
-      <input type="hidden" name="from_name" value="LUMINOVE メンバー" />
-      <input type="hidden" name="redirect" value="https://www.luminove.online/members/order.html?welcome=1" />
-      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
-
+    <form id="loginForm">
       <label>ログインコード<span class="req">必須</span></label>
-      <input type="text" id="inviteCode" name="ログインコード" autocomplete="off" />
+      <input type="text" id="inviteCode" autocomplete="off" />
       <p class="hint">お配りしているログインコードをご入力ください。</p>
       <p class="error" id="codeError">ログインコードが正しくありません。</p>
 
-      <label>お名前<span class="req">必須</span></label>
-      <input type="text" name="お名前" required />
-
-      <label>メールアドレス<span class="req">必須</span></label>
-      <input type="email" name="email" required />
-
       <button type="submit">ログイン</button>
-      <p class="note">ご入力いただいた情報は、メンバー様へのご案内とご注文の確認のみに使用します。ログインすると、そのままご注文ページへ移動します。</p>
+      <p class="note">ログインすると、そのままご注文ページへ移動します。</p>
     </form>
 
     <a href="/" class="back">← LUMINOVE トップへ戻る</a>
   </main>
 
   <script>
-    document.getElementById('regForm').addEventListener('submit', function(e){
+    document.getElementById('loginForm').addEventListener('submit', function(e){
+      e.preventDefault();
       var code = document.getElementById('inviteCode').value.trim().toUpperCase();
       if (code !== 'LUMI10') {
-        e.preventDefault();
         document.getElementById('codeError').style.display = 'block';
         return;
       }
-      // ログイン通過を注文ページへ引き継ぐ（二度打ち防止）
+      // ログイン通過を記録して注文ページへ（メール送信はしない）
       try { sessionStorage.setItem('luminove_invite_ok', '1'); } catch (err) {}
+      location.href = '/members/order.html';
     });
   </script>
 </body>
