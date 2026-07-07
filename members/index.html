@@ -94,7 +94,10 @@
       if (code !== 'LUMI10') {
         e.preventDefault();
         document.getElementById('codeError').style.display = 'block';
+        return;
       }
+      // 登録通過を注文ページへ引き継ぐ（二度打ち防止）
+      try { sessionStorage.setItem('luminove_invite_ok', '1'); } catch (err) {}
     });
   </script>
 </body>

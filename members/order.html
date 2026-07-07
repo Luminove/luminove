@@ -95,9 +95,12 @@
       <div class="card" style="margin-top:1.5rem">
         <h2 style="margin-top:0">お届け先・ご連絡先</h2>
 
-        <label>招待コード<span class="req">必須</span></label>
-        <input type="text" id="inviteCode" name="招待コード" autocomplete="off" />
-        <p class="error" id="codeError">招待コードが正しくありません。</p>
+        <div id="inviteCodeWrap">
+          <label>招待コード<span class="req">必須</span></label>
+          <input type="text" id="inviteCode" name="招待コード" autocomplete="off" />
+          <p class="hint">会員登録ページからお越しの場合は入力不要です。</p>
+          <p class="error" id="codeError">招待コードが正しくありません。</p>
+        </div>
 
         <label>お名前（ご登録のお名前）<span class="req">必須</span></label>
         <input type="text" name="お名前" required />
@@ -250,6 +253,16 @@
     });
 
     calc();
+
+    // 会員登録ページを通過済みなら招待コードを引き継ぎ、入力欄を隠す
+    (function(){
+      try {
+        if (sessionStorage.getItem('luminove_invite_ok') === '1') {
+          document.getElementById('inviteCode').value = 'LUMI10';
+          document.getElementById('inviteCodeWrap').style.display = 'none';
+        }
+      } catch (err) {}
+    })();
 
     // 郵便番号 → 住所自動入力（zipcloud API）
     (function(){
