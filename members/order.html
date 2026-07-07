@@ -109,13 +109,16 @@
         <input type="email" name="email" required />
         <p class="hint">振込先口座のご案内をこちらにお送りします。</p>
 
-        <label>お届け先地域<span class="req">必須</span></label>
-        <select id="region" name="お届け先地域" required>
-          <option value="">選択してください</option>
-          <option value="その他地域">北海道・沖縄以外（送料 ¥900）</option>
-          <option value="北海道">北海道（送料 ¥1,400）</option>
-          <option value="沖縄県">沖縄県（送料 ¥1,400）</option>
-        </select>
+        <div id="regionWrap">
+          <label>お届け先地域<span class="req">必須</span></label>
+          <select id="region" name="お届け先地域" required>
+            <option value="">選択してください</option>
+            <option value="その他地域">北海道・沖縄以外（送料 ¥900）</option>
+            <option value="北海道">北海道（送料 ¥1,400）</option>
+            <option value="沖縄県">沖縄県（送料 ¥1,400）</option>
+          </select>
+          <p class="hint">送料の計算に使用します。</p>
+        </div>
 
         <label>郵便番号<span class="req">必須</span></label>
         <input type="text" name="郵便番号" required placeholder="例：106-0032" inputmode="numeric" autocomplete="postal-code" />
@@ -201,9 +204,22 @@
       });
       var discounted = Math.floor(subtotal * 0.9);
       var discount = subtotal - discounted;
-      var region = document.getElementById('region').value;
+      var freeShip = subtotal >= FREE_SHIPPING_MIN;
+
+      // 送料無料（1万円以上）なら地域欄を隠して必須も外す
+      var regionSelect = document.getElementById('region');
+      var regionWrap = document.getElementById('regionWrap');
+      if (freeShip) {
+        regionWrap.style.display = 'none';
+        regionSelect.required = false;
+      } else {
+        regionWrap.style.display = '';
+        regionSelect.required = true;
+      }
+
+      var region = regionSelect.value;
       var shipping = null;
-      if (subtotal >= FREE_SHIPPING_MIN) { shipping = 0; }
+      if (freeShip) { shipping = 0; }
       else if (region && SHIPPING[region] !== undefined) { shipping = SHIPPING[region]; }
 
       document.getElementById('sumSubtotal').textContent = yen(subtotal);
@@ -217,11 +233,14 @@
 
       var summaryText = '';
       if (lines.length) {
+        var shipLine = freeShip
+          ? '送料: 無料（¥10,000以上）'
+          : '送料（' + (region || '地域未選択') + '）: ' + (shipping === null ? '未確定' : yen(shipping));
         summaryText = lines.join('\n') +
           '\n----------------------------\n' +
           '小計（割引前）: ' + yen(subtotal) + '\n' +
           '会員割引10%: -' + yen(discount) + '\n' +
-          '送料（' + (region || '地域未選択') + '）: ' + (shipping === 0 ? '無料' : (shipping === null ? '未確定' : yen(shipping))) + '\n' +
+          shipLine + '\n' +
           'お振込金額: ' + yen(total);
       }
       document.getElementById('orderSummaryField').value = summaryText;
