@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>会員登録｜LUMINOVE</title>
+  <title>メンバーログイン｜LUMINOVE</title>
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -55,25 +55,25 @@
 <body>
   <header><a href="/" class="logo">LUMI<span>NOVE</span></a></header>
   <main>
-    <h1>会員登録</h1>
-    <p class="lead">LUMINOVEをご愛顧いただいている方への特別なご案内です。ご登録には招待コードが必要です。</p>
+    <h1>メンバーログイン</h1>
+    <p class="lead">LUMINOVEメンバー様専用のページです。ログインには、お配りしているログインコードが必要です。</p>
 
     <div class="benefit">
-      <strong>会員特典</strong>
-      <p>ご登録いただいた方だけの特別なご案内をご用意しています。詳しくは、ご登録後のご注文ページにてご確認ください。</p>
+      <strong>メンバー特典</strong>
+      <p>メンバー様には特別なご案内をご用意しています。詳しくは、ログイン後のご注文ページにてご確認ください。</p>
     </div>
 
     <form id="regForm" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="995f304f-26fd-404e-8153-ab1e246b8e5c" />
-      <input type="hidden" name="subject" value="【LUMINOVE会員】新規登録" />
-      <input type="hidden" name="from_name" value="LUMINOVE 会員登録" />
+      <input type="hidden" name="subject" value="【LUMINOVE】メンバーログイン" />
+      <input type="hidden" name="from_name" value="LUMINOVE メンバー" />
       <input type="hidden" name="redirect" value="https://www.luminove.online/members/order.html?welcome=1" />
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
 
-      <label>招待コード<span class="req">必須</span></label>
-      <input type="text" id="inviteCode" name="招待コード" autocomplete="off" />
-      <p class="hint">ご紹介者からお伝えしているコードをご入力ください。</p>
-      <p class="error" id="codeError">招待コードが正しくありません。</p>
+      <label>ログインコード<span class="req">必須</span></label>
+      <input type="text" id="inviteCode" name="ログインコード" autocomplete="off" />
+      <p class="hint">お配りしているログインコードをご入力ください。</p>
+      <p class="error" id="codeError">ログインコードが正しくありません。</p>
 
       <label>お名前<span class="req">必須</span></label>
       <input type="text" name="お名前" required />
@@ -81,8 +81,8 @@
       <label>メールアドレス<span class="req">必須</span></label>
       <input type="email" name="email" required />
 
-      <button type="submit">登録する</button>
-      <p class="note">ご登録いただいた情報は、会員向けのご案内とご注文の確認のみに使用します。登録が完了すると、そのままご注文ページへ移動します。</p>
+      <button type="submit">ログイン</button>
+      <p class="note">ご入力いただいた情報は、メンバー様へのご案内とご注文の確認のみに使用します。ログインすると、そのままご注文ページへ移動します。</p>
     </form>
 
     <a href="/" class="back">← LUMINOVE トップへ戻る</a>
@@ -96,7 +96,7 @@
         document.getElementById('codeError').style.display = 'block';
         return;
       }
-      // 登録通過を注文ページへ引き継ぐ（二度打ち防止）
+      // ログイン通過を注文ページへ引き継ぐ（二度打ち防止）
       try { sessionStorage.setItem('luminove_invite_ok', '1'); } catch (err) {}
     });
   </script>

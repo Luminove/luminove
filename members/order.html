@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow" />
   <title>会員専用ご注文ページ｜LUMINOVE</title>
   <script>
-    // 会員登録を通っていない場合は登録ページへ誘導（唯一の入口に統一）
+    // メンバーログインを通っていない場合はログインページへ誘導（唯一の入口に統一）
     (function(){
       var ok = false;
       try { ok = sessionStorage.getItem('luminove_invite_ok') === '1'; } catch (e) {}
@@ -107,9 +107,9 @@
       <div class="card" style="margin-top:1.5rem">
         <h2 style="margin-top:0">お届け先・ご連絡先</h2>
 
-        <input type="hidden" id="inviteCode" name="招待コード" value="LUMI10" />
+        <input type="hidden" id="inviteCode" name="ログインコード" value="LUMI10" />
 
-        <label>お名前（ご登録のお名前）<span class="req">必須</span></label>
+        <label>お名前<span class="req">必須</span></label>
         <input type="text" name="お名前" required />
 
         <label>メールアドレス<span class="req">必須</span></label>
