@@ -69,12 +69,12 @@
     <p class="lead">会員の方だけの特別価格（全商品10%OFF・銀行振込）でご注文いただけます。</p>
     <div class="benefit">🌿 全商品10%OFF ／ 割引前合計 ¥10,000以上で<strong>送料無料</strong>（未満の場合：全国 ¥900、北海道・沖縄 ¥1,400）</div>
 
-    <form id="orderForm" action="https://formsubmit.co/shop@luminove.online" method="POST">
-      <input type="hidden" name="_subject" value="【LUMINOVE会員】ご注文" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_next" value="https://www.luminove.online/members/thanks.html" />
-      <input type="hidden" name="_autoresponse" value="LUMINOVEへのご注文ありがとうございます。ご注文内容を確認のうえ、振込先口座を shop@luminove.online よりメールでご案内いたします。ご案内から7日以内にお振込みをお願いいたします。ご入金確認後、商品を発送いたします。" />
-      <input type="text" name="_honey" style="display:none" />
+    <form id="orderForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="995f304f-26fd-404e-8153-ab1e246b8e5c" />
+      <input type="hidden" name="subject" value="【LUMINOVE会員】ご注文" />
+      <input type="hidden" name="from_name" value="LUMINOVE ご注文" />
+      <input type="hidden" name="redirect" value="https://www.luminove.online/members/thanks.html" />
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
 
       <div class="card">
         <h2 style="margin-top:0">商品を選ぶ</h2>

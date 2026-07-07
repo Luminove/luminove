@@ -63,12 +63,12 @@
       <p>ご登録いただいた方だけの特別なご案内をご用意しています。詳しくは、ご登録後のご注文ページにてご確認ください。</p>
     </div>
 
-    <form id="regForm" action="https://formsubmit.co/shop@luminove.online" method="POST">
-      <input type="hidden" name="_subject" value="【LUMINOVE会員】新規登録" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_next" value="https://www.luminove.online/members/order.html" />
-      <input type="hidden" name="_autoresponse" value="LUMINOVE会員へのご登録ありがとうございます。ご注文は会員専用ページから承ります。 https://www.luminove.online/members/order.html （ご注文時にも招待コードの入力が必要です） ご注文確認後、振込先口座をメールでご案内いたします。今後ともLUMINOVEをよろしくお願いいたします。" />
-      <input type="text" name="_honey" style="display:none" />
+    <form id="regForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="995f304f-26fd-404e-8153-ab1e246b8e5c" />
+      <input type="hidden" name="subject" value="【LUMINOVE会員】新規登録" />
+      <input type="hidden" name="from_name" value="LUMINOVE 会員登録" />
+      <input type="hidden" name="redirect" value="https://www.luminove.online/members/order.html" />
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
 
       <label>招待コード<span class="req">必須</span></label>
       <input type="text" id="inviteCode" name="招待コード" autocomplete="off" />
