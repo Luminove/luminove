@@ -79,7 +79,11 @@
   <script>
     document.getElementById('loginForm').addEventListener('submit', function(e){
       e.preventDefault();
-      var code = document.getElementById('inviteCode').value.trim().toUpperCase();
+      var code = document.getElementById('inviteCode').value
+        .replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(c){ return String.fromCharCode(c.charCodeAt(0) - 0xFEE0); }) // 全角英数→半角
+        .replace(/　/g, ' ') // 全角スペース→半角
+        .trim()
+        .toUpperCase();
       if (code !== 'LUMI10') {
         document.getElementById('codeError').style.display = 'block';
         return;
