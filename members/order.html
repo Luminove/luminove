@@ -120,7 +120,7 @@
           <label>お届け先地域<span class="req">必須</span></label>
           <select id="region" name="お届け先地域" required>
             <option value="">選択してください</option>
-            <option value="その他地域">北海道・沖縄以外（送料 ¥900）</option>
+            <option value="本州・四国・九州">本州・四国・九州（送料 ¥900）</option>
             <option value="北海道">北海道（送料 ¥1,400）</option>
             <option value="沖縄県">沖縄県（送料 ¥1,400）</option>
           </select>
@@ -185,7 +185,7 @@
       { name: 'クイーンズ RG3 モイスチャークリーム', price: 24200 }
     ];
     var FREE_SHIPPING_MIN = 10000;
-    var SHIPPING = { '北海道': 1400, '沖縄県': 1400, 'その他地域': 900 };
+    var SHIPPING = { '北海道': 1400, '沖縄県': 1400, '本州・四国・九州': 900 };
 
     var table = document.getElementById('productTable');
     PRODUCTS.forEach(function(p, i){
