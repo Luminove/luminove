@@ -242,6 +242,11 @@
         return;
       }
 
+      // 送信成功時：完了ページで注文控えを表示するため保存
+      try {
+        sessionStorage.setItem('luminove_order_summary', document.getElementById('orderSummaryField').value);
+        sessionStorage.setItem('luminove_order_name', document.querySelector('input[name="お名前"]').value || '');
+      } catch (err) {}
     });
 
     calc();

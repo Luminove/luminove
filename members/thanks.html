@@ -27,16 +27,43 @@
     h1 { font-family:var(--font-serif); font-size:1.6rem; font-weight:500; color:var(--green-deep); margin-bottom:1rem; }
     p { font-size:.9rem; color:var(--text-mid); }
     .back { display:inline-block; margin-top:2rem; padding:.8rem 2.2rem; font-size:.85rem; color:#fff; background:var(--green-deep); border-radius:50px; }
+    .order-receipt { margin-top:1.8rem; text-align:left; background:var(--green-mist); border-radius:var(--radius); padding:1.4rem 1.5rem; }
+    .order-receipt h2 { font-family:var(--font-serif); font-size:1.1rem; font-weight:500; color:var(--green-deep); margin-bottom:.3rem; }
+    .order-receipt .receipt-note { font-size:.75rem; color:var(--text-light); margin-bottom:.8rem; }
+    .order-receipt pre { font-family:var(--font-sans); font-size:.82rem; color:var(--text-dark); white-space:pre-wrap; word-break:break-word; line-height:1.7; margin:0; }
   </style>
 </head>
 <body>
   <header><a href="/" class="logo">LUMI<span>NOVE</span></a></header>
   <main>
     <div class="card">
-      <h1>送信が完了しました</h1>
-      <p>ありがとうございます。内容を確認のうえ、担当より <strong>shop@luminove.online</strong> からメールでご連絡いたします。<br>2営業日を過ぎても連絡がない場合は、お手数ですが迷惑メールフォルダをご確認ください。</p>
+      <h1>ご注文ありがとうございます</h1>
+      <p>ご注文を受け付けました。内容を確認のうえ、担当より <strong>shop@luminove.online</strong> からお振込先とあわせてメールでご連絡いたします。<br>2営業日を過ぎても連絡がない場合は、お手数ですが迷惑メールフォルダをご確認ください。</p>
+
+      <div class="order-receipt" id="orderReceipt" style="display:none">
+        <h2>ご注文内容の控え</h2>
+        <p class="receipt-note">この内容はお客様の確認用です。念のためスクリーンショットで保存いただくと安心です。</p>
+        <pre id="receiptBody"></pre>
+      </div>
+
       <a href="/" class="back">LUMINOVE トップへ</a>
     </div>
   </main>
+
+  <script>
+    (function(){
+      try {
+        var summary = sessionStorage.getItem('luminove_order_summary');
+        var name = sessionStorage.getItem('luminove_order_name');
+        if (summary) {
+          var body = (name ? name + ' 様\n\n' : '') + summary;
+          document.getElementById('receiptBody').textContent = body;
+          document.getElementById('orderReceipt').style.display = 'block';
+          sessionStorage.removeItem('luminove_order_summary');
+          sessionStorage.removeItem('luminove_order_name');
+        }
+      } catch (err) {}
+    })();
+  </script>
 </body>
 </html>
