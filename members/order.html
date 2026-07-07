@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>会員専用ご注文ページ｜LUMINOVE</title>
+  <script>
+    // 会員登録を通っていない場合は登録ページへ誘導（唯一の入口に統一）
+    (function(){
+      var ok = false;
+      try { ok = sessionStorage.getItem('luminove_invite_ok') === '1'; } catch (e) {}
+      if (!ok && /[?&]welcome=1/.test(location.search)) {
+        ok = true;
+        try { sessionStorage.setItem('luminove_invite_ok', '1'); } catch (e) {}
+      }
+      if (!ok) { location.replace('/members/'); }
+    })();
+  </script>
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -95,12 +107,7 @@
       <div class="card" style="margin-top:1.5rem">
         <h2 style="margin-top:0">お届け先・ご連絡先</h2>
 
-        <div id="inviteCodeWrap">
-          <label>招待コード<span class="req">必須</span></label>
-          <input type="text" id="inviteCode" name="招待コード" autocomplete="off" />
-          <p class="hint">会員登録ページからお越しの場合は入力不要です。</p>
-          <p class="error" id="codeError">招待コードが正しくありません。</p>
-        </div>
+        <input type="hidden" id="inviteCode" name="招待コード" value="LUMI10" />
 
         <label>お名前（ご登録のお名前）<span class="req">必須</span></label>
         <input type="text" name="お名前" required />
@@ -253,14 +260,10 @@
 
     document.getElementById('orderForm').addEventListener('submit', function(e){
       var r = calc();
-      var codeOk = document.getElementById('inviteCode').value.trim().toUpperCase() === 'LUMI10';
-      document.getElementById('codeError').style.display = codeOk ? 'none' : 'block';
       document.getElementById('itemError').style.display = r.lines.length ? 'none' : 'block';
-      if (!codeOk || !r.lines.length) {
+      if (!r.lines.length) {
         e.preventDefault();
-        var firstError = !r.lines.length ? document.getElementById('itemError') : document.getElementById('codeError');
-        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        if (!codeOk) { document.getElementById('inviteCode').focus(); }
+        document.getElementById('itemError').scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
 
@@ -272,16 +275,6 @@
     });
 
     calc();
-
-    // 会員登録ページを通過済みなら招待コードを引き継ぎ、入力欄を隠す
-    (function(){
-      try {
-        if (sessionStorage.getItem('luminove_invite_ok') === '1') {
-          document.getElementById('inviteCode').value = 'LUMI10';
-          document.getElementById('inviteCodeWrap').style.display = 'none';
-        }
-      } catch (err) {}
-    })();
 
     // 郵便番号 → 住所自動入力（zipcloud API）
     (function(){
