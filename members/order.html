@@ -135,6 +135,17 @@
         <label>お電話番号</label>
         <input type="text" name="お電話番号" />
 
+        <label>領収書</label>
+        <select id="receipt" name="領収書">
+          <option value="不要">不要</option>
+          <option value="希望する">希望する</option>
+        </select>
+
+        <div id="receiptNameWrap" style="display:none">
+          <label>領収書の宛名</label>
+          <input type="text" name="領収書の宛名" placeholder="空欄の場合はご注文者のお名前でお作りします" />
+        </div>
+
         <label>備考</label>
         <textarea name="備考" rows="2"></textarea>
 
@@ -256,6 +267,11 @@
 
     document.getElementById('productTable').addEventListener('input', calc);
     document.getElementById('region').addEventListener('change', calc);
+
+    // 領収書「希望する」を選んだときだけ宛名欄を表示
+    document.getElementById('receipt').addEventListener('change', function(){
+      document.getElementById('receiptNameWrap').style.display = this.value === '希望する' ? '' : 'none';
+    });
 
     document.getElementById('orderForm').addEventListener('submit', function(e){
       var r = calc();
