@@ -85,8 +85,17 @@
         .trim()
         .toUpperCase();
       var VALID_CODES = ['LUMI10', 'SUMMER'];
+      var CODE_EXPIRY = { 'SUMMER': '2026-08-31' }; // この日まで有効（期間限定コード）
+      var errEl = document.getElementById('codeError');
+      function today(){ var d = new Date(); return d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2); }
       if (VALID_CODES.indexOf(code) === -1) {
-        document.getElementById('codeError').style.display = 'block';
+        errEl.textContent = 'ログインコードが正しくありません。';
+        errEl.style.display = 'block';
+        return;
+      }
+      if (CODE_EXPIRY[code] && today() > CODE_EXPIRY[code]) {
+        errEl.textContent = 'このコードは有効期間が終了しました。';
+        errEl.style.display = 'block';
         return;
       }
       // ログイン通過と使用コードを記録して注文ページへ（メール送信はしない）
