@@ -248,7 +248,7 @@
           var rate = (camp.special[p.name] !== undefined) ? camp.special[p.name] : camp.rate;
           subtotal += lineSub;
           discount += Math.floor(lineSub * rate);
-          lines.push(p.name + ' × ' + q + '（' + Math.round(rate * 100) + '%OFF）= ' + yen(lineSub));
+          lines.push(p.name + ' × ' + q + ' = ' + yen(lineSub) + '（' + Math.round(rate * 100) + '%OFF対象）');
         }
       });
       var discounted = subtotal - discount;
