@@ -78,8 +78,8 @@
   <header><a href="/" class="logo">LUMI<span>NOVE</span></a></header>
   <main>
     <h1>メンバー専用ご注文ページ</h1>
-    <p class="lead">メンバーの方だけの特別価格（銀行振込可能な方のみ全商品10%OFF）でご注文いただけます。</p>
-    <div class="benefit">🌿 全商品10%OFF ／ 割引前合計 ¥10,000以上で<strong>送料無料</strong>（未満の場合：本州・四国・九州 ¥900、北海道・沖縄 ¥1,400）</div>
+    <p class="lead">メンバーの方だけの特別価格（銀行振込のみ）でご注文いただけます。割引内容は下記のご案内をご確認ください。</p>
+    <div class="benefit" id="benefitBanner">🌿 割引前合計 ¥10,000以上で<strong>送料無料</strong>（未満の場合：本州・四国・九州 ¥900、北海道・沖縄 ¥1,400）</div>
 
     <form id="orderForm" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="995f304f-26fd-404e-8153-ab1e246b8e5c" />
@@ -97,7 +97,7 @@
 
       <div class="summary" id="summary">
         <div class="row"><span>小計（割引前）</span><span id="sumSubtotal">¥0</span></div>
-        <div class="row"><span>会員割引（10%OFF）</span><span id="sumDiscount">-¥0</span></div>
+        <div class="row"><span id="sumDiscountLabel">メンバー割引</span><span id="sumDiscount">-¥0</span></div>
         <div class="row"><span>送料</span><span id="sumShipping">—</span></div>
         <div class="row total"><span>お振込金額</span><span id="sumTotal">¥0</span></div>
         <label style="margin-top:1rem">ご注文内容の確認（自動入力）</label>
@@ -197,6 +197,27 @@
     var FREE_SHIPPING_MIN = 10000;
     var SHIPPING = { '北海道・沖縄': 1400, '本州・四国・九州': 900 };
 
+    // ===== キャンペーン（ログインコード別の割引設定） =====
+    var CAMPAIGNS = {
+      'LUMI10': {
+        label: 'メンバー割引（10%OFF）',
+        rate: 0.10,
+        special: {},
+        banner: '🌿 全商品10%OFF ／ 割引前合計 ¥10,000以上で<strong>送料無料</strong>（未満の場合：本州・四国・九州 ¥900、北海道・沖縄 ¥1,400）'
+      },
+      'SUMMER': {
+        label: '夏のクリアランスセール',
+        rate: 0.15,
+        special: { 'グルコラ アイクリーム': 0.20, 'グルコラ セラム（美容液）': 0.20 },
+        banner: '☀️ 夏のクリアランスセール｜from the skin アイクリーム・美容液は<strong>20%OFF</strong>／その他は<strong>15%OFF</strong> ／ 割引前合計 ¥10,000以上で<strong>送料無料</strong>（未満の場合：本州・四国・九州 ¥900、北海道・沖縄 ¥1,400）'
+      }
+    };
+    function getCampaign(){
+      var code = 'LUMI10';
+      try { var c = sessionStorage.getItem('luminove_code'); if (c && CAMPAIGNS[c]) code = c; } catch (e) {}
+      return CAMPAIGNS[code];
+    }
+
     var table = document.getElementById('productTable');
     PRODUCTS.forEach(function(p, i){
       var tr = document.createElement('tr');
@@ -209,18 +230,22 @@
     function yen(n){ return '¥' + n.toLocaleString(); }
 
     function calc(){
+      var camp = getCampaign();
       var subtotal = 0;
+      var discount = 0;
       var lines = [];
       document.querySelectorAll('#productTable input[type="number"]').forEach(function(inp){
         var q = parseInt(inp.value, 10) || 0;
         if (q > 0) {
           var p = PRODUCTS[inp.dataset.idx];
-          subtotal += p.price * q;
-          lines.push(p.name + ' × ' + q + ' = ' + yen(p.price * q));
+          var lineSub = p.price * q;
+          var rate = (camp.special[p.name] !== undefined) ? camp.special[p.name] : camp.rate;
+          subtotal += lineSub;
+          discount += Math.floor(lineSub * rate);
+          lines.push(p.name + ' × ' + q + '（' + Math.round(rate * 100) + '%OFF）= ' + yen(lineSub));
         }
       });
-      var discounted = Math.floor(subtotal * 0.9);
-      var discount = subtotal - discounted;
+      var discounted = subtotal - discount;
       var freeShip = subtotal >= FREE_SHIPPING_MIN;
 
       // 送料無料（1万円以上）なら地域欄を隠して必須も外す
@@ -240,6 +265,7 @@
       else if (region && SHIPPING[region] !== undefined) { shipping = SHIPPING[region]; }
 
       document.getElementById('sumSubtotal').textContent = yen(subtotal);
+      document.getElementById('sumDiscountLabel').textContent = camp.label;
       document.getElementById('sumDiscount').textContent = '-' + yen(discount);
       var shipEl = document.getElementById('sumShipping');
       if (shipping === 0) { shipEl.innerHTML = '<span class="free">無料（¥10,000以上）</span>'; }
@@ -256,7 +282,7 @@
         summaryText = lines.join('\n') +
           '\n----------------------------\n' +
           '小計（割引前）: ' + yen(subtotal) + '\n' +
-          '会員割引10%: -' + yen(discount) + '\n' +
+          camp.label + ': -' + yen(discount) + '\n' +
           shipLine + '\n' +
           'お振込金額: ' + yen(total);
       }
@@ -267,6 +293,12 @@
 
     document.getElementById('productTable').addEventListener('input', calc);
     document.getElementById('region').addEventListener('change', calc);
+
+    // ログインコードに応じて割引案内バナーを表示
+    (function(){
+      var b = document.getElementById('benefitBanner');
+      if (b) { b.innerHTML = getCampaign().banner; }
+    })();
 
     // 領収書「希望する」を選んだときだけ宛名欄を表示
     document.getElementById('receipt').addEventListener('change', function(){

@@ -84,12 +84,16 @@
         .replace(/　/g, ' ') // 全角スペース→半角
         .trim()
         .toUpperCase();
-      if (code !== 'LUMI10') {
+      var VALID_CODES = ['LUMI10', 'SUMMER'];
+      if (VALID_CODES.indexOf(code) === -1) {
         document.getElementById('codeError').style.display = 'block';
         return;
       }
-      // ログイン通過を記録して注文ページへ（メール送信はしない）
-      try { sessionStorage.setItem('luminove_invite_ok', '1'); } catch (err) {}
+      // ログイン通過と使用コードを記録して注文ページへ（メール送信はしない）
+      try {
+        sessionStorage.setItem('luminove_invite_ok', '1');
+        sessionStorage.setItem('luminove_code', code);
+      } catch (err) {}
       location.href = '/members/order.html';
     });
   </script>
