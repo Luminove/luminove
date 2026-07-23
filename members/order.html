@@ -222,7 +222,6 @@
       try { var c = sessionStorage.getItem('luminove_code'); if (c && CAMPAIGNS[c]) code = c; } catch (e) {}
       return code;
     }
-    function getCampaign(){ return CAMPAIGNS[resolveCode()]; }
 
     var table = document.getElementById('productTable');
     PRODUCTS.forEach(function(p, i){
@@ -236,7 +235,15 @@
     function yen(n){ return '¥' + n.toLocaleString(); }
 
     function calc(){
-      var camp = getCampaign();
+      // 適用コードは「計算のたび」に解決し、メールのコード欄・バナーも同時に更新する。
+      // 読み込み時に一度だけ設定すると、戻る/進む（bfcache）等でログイン状態が変わった際に
+      // 「コード欄はSUMMERなのに割引はLUMI10」という食い違いが起き、請求額を誤るため。
+      var code = resolveCode();
+      var camp = CAMPAIGNS[code];
+      var codeField = document.getElementById('inviteCode');
+      if (codeField) { codeField.value = code; }
+      var bannerEl = document.getElementById('benefitBanner');
+      if (bannerEl) { bannerEl.innerHTML = camp.banner; }
       var subtotal = 0;
       var discount = 0;
       var lines = [];
@@ -300,14 +307,6 @@
     document.getElementById('productTable').addEventListener('input', calc);
     document.getElementById('region').addEventListener('change', calc);
 
-    // ログインコードに応じて割引案内バナーを表示し、実際に使ったコードをフォームに反映
-    (function(){
-      var b = document.getElementById('benefitBanner');
-      if (b) { b.innerHTML = getCampaign().banner; }
-      // 割引の判定と同じ resolveCode() を使い、メールのコード欄と適用割引を必ず一致させる
-      document.getElementById('inviteCode').value = resolveCode();
-    })();
-
     // 領収書「希望する」を選んだときだけ宛名欄を表示
     document.getElementById('receipt').addEventListener('change', function(){
       document.getElementById('receiptNameWrap').style.display = this.value === '希望する' ? '' : 'none';
@@ -330,6 +329,10 @@
     });
 
     calc();
+
+    // 戻る/進むでページが復元された場合（bfcache）もJSが再実行されないため、
+    // 表示中の割引が古いままにならないよう明示的に再計算する
+    window.addEventListener('pageshow', function(e){ if (e.persisted) { calc(); } });
 
     // 郵便番号 → 住所自動入力（zipcloud API）
     (function(){
