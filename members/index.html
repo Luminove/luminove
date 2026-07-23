@@ -84,7 +84,10 @@
         .replace(/　/g, ' ') // 全角スペース→半角
         .trim()
         .toUpperCase();
-      var VALID_CODES = ['LUMI10', 'SUMMER'];
+      // ★サマーセール中はSUMMERのみ有効（LUMI10は停止中）。
+      //   誤って10%OFFが適用される事故を防ぐため、期間中は併用しない。
+      //   セール終了後（2026-09-01以降）は ['LUMI10'] に戻すこと（order.html の DEFAULT_CODE も同時に）
+      var VALID_CODES = ['SUMMER'];
       var CODE_EXPIRY = { 'SUMMER': '2026-08-31' }; // この日まで有効（期間限定コード）
       var errEl = document.getElementById('codeError');
       function today(){ var d = new Date(); return d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2); }

@@ -217,8 +217,11 @@
     // 有効期限の判定はログインページ側でのみ行う。ここで端末の日付を見ると、
     // 時計のズレや古いキャッシュで「コードはSUMMERなのに割引はLUMI10」という
     // 食い違いが起き、請求額を誤るため。
+    // 既定コード。万一コードが読めない状態でも、告知どおりの割引になる方を既定にする。
+    // ★サマーセール終了後（2026-09-01以降）は 'LUMI10' に戻すこと（members/index.html も同時に）
+    var DEFAULT_CODE = 'SUMMER';
     function resolveCode(){
-      var code = 'LUMI10';
+      var code = DEFAULT_CODE;
       try { var c = sessionStorage.getItem('luminove_code'); if (c && CAMPAIGNS[c]) code = c; } catch (e) {}
       return code;
     }
