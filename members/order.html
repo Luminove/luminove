@@ -213,16 +213,16 @@
         banner: '☀️ サマーセール 全品20%OFF（8月31日まで）／ 割引前合計 ¥10,000以上で<strong>送料無料</strong>（未満の場合：本州・四国・九州 ¥900、北海道・沖縄 ¥1,400）'
       }
     };
-    function todayStr(){
-      var d = new Date();
-      return d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2);
-    }
-    function isActive(camp){ return !camp.expires || todayStr() <= camp.expires; }
-    function getCampaign(){
+    // 使用コードの解決（唯一の判定箇所）。
+    // 有効期限の判定はログインページ側でのみ行う。ここで端末の日付を見ると、
+    // 時計のズレや古いキャッシュで「コードはSUMMERなのに割引はLUMI10」という
+    // 食い違いが起き、請求額を誤るため。
+    function resolveCode(){
       var code = 'LUMI10';
-      try { var c = sessionStorage.getItem('luminove_code'); if (c && CAMPAIGNS[c] && isActive(CAMPAIGNS[c])) code = c; } catch (e) {}
-      return CAMPAIGNS[code];
+      try { var c = sessionStorage.getItem('luminove_code'); if (c && CAMPAIGNS[c]) code = c; } catch (e) {}
+      return code;
     }
+    function getCampaign(){ return CAMPAIGNS[resolveCode()]; }
 
     var table = document.getElementById('productTable');
     PRODUCTS.forEach(function(p, i){
@@ -304,10 +304,8 @@
     (function(){
       var b = document.getElementById('benefitBanner');
       if (b) { b.innerHTML = getCampaign().banner; }
-      try {
-        var c = sessionStorage.getItem('luminove_code');
-        if (c && CAMPAIGNS[c]) { document.getElementById('inviteCode').value = c; }
-      } catch (e) {}
+      // 割引の判定と同じ resolveCode() を使い、メールのコード欄と適用割引を必ず一致させる
+      document.getElementById('inviteCode').value = resolveCode();
     })();
 
     // 領収書「希望する」を選んだときだけ宛名欄を表示
