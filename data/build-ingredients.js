@@ -39,7 +39,8 @@ function buildSection(p) {
 }
 
 const data = JSON.parse(fs.readFileSync(DATA, "utf8"));
-const targets = data.products.filter(p => p.verified && p.ingredients && p.page);
+// publish:false の商品は、確認済みでもページには出力しない（併記設計の検討中など）
+const targets = data.products.filter(p => p.verified && p.ingredients && p.page && p.publish !== false);
 
 let added = 0, updated = 0, skipped = 0, missing = 0;
 
