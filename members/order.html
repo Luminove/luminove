@@ -218,8 +218,14 @@
     // 時計のズレや古いキャッシュで「コードはSUMMERなのに割引はLUMI10」という
     // 食い違いが起き、請求額を誤るため。
     // 既定コード。万一コードが読めない状態でも、告知どおりの割引になる方を既定にする。
-    // ★サマーセール終了後（2026-09-01以降）は 'LUMI10' に戻すこと（members/index.html も同時に）
-    var DEFAULT_CODE = 'SUMMER';
+    // 2026-09-01 以降は自動で LUMI10（members/index.html の VALID_CODES も同じ日付で自動切替）。
+    // これは「フォールバック」の既定値のみ。ログイン済みコード（sessionStorage）が常に優先されるため、
+    // 8/31にSUMMERでログインした方が日付をまたいで注文しても20%のまま＝請求の食い違いは起きない。
+    var DEFAULT_CODE = (function(){
+      var d = new Date();
+      var s = d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2);
+      return (s >= '2026-09-01') ? 'LUMI10' : 'SUMMER';
+    })();
     function resolveCode(){
       var code = DEFAULT_CODE;
       try { var c = sessionStorage.getItem('luminove_code'); if (c && CAMPAIGNS[c]) code = c; } catch (e) {}
