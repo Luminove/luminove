@@ -84,10 +84,10 @@
         .replace(/　/g, ' ') // 全角スペース→半角
         .trim()
         .toUpperCase();
-      // ★サマーセール中はSUMMERのみ有効（LUMI10は停止中）。
-      //   誤って10%OFFが適用される事故を防ぐため、期間中は併用しない。
-      //   セール終了後（2026-09-01以降）は ['LUMI10'] に戻すこと（order.html の DEFAULT_CODE も同時に）
-      var VALID_CODES = ['SUMMER'];
+      // 2026-09-01 以降は自動で LUMI10 に切り替わる（order.html の DEFAULT_CODE も同じ日付で自動切替）。
+      // 8/31まで: SUMMERのみ有効（サマーセール中にLUMI10で10%OFFが適用される事故を防ぐため併用しない）。
+      // 9/1以降: LUMI10が有効。SUMMERは配列に残すことで「有効期間が終了しました」の案内を出す。
+      var VALID_CODES = (today() >= '2026-09-01') ? ['LUMI10', 'SUMMER'] : ['SUMMER'];
       var CODE_EXPIRY = { 'SUMMER': '2026-08-31' }; // この日まで有効（期間限定コード）
       var errEl = document.getElementById('codeError');
       function today(){ var d = new Date(); return d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2); }
