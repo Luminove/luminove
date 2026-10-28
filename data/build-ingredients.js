@@ -6,7 +6,7 @@
  *   node data/build-ingredients.js --write  … 実際に商品ページへ反映
  *
  * 仕様:
- *   - data/ingredients.json の verified:true かつ ingredients が入っている商品だけを対象にする
+ *   - data/ingredients.json の verified:true かつ ingredients（単品）または components（キット商品の構成品ごとの全成分）が入っている商品だけを対象にする
  *   - 未確認（verified:false）の商品ページには何も追加しない（空欄の「準備中」を出さないため）
  *   - すでに全成分セクションがある場合は中身だけ差し替える（重複追加しない）
  *   - 挿入位置は「商品情報」セクションの直後
@@ -23,6 +23,16 @@ const END = "<!-- INGREDIENTS:END -->";
 
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
+function buildRows(p) {
+  // キット商品: components（構成品ごとの全成分）があれば1行ずつ、なければ従来どおり1行
+  if (Array.isArray(p.components) && p.components.length) {
+    return p.components.map(c =>
+      `          <tr><th style="font-size:.82rem;vertical-align:top">${esc(c.name)}${c.volume ? "<br><span style=\"font-weight:400;font-size:.75rem\">" + esc(c.volume) + "</span>" : ""}</th><td style="font-size:.82rem;line-height:1.9">${esc(c.ingredients)}</td></tr>`
+    ).join("\n");
+  }
+  return `          <tr><td style="font-size:.82rem;line-height:1.9">${esc(p.ingredients)}</td></tr>`;
+}
+
 function buildSection(p) {
   return `${START}
     <section class="article-section" id="ingredients">
@@ -30,7 +40,7 @@ function buildSection(p) {
       <p style="font-size:.82rem;color:var(--text-light);margin-bottom:.8rem">${esc(p.displayName)}${p.volume ? "（" + esc(p.volume) + "）" : ""}のパッケージ記載の全成分です。</p>
       <div class="table-scroll">
         <table class="spec-table">
-          <tr><td style="font-size:.82rem;line-height:1.9">${esc(p.ingredients)}</td></tr>
+${buildRows(p)}
         </table>
       </div>
       <p style="font-size:.78rem;color:var(--text-light)">※本表示はパッケージの記載に基づくものです。リニューアル等により変更となる場合がありますので、お手元の製品の表示もあわせてご確認ください。</p>
@@ -40,7 +50,7 @@ function buildSection(p) {
 
 const data = JSON.parse(fs.readFileSync(DATA, "utf8"));
 // publish:false の商品は、確認済みでもページには出力しない（併記設計の検討中など）
-const targets = data.products.filter(p => p.verified && p.ingredients && p.page && p.publish !== false);
+const targets = data.products.filter(p => p.verified && (p.ingredients || (Array.isArray(p.components) && p.components.length)) && p.page && p.publish !== false);
 
 let added = 0, updated = 0, skipped = 0, missing = 0;
 
