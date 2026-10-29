@@ -79,7 +79,7 @@
   <main>
     <h1>メンバー専用ご注文ページ</h1>
     <p class="lead">メンバーの方だけの特別価格（銀行振込のみ）でご注文いただけます。割引内容は下記のご案内をご確認ください。</p>
-    <div class="benefit" id="benefitBanner">🌿 割引前合計 ¥10,000以上で<strong>送料無料</strong>（未満の場合：本州・四国・九州 ¥900、北海道・沖縄 ¥1,400）</div>
+    <div class="benefit" id="benefitBanner">🌿 割引前合計 ¥10,000以上で<strong>送料無料</strong>（未満の場合：本州・四国・九州 ¥1,000、北海道・沖縄 ¥1,400）</div>
 
     <form id="orderForm" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="995f304f-26fd-404e-8153-ab1e246b8e5c" />
@@ -120,7 +120,7 @@
           <label>お届け先地域<span class="req">必須</span></label>
           <select id="region" name="お届け先地域" required>
             <option value="">選択してください</option>
-            <option value="本州・四国・九州">本州・四国・九州（送料 ¥900）</option>
+            <option value="本州・四国・九州">本州・四国・九州（送料 ¥1,000）</option>
             <option value="北海道・沖縄">北海道・沖縄（送料 ¥1,400）</option>
           </select>
           <p class="hint">送料の計算に使用します。</p>
@@ -195,7 +195,7 @@
       { name: 'クイーンズ RG3 モイスチャークリーム', price: 24200 }
     ];
     var FREE_SHIPPING_MIN = 10000;
-    var SHIPPING = { '北海道・沖縄': 1400, '本州・四国・九州': 900 };
+    var SHIPPING = { '北海道・沖縄': 1400, '本州・四国・九州': 1000 };
 
     // ===== キャンペーン（ログインコード別の割引設定） =====
     var CAMPAIGNS = {
@@ -203,14 +203,14 @@
         label: 'メンバー割引（10%OFF）',
         rate: 0.10,
         special: {},
-        banner: '🌿 全商品10%OFF ／ 割引前合計 ¥10,000以上で<strong>送料無料</strong>（未満の場合：本州・四国・九州 ¥900、北海道・沖縄 ¥1,400）'
+        banner: '🌿 全商品10%OFF ／ 割引前合計 ¥10,000以上で<strong>送料無料</strong>（未満の場合：本州・四国・九州 ¥1,000、北海道・沖縄 ¥1,400）'
       },
       'SUMMER': {
         label: 'サマーセール（20%OFF）',
         rate: 0.20,
         special: {},
         expires: '2026-08-31',
-        banner: '☀️ サマーセール 全品20%OFF（8月31日まで）／ 割引前合計 ¥10,000以上で<strong>送料無料</strong>（未満の場合：本州・四国・九州 ¥900、北海道・沖縄 ¥1,400）'
+        banner: '☀️ サマーセール 全品20%OFF（8月31日まで）／ 割引前合計 ¥10,000以上で<strong>送料無料</strong>（未満の場合：本州・四国・九州 ¥1,000、北海道・沖縄 ¥1,400）'
       }
     };
     // 使用コードの解決（唯一の判定箇所）。
