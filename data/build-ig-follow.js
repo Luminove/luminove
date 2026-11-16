@@ -277,6 +277,23 @@ function upsertCss(html, css, eol) {
 function upsertCard(html, slug, eol) {
   const block = toEol(buildCard(slug, postByArticle.get(slug)), eol);
   const re = new RegExp(reEsc(START) + "[\\s\\S]*?" + reEsc(END));
+  // 置き場所は「よくある質問」のすぐ上（2026-11-16 池田さんの希望）。よくある質問がない記事は従来どおり
+  const FAQ_TAG = '<section class="faq-section"';
+  if (html.indexOf(FAQ_TAG) >= 0) {
+    // 既存のブロックがあれば、前後の空行ごと取り除いてから入れ直す（同じ場所なら結果は変わらない）
+    const m = re.exec(html);
+    if (m) {
+      const s = m.index, e = s + m[0].length, ls = lineStart(html, s), E2 = eol + eol;
+      if (html.slice(e, e + E2.length) === E2) html = html.slice(0, ls) + html.slice(e + E2.length);
+      else if (html.slice(ls - E2.length, ls) === E2) html = html.slice(0, ls - E2.length) + html.slice(e);
+      else html = html.slice(0, ls) + html.slice(e);
+    }
+    const faq = html.indexOf(FAQ_TAG);
+    const ls = lineStart(html, faq);
+    const indent = html.slice(ls, faq);
+    if (/^[ \t]*$/.test(indent)) return { html: html.slice(0, ls) + indent + block + eol + eol + html.slice(ls), where: "よくある質問の直前" };
+    return { html: html.slice(0, faq) + block + eol + eol + indent.replace(/[^ \t]/g, " ") + html.slice(faq), where: "よくある質問の直前" };
+  }
   if (re.test(html)) return { html: html.replace(re, () => block) };
   const cta = html.indexOf("<!-- CTA:END -->");
   if (cta >= 0) {
