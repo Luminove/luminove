@@ -19,3 +19,6 @@ temp/
 .env
 .env.*
 .DS_Store
+
+# 社内用データ（全成分の転記メモ・Instagram投稿一覧）。サイトの表示には使っていない
+data/
