@@ -1,11 +1,24 @@
 {
   "_note": "Instagramの公開済み投稿の一覧（ブログのInstagram導線用）。data/build-ig-follow.js が読む。更新は LUMINOVE_Instagram フォルダ（post_to_instagram.py と同じ場所）の sync_ig_posts.py（取得）→ node data/build-ig-follow.js --write（反映）。表示したくない投稿は show:false にする（次の更新でも引き継がれる）。",
-  "updated_at": "2026-11-16T16:21:07+09:00",
+  "updated_at": "2026-11-17T20:31:15+09:00",
   "account": {
     "username": "luminove_japan",
     "profile_url": "https://www.instagram.com/luminove_japan/"
   },
   "posts": [
+    {
+      "slug": "cosmetic-ingredient-label",
+      "article": "cosmetic-ingredient-label",
+      "permalink": "https://www.instagram.com/p/Df1zx66klKf/",
+      "media_id": "18120361607586110",
+      "posted_at": "2026-11-17T20:20:13+09:00",
+      "media_type": "CAROUSEL_ALBUM",
+      "media_product_type": "FEED",
+      "slide_count": 6,
+      "cover": "/ig/cosmetic-ingredient-label/cover.webp",
+      "cover_title": "化粧品の成分表示、誤解していませんか？",
+      "show": true
+    },
     {
       "slug": "ampoule-vs-serum",
       "article": "ampoule-vs-serum",
