@@ -10,10 +10,6 @@
     (function(){
       var ok = false;
       try { ok = sessionStorage.getItem('luminove_invite_ok') === '1'; } catch (e) {}
-      if (!ok && /[?&]welcome=1/.test(location.search)) {
-        ok = true;
-        try { sessionStorage.setItem('luminove_invite_ok', '1'); } catch (e) {}
-      }
       if (!ok) { location.replace('/members/'); }
     })();
   </script>
