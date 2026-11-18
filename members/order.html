@@ -220,7 +220,11 @@
           CAMP.data = d;
           calc();
         };
-        if (window.LuminoveLock) { LuminoveLock.open(code).then(done); } else { done(null); }
+        // 戻せない・確かめられないときはログインページへ。理由の案内はログインページで出す
+        var failed = function(){ done(null); };
+        try {
+          if (window.LuminoveLock && LuminoveLock.supported()) { LuminoveLock.open(code).then(done, failed); } else { failed(); }
+        } catch (e) { failed(); }
       }
       return null;
     }

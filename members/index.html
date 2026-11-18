@@ -87,9 +87,15 @@
       var errEl = document.getElementById('codeError');
       function today(){ var d = new Date(); return d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2); }
       function fail(msg){ errEl.textContent = msg; errEl.style.display = 'block'; }
+      var CONTACT = 'うまくいかない場合は、ログインコードをお渡しした者までご連絡ください。';
       if (form.dataset.busy === '1') return;
-      if (!window.LuminoveLock || !LuminoveLock.supported()) {
-        fail('お使いのブラウザではログインできません。Safari・Chromeなどの新しいブラウザでお試しください。');
+      if (!window.LuminoveLock) {
+        // lock.js だけ読み込めなかった（通信が途切れた等）。ブラウザのせいではない
+        fail('ページの読み込みが途中で止まりました。通信のよいところで、ページを再読み込みしてください。');
+        return;
+      }
+      if (!LuminoveLock.supported()) {
+        fail('お使いのブラウザではログインできません。新しいブラウザでお試しください。' + CONTACT);
         return;
       }
       var code = LuminoveLock.normalize(document.getElementById('inviteCode').value);
@@ -97,18 +103,30 @@
       form.dataset.busy = '1';
       btn.disabled = true;
       errEl.style.display = 'none';
-      LuminoveLock.open(code).then(function(camp){
-        form.dataset.busy = '';
-        btn.disabled = false;
+      function release(){ form.dataset.busy = ''; btn.disabled = false; }
+      function onCamp(camp){
+        release();
         if (!camp) { fail('ログインコードが正しくありません。'); return; }
         if (camp.expires && today() > camp.expires) { fail('このコードは有効期間が終了しました。'); return; }
         // ログイン通過と使用コードを記録して注文ページへ（メール送信はしない）
+        var saved = false;
         try {
           sessionStorage.setItem('luminove_invite_ok', '1');
           sessionStorage.setItem('luminove_code', code);
+          saved = sessionStorage.getItem('luminove_invite_ok') === '1' && sessionStorage.getItem('luminove_code') === code;
         } catch (err) {}
+        if (!saved) {
+          // 保存できないと注文ページが何も言わずにここへ戻してしまうので、先に理由を伝える
+          fail('ブラウザの設定（Cookie・サイトデータのブロック）のため、ご注文ページを開けません。設定を変えるか、別のブラウザでお試しください。' + CONTACT);
+          return;
+        }
         location.href = '/members/order.html';
-      });
+      }
+      function onError(){
+        release();
+        fail('ログインコードをうまく確認できませんでした。少し時間をおいて、もう一度お試しください。' + CONTACT);
+      }
+      try { LuminoveLock.open(code).then(onCamp, onError); } catch (err) { onError(); }
     });
   </script>
 </body>
