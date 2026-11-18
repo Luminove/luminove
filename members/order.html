@@ -103,7 +103,7 @@
       <div class="card" style="margin-top:1.5rem">
         <h2 style="margin-top:0">お届け先・ご連絡先</h2>
 
-        <input type="hidden" id="inviteCode" name="ログインコード" value="LUMI10" />
+        <input type="hidden" id="inviteCode" name="ログインコード" value="" />
 
         <label>お名前<span class="req">必須</span></label>
         <input type="text" name="お名前" required />
@@ -164,6 +164,7 @@
     <a href="/" class="back">← LUMINOVE トップへ戻る</a>
   </main>
 
+  <script src="/members/lock.js"></script>
   <script>
     var PRODUCTS = [
       { name: 'グルコラ クレンジングフォーム', price: 3500 },
@@ -194,38 +195,34 @@
     var SHIPPING = { '北海道・沖縄': 1400, '本州・四国・九州': 1000 };
 
     // ===== キャンペーン（ログインコード別の割引設定） =====
-    var CAMPAIGNS = {
-      'LUMI10': {
-        label: 'メンバー割引（10%OFF）',
-        rate: 0.10,
-        special: {},
-        banner: '🌿 全商品10%OFF ／ 割引前合計 ¥10,000以上で<strong>送料無料</strong>（未満の場合：本州・四国・九州 ¥1,000、北海道・沖縄 ¥1,400）'
-      },
-      'SUMMER': {
-        label: 'サマーセール（20%OFF）',
-        rate: 0.20,
-        special: {},
-        expires: '2026-08-31',
-        banner: '☀️ サマーセール 全品20%OFF（8月31日まで）／ 割引前合計 ¥10,000以上で<strong>送料無料</strong>（未満の場合：本州・四国・九州 ¥1,000、北海道・沖縄 ¥1,400）'
-      }
-    };
-    // 使用コードの解決（唯一の判定箇所）。
+    // 割引設定は lock.js に暗号化して置いてあり、ログインしたときのコードで戻して使う。
+    // ページの中にはコードも割引率も書かない。設定を変えるときは data/members-lock.mjs で作り直す。
     // 有効期限の判定はログインページ側でのみ行う。ここで端末の日付を見ると、
-    // 時計のズレや古いキャッシュで「コードはSUMMERなのに割引はLUMI10」という
-    // 食い違いが起き、請求額を誤るため。
-    // 既定コード。万一コードが読めない状態でも、告知どおりの割引になる方を既定にする。
-    // 2026-09-01 以降は自動で LUMI10（members/index.html の VALID_CODES も同じ日付で自動切替）。
-    // これは「フォールバック」の既定値のみ。ログイン済みコード（sessionStorage）が常に優先されるため、
-    // 8/31にSUMMERでログインした方が日付をまたいで注文しても20%のまま＝請求の食い違いは起きない。
-    var DEFAULT_CODE = (function(){
-      var d = new Date();
-      var s = d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2);
-      return (s >= '2026-09-01') ? 'LUMI10' : 'SUMMER';
-    })();
-    function resolveCode(){
-      var code = DEFAULT_CODE;
-      try { var c = sessionStorage.getItem('luminove_code'); if (c && CAMPAIGNS[c]) code = c; } catch (e) {}
-      return code;
+    // 時計のズレや日付をまたいだ注文で、ログインしたときと割引が食い違い、請求額を誤るため。
+    var CAMP = { code: null, data: null, loading: null };
+    function currentCode(){
+      try { return sessionStorage.getItem('luminove_code') || ''; } catch (e) { return ''; }
+    }
+    // 使用コードの割引設定を返す（唯一の判定箇所）。まだ戻していなければ null を返し、
+    // 戻し終わったら calc() をやり直す。コードが無い・違う場合はログインページへ戻す。
+    function resolveCamp(){
+      var code = currentCode();
+      if (CAMP.data && CAMP.code === code) return CAMP.data;
+      if (CAMP.loading !== code) {
+        CAMP.loading = code;
+        CAMP.code = null;
+        CAMP.data = null;
+        var done = function(d){
+          if (CAMP.loading !== code) return;
+          CAMP.loading = null;
+          if (!d) { location.replace('/members/'); return; }
+          CAMP.code = code;
+          CAMP.data = d;
+          calc();
+        };
+        if (window.LuminoveLock) { LuminoveLock.open(code).then(done); } else { done(null); }
+      }
+      return null;
     }
 
     var table = document.getElementById('productTable');
@@ -242,9 +239,10 @@
     function calc(){
       // 適用コードは「計算のたび」に解決し、メールのコード欄・バナーも同時に更新する。
       // 読み込み時に一度だけ設定すると、戻る/進む（bfcache）等でログイン状態が変わった際に
-      // 「コード欄はSUMMERなのに割引はLUMI10」という食い違いが起き、請求額を誤るため。
-      var code = resolveCode();
-      var camp = CAMPAIGNS[code];
+      // 「メールのコード欄と割引が別のコードのもの」という食い違いが起き、請求額を誤るため。
+      var camp = resolveCamp();
+      if (!camp) { return null; } // 割引設定を戻している最中。戻し終わると自動で計算し直す
+      var code = CAMP.code;
       var codeField = document.getElementById('inviteCode');
       if (codeField) { codeField.value = code; }
       var bannerEl = document.getElementById('benefitBanner');
@@ -319,6 +317,7 @@
 
     document.getElementById('orderForm').addEventListener('submit', function(e){
       var r = calc();
+      if (!r) { e.preventDefault(); return; } // 割引設定を戻している最中は送らない（一瞬で終わる）
       document.getElementById('itemError').style.display = r.lines.length ? 'none' : 'block';
       if (!r.lines.length) {
         e.preventDefault();

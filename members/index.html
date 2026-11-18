@@ -76,37 +76,39 @@
     <a href="/" class="back">← LUMINOVE トップへ戻る</a>
   </main>
 
+  <script src="/members/lock.js"></script>
   <script>
+    // コードの答え合わせは、暗号化した割引設定（lock.js）を入力したコードで戻せるかどうかで行う。
+    // ページの中にはコードも割引率も書かない。設定を変えるときは data/members-lock.mjs で lock.js を作り直す。
     document.getElementById('loginForm').addEventListener('submit', function(e){
       e.preventDefault();
-      var code = document.getElementById('inviteCode').value
-        .replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(c){ return String.fromCharCode(c.charCodeAt(0) - 0xFEE0); }) // 全角英数→半角
-        .replace(/　/g, ' ') // 全角スペース→半角
-        .trim()
-        .toUpperCase();
-      // 2026-09-01 以降は自動で LUMI10 に切り替わる（order.html の DEFAULT_CODE も同じ日付で自動切替）。
-      // 8/31まで: SUMMERのみ有効（サマーセール中にLUMI10で10%OFFが適用される事故を防ぐため併用しない）。
-      // 9/1以降: LUMI10が有効。SUMMERは配列に残すことで「有効期間が終了しました」の案内を出す。
-      var VALID_CODES = (today() >= '2026-09-01') ? ['LUMI10', 'SUMMER'] : ['SUMMER'];
-      var CODE_EXPIRY = { 'SUMMER': '2026-08-31' }; // この日まで有効（期間限定コード）
+      var form = this;
+      var btn = form.querySelector('button[type="submit"]');
       var errEl = document.getElementById('codeError');
       function today(){ var d = new Date(); return d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2); }
-      if (VALID_CODES.indexOf(code) === -1) {
-        errEl.textContent = 'ログインコードが正しくありません。';
-        errEl.style.display = 'block';
+      function fail(msg){ errEl.textContent = msg; errEl.style.display = 'block'; }
+      if (form.dataset.busy === '1') return;
+      if (!window.LuminoveLock || !LuminoveLock.supported()) {
+        fail('お使いのブラウザではログインできません。Safari・Chromeなどの新しいブラウザでお試しください。');
         return;
       }
-      if (CODE_EXPIRY[code] && today() > CODE_EXPIRY[code]) {
-        errEl.textContent = 'このコードは有効期間が終了しました。';
-        errEl.style.display = 'block';
-        return;
-      }
-      // ログイン通過と使用コードを記録して注文ページへ（メール送信はしない）
-      try {
-        sessionStorage.setItem('luminove_invite_ok', '1');
-        sessionStorage.setItem('luminove_code', code);
-      } catch (err) {}
-      location.href = '/members/order.html';
+      var code = LuminoveLock.normalize(document.getElementById('inviteCode').value);
+      if (!code) { fail('ログインコードが正しくありません。'); return; }
+      form.dataset.busy = '1';
+      btn.disabled = true;
+      errEl.style.display = 'none';
+      LuminoveLock.open(code).then(function(camp){
+        form.dataset.busy = '';
+        btn.disabled = false;
+        if (!camp) { fail('ログインコードが正しくありません。'); return; }
+        if (camp.expires && today() > camp.expires) { fail('このコードは有効期間が終了しました。'); return; }
+        // ログイン通過と使用コードを記録して注文ページへ（メール送信はしない）
+        try {
+          sessionStorage.setItem('luminove_invite_ok', '1');
+          sessionStorage.setItem('luminove_code', code);
+        } catch (err) {}
+        location.href = '/members/order.html';
+      });
     });
   </script>
 </body>
