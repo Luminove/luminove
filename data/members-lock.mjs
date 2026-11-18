@@ -19,8 +19,10 @@
 // lock.js は誰でも取れて何度でも試せるので、コードの長さが守りの強さになる。
 // 次のコードは止める（どうしても使うときだけ、理由をわかったうえで指定する）:
 //   - 10文字未満のコード（--allow-short で通す）
-//   - このリポジトリの履歴か、追跡しているファイルに出てくるコード（--allow-leaked で通す）
+//   - このリポジトリの履歴（差分の中身・コミットメッセージ）か、追跡しているファイルに出てくるコード
+//     （大文字小文字は区別しない。--allow-leaked で通す）
 //     リポジトリは公開なので、一度でもコミットされたコードは誰でも読める。
+//     新しいコードは、コミットメッセージやブランチ名にも書かないこと。
 
 import { readFileSync, writeFileSync, unlinkSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
@@ -92,11 +94,23 @@ const b64 = u8 => Buffer.from(u8).toString('base64')
 const MIN_ITER = 150000
 const MIN_LEN = 10
 
-// コードがこのリポジトリの履歴か追跡ファイルに出てくるか（コードは画面に出さない）
+// コードがこのリポジトリの履歴（差分の中身とコミットメッセージ）か追跡ファイルに出てくるか。
+// ログインは大文字小文字を区別しないので、ここも区別せずに探す。
+// git が失敗したときは、コードの入ったエラー文を出さずに止める（コードは画面に出さない）。
 function leaked(code) {
   const git = (...a) => execFileSync('git', a, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim()
-  if (git('log', '--all', '--format=%h', '-S', code)) return true
-  try { return git('grep', '-I', '-l', '-F', '-i', '-e', code) !== '' } catch { return false } // 見つからないと git grep は 1 で終わる
+  try {
+    if (git('log', '--all', '-i', '--format=%h', '-S', code)) return true
+    if (git('log', '--all', '-i', '-F', '--format=%h', '--grep', code)) return true
+  } catch {
+    throw new Error('git で履歴を確かめられませんでした。リポジトリの中で、git が使える状態で実行してください')
+  }
+  try {
+    return git('grep', '-I', '-l', '-F', '-i', '-e', code) !== ''
+  } catch (e) {
+    if (e.status === 1) return false // 見つからないと git grep は 1 で終わる
+    throw new Error('git で追跡ファイルを確かめられませんでした。リポジトリの中で、git が使える状態で実行してください')
+  }
 }
 
 const probe = {}
